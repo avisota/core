@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","Avisota\\Config"],["c","Avisota\\Message\\MessageTemplateInterface"],["c","Avisota\\Queue\\ArchivingQueueEntryInterface"],["c","Avisota\\Queue\\ArchivingQueueInterface"],["c","Avisota\\Queue\\QueueEntryInterface"],["c","Avisota\\Queue\\QueueInterface"],["c","Avisota\\Queue\\QueueManager"],["c","Avisota\\Queue\\SimpleDatabaseQueue"],["c","Avisota\\Recipient"],["c","Avisota\\RecipientSource\\CSVFile"],["c","Avisota\\RecipientSource\\RecipientSourceInterface"],["c","Avisota\\Transport\\SwiftTransport"],["c","Avisota\\Transport\\TransportInterface"]];

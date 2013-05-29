@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 3.0dev" />
+
+	<title>Interface Avisota\RecipientSource\RecipientSourceInterface | avisota core api</title>
+
+	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
+	<script type="text/javascript" src="elementlist.js?3777936642"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+						<ul>
+				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+						</li>
+				<li class="main"><a href="namespace-Avisota.Queue.html">Queue</a>
+						</li>
+				<li class="active main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li class="main"><a href="namespace-Avisota.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Avisota.RecipientSource.CSVFile.html">CSVFile</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html">RecipientSourceInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Avisota.RecipientSource.html" title="Summary of Avisota\RecipientSource"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface RecipientSourceInterface</h1>
+
+
+	<div class="description">
+	
+<p>Class AvisotaRecipientSource</p>
+
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Avisota.RecipientSource.CSVFile.html">Avisota\RecipientSource\CSVFile</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.RecipientSource.html">RecipientSource</a><br />
+		<b>Package:</b> Avisota<br />
+
+				<b>Copyright:</b>
+				bit3 UG 2013<br />
+				<b>Author:</b>
+				Tristan Lins &lt;<a
+href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#18-47" title="Go to source code">src/Avisota/RecipientSource/RecipientSourceInterface.php</a><br />
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getRecipientOptions" id="_getRecipientOptions">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRecipientOptions">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#28-35" title="Go to source code">getRecipientOptions</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get all selectable recipient options for this source. Every option can be an
+individuell ID.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get all selectable recipient options for this source. Every option can be an
+individuell ID.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRecipients" id="_getRecipients">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRecipients">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#37-46" title="Go to source code">getRecipients</a>( <span>array <var>$options</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get complete recipients data for a list of options.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get complete recipients data for a list of options.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$options</var></dt>
+					<dd>$varOption</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>array<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

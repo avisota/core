@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 3.0dev" />
+
+	<title>Class Avisota\Queue\QueueManager | avisota core api</title>
+
+	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
+	<script type="text/javascript" src="elementlist.js?3777936642"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+						<ul>
+				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+						</li>
+				<li class="active main"><a href="namespace-Avisota.Queue.html">Queue</a>
+						</li>
+				<li class="main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li class="main"><a href="namespace-Avisota.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
+				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">ArchivingQueueEntryInterface</a></li>
+				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.QueueEntryInterface.html">QueueEntryInterface</a></li>
+				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Avisota.Queue.html" title="Summary of Avisota\Queue"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class QueueManager</h1>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Queue.html">Queue</a><br />
+		
+
+		<b>Located at</b> <a href="source-class-Avisota.Queue.QueueManager.html#22-69" title="Go to source code">src/Avisota/Queue/QueueManager.php</a><br />
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="execute" id="_execute">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_execute">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueManager.html#24-33" title="Go to source code">execute</a>( <span><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code> <var>$queue</var></span>, <span><code><a href="class-Avisota.Transport.TransportInterface.html">Avisota\Transport\TransportInterface</a></code> <var>$transport</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Execute a queue and send all messages.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Execute a queue and send all messages.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$queue</var></dt>
+					<dd></dd>
+					<dt><var>$transport</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="executePartial" id="_executePartial">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_executePartial">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueManager.html#35-45" title="Go to source code">executePartial</a>( <span>integer <var>$count</var></span>, <span><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code> <var>$queue</var></span>, <span><code><a href="class-Avisota.Transport.TransportInterface.html">Avisota\Transport\TransportInterface</a></code> <var>$transport</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Partial execute a queue until a given number of messages are reached.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Partial execute a queue until a given number of messages are reached.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$count</var></dt>
+					<dd></dd>
+					<dt><var>$queue</var></dt>
+					<dd></dd>
+					<dt><var>$transport</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="enqueue" id="_enqueue">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_enqueue">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueManager.html#47-57" title="Go to source code">enqueue</a>( <span><code><a href="class-Avisota.Message.MessageTemplateInterface.html">Avisota\Message\MessageTemplateInterface</a></code> <var>$message</var></span>, <span><code><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html">Avisota\RecipientSource\RecipientSourceInterface</a></code> <var>$recipientSource</var></span>, <span><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code> <var>$queue</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Enqueue the message for all recipients into the queue.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Enqueue the message for all recipients into the queue.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message</var></dt>
+					<dd></dd>
+					<dt><var>$recipientSource</var></dt>
+					<dd></dd>
+					<dt><var>$queue</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="enqueueMessage" id="_enqueueMessage">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_enqueueMessage">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueManager.html#59-68" title="Go to source code">enqueueMessage</a>( <span>Swift_Message <var>$message</var></span>, <span><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code> <var>$queue</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Enqueue the message into the queue.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Enqueue the message into the queue.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message</var></dt>
+					<dd></dd>
+					<dt><var>$queue</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
