@@ -33,10 +33,7 @@ class CSVFile implements RecipientSourceInterface
 	}
 
 	/**
-	 * Get all selectable recipient options for this source.
-	 * Every option can be an individuell ID.
-	 *
-	 * @return array
+	 * {@inheritdoc}
 	 */
 	public function getRecipientOptions()
 	{

@@ -27,9 +27,8 @@ interface RecipientSourceInterface
 {
 	/**
 	 * Get all selectable recipient options for this source.
-	 * Every option can be an individuell ID.
+	 * Every option can be an individual ID.
 	 *
-	 * @abstract
 	 * @return array
 	 */
 	public function getRecipientOptions();
@@ -37,11 +36,9 @@ interface RecipientSourceInterface
 	/**
 	 * Get complete recipients data for a list of options.
 	 *
-	 * @abstract
+	 * @param array $options
 	 *
-	 * @param array $varOption
-	 *
-	 * @return array
+	 * @return RecipientInterface[]
 	 */
 	public function getRecipients($options);
 }

@@ -13,21 +13,13 @@
  * @filesource
  */
 
-namespace Avisota\Message;
-
-/**
- * Class MessageTemplateInterface
- *
- * @package avisota-core
- */
 interface MessageTemplateInterface
 {
 	/**
-	 * Create a message for the given recipient.
+	 * @param string|array $recipientEmail The recipient email address or an array of recipient details.
+	 * @param array        $newsletterData
 	 *
-	 * @param Recipient $recipient
-	 *
-	 * @return \Swift_Message
+	 * @return \Avisota\Message\MessageInterface
 	 */
-	public function createMessage(Recipient $recipient);
+	public function render($recipient, array $newsletterData = array());
 }

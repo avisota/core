@@ -15,6 +15,8 @@
 
 namespace Avisota\Queue;
 
+use Avisota\Message\MessageInterface;
+
 interface QueueInterface
 {
 	/**
@@ -32,17 +34,18 @@ interface QueueInterface
 	public function length();
 
 	/**
-	 * Return the next message.
+	 * Execute a queue and send all messages.
 	 *
-	 * @return QueueEntryInterface
+	 * @param QueueInterface     $queue
+	 * @param TransportInterface $transport
 	 */
-	public function next();
+	public function execute(TransportInterface $transport, QueueExecutionConfig $config = null);
 
 	/**
 	 * Enqueue a message.
 	 *
-	 * @param \Swift_Message $message The message to enqueue.
+	 * @param MessageInterface $message The message to enqueue.
 	 * @param \DateTime $deliveryDate The message will not delivered until this date is reached.
 	 */
-	public function enqueue(\Swift_Message $message, \DateTime $deliveryDate = null);
+	public function enqueue(MessageInterface $message, \DateTime $deliveryDate = null);
 }

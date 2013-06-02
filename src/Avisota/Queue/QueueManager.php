@@ -22,47 +22,13 @@ use Avisota\Transport\TransportInterface;
 class QueueManager
 {
 	/**
-	 * Execute a queue and send all messages.
-	 *
-	 * @param QueueInterface     $queue
-	 * @param TransportInterface $transport
-	 */
-	public function execute(QueueInterface $queue, TransportInterface $transport)
-	{
-
-	}
-
-	/**
-	 * Partial execute a queue until a given number of messages are reached.
-	 *
-	 * @param int                $count
-	 * @param QueueInterface     $queue
-	 * @param TransportInterface $transport
-	 */
-	public function executePartial($count, QueueInterface $queue, TransportInterface $transport)
-	{
-
-	}
-
-	/**
 	 * Enqueue the message for all recipients into the queue.
 	 *
-	 * @param MessageTemplateInterface $message
+	 * @param MessageInterface         $message
 	 * @param RecipientSourceInterface $recipientSource
 	 * @param QueueInterface           $queue
 	 */
-	public function enqueue(MessageTemplateInterface $message, RecipientSourceInterface $recipientSource, QueueInterface $queue)
-	{
-
-	}
-
-	/**
-	 * Enqueue the message into the queue.
-	 *
-	 * @param \Swift_Message $message
-	 * @param QueueInterface $queue
-	 */
-	public function enqueueMessage(\Swift_Message $message, QueueInterface $queue)
+	public function enqueue(MessageInterface $message, RecipientSourceInterface $recipientSource, QueueInterface $queue)
 	{
 
 	}

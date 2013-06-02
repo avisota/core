@@ -15,23 +15,30 @@
 
 namespace Avisota\Queue;
 
+use Avisota\Message\NativeMessage;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\DBAL\Statement;
 
 class SimpleDatabaseQueue implements QueueInterface
 {
 	static public function createTableSchema($tableName)
 	{
 		$schema = new Schema();
-		$table = $schema->createTable($tableName);
+		$table  = $schema->createTable($tableName);
 		$table->addColumn('id', 'int', array('unsigned' => true, 'autoincrement' => true));
-		$table->addColumn('email', 'string', array('length' => 255));
-		$table->addColumn('domain', 'string', array('length' => 255));
-		$table->addColumn('message', 'string', array('length' => 255));
-		$table->addColumn('delivery_date', 'datetime', array('notnull' => false));
+		$table->addColumn('enqueue', 'datetime');
+		$table->addColumn('message', 'text');
+		$table->addColumn('delivery_date', 'datetime');
+		$table->addColumn('reserved', 'bool', array('default' => false));
 		$table->setPrimaryKey(array('id'));
 		return $schema;
 	}
+
+	/**
+	 * @var NativeMessage
+	 */
+	protected $messageSerializer;
 
 	/**
 	 * @var Connection
@@ -44,19 +51,21 @@ class SimpleDatabaseQueue implements QueueInterface
 	protected $tableName;
 
 	/**
-	 * @param Connection $connection The database connection.
-	 * @param string     $tableName The name of the database table.
-	 * @param bool       $createTableIfNotExists Create the table if not exists.
+	 * @param NativeMessage $messageSerializer      The message serializer.
+	 * @param Connection        $connection             The database connection.
+	 * @param string            $tableName              The name of the database table.
+	 * @param bool              $createTableIfNotExists Create the table if not exists.
 	 */
-	function __construct(Connection $connection, $tableName, $createTableIfNotExists = false)
+	function __construct(NativeMessage $messageSerializer, Connection $connection, $tableName, $createTableIfNotExists = false)
 	{
+		$this->messageSerializer = $messageSerializer;
 		$this->connection = $connection;
 		$this->tableName  = (string) $tableName;
 
 		$schemaManager = $this->connection->getSchemaManager();
 		if (!$schemaManager->tablesExist($this->tableName)) {
 			if ($createTableIfNotExists) {
-				$schema = static::createTableSchema($this->tableName);
+				$schema  = static::createTableSchema($this->tableName);
 				$queries = $schema->toSql($this->connection->getDatabasePlatform());
 				foreach ($queries as $query) {
 					$this->connection->exec($query);
@@ -69,9 +78,28 @@ class SimpleDatabaseQueue implements QueueInterface
 	}
 
 	/**
-	 * Check if the queue is empty.
+	 * Set the message serializer.
 	 *
-	 * @return bool
+	 * @param \Avisota\Message\NativeMessage $messageSerializer
+	 */
+	public function setMessageSerializer(NativeMessage $messageSerializer)
+	{
+		$this->messageSerializer = $messageSerializer;
+		return $this;
+	}
+
+	/**
+	 * Get the message serializer.
+	 *
+	 * @return \Avisota\Message\NativeMessage
+	 */
+	public function getMessageSerializer()
+	{
+		return $this->messageSerializer;
+	}
+
+	/**
+	 * {@inheritdoc}
 	 */
 	public function isEmpty()
 	{
@@ -79,37 +107,62 @@ class SimpleDatabaseQueue implements QueueInterface
 	}
 
 	/**
-	 * Return the length of the queue.
-	 *
-	 * @return int
+	 * {@inheritdoc}
 	 */
 	public function length()
 	{
-		return (int) $this->connection->fetchColumn(
-			'SELECT COUNT(*) FROM ' . $this->connection->quoteIdentifier($this->tableName)
-		);
+		$queryBuilder = $this->connection->createQueryBuilder();
+		/** @var Statement $statement */
+		$statement = $query = $queryBuilder
+			->select('COUNT(q)')
+			->from($this->tableName, 'q')
+			->execute();
+
+		return (int) $statement->fetchColumn();
 	}
 
 	/**
-	 * Return the next message.
-	 *
-	 * @return \Swift_Message
+	 * {@inheritdoc}
 	 */
-	public function next()
+	public function execute(TransportInterface $transport, QueueExecutionConfig $config = null)
 	{
-		$record = $this->connection->fetchAssoc(
-			'SELECT '
-		);
+		$queryBuilder = $this->connection->createQueryBuilder();
+		/** @var Statement $statement */
+		$queryBuilder
+			->select('q')
+			->from($this->tableName, 'q')
+			->where('q.reserved=?')
+			->andWhere('(q.delivery_date is NULL OR q.delivery_date<=?)')
+			->setParameter(1, false)
+			->setParameter(2, new \DateTime());
+
+		if ($config) {
+			if ($config->getLimit() > 0) {
+				$queryBuilder->setMaxResults($config->getLimit());
+			}
+		}
+
+		$statement = $queryBuilder->execute();
+
+		$record    = $statement->fetch(\PDO::FETCH_ASSOC);
+
+		$message = $this->messageSerializer->unserialize($record['message']);
+
+		return new SimpleDatabaseQueueEntry($message, $record, $this->connection, $this->tableName);
 	}
 
 	/**
-	 * Enqueue a message.
-	 *
-	 * @param \Swift_Message $message      The message to enqueue.
-	 * @param \DateTime      $deliveryDate The message will not delivered until this date is reached.
+	 * {@inheritdoc}
 	 */
 	public function enqueue(\Swift_Message $message, \DateTime $deliveryDate = null)
 	{
-		
+		$this->connection->insert(
+			$this->tableName,
+			array(
+				 'enqueue'       => new \DateTime(),
+				 'message'       => $this->messageSerializer->serialize($message),
+				 'delivery_date' => $deliveryDate
+			)
+		);
 	}
 }

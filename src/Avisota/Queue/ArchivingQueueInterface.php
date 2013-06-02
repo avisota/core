@@ -44,11 +44,4 @@ interface ArchivingQueueInterface extends QueueInterface
 	 * @return int
 	 */
 	public function faultyMessages();
-
-	/**
-	 * Return the next message.
-	 *
-	 * @return ArchivingQueueEntryInterface
-	 */
-	public function next();
 }
