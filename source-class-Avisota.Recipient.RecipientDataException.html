@@ -5,7 +5,7 @@
 	<meta name="generator" content="ApiGen 2.8.0" />
 	<meta name="robots" content="noindex" />
 
-	<title>File src/Avisota/Queue/QueueManager.php | avisota/core</title>
+	<title>File src/Avisota/Recipient/RecipientDataException.php | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
 	<script type="text/javascript" src="elementlist.js?235258613"></script>
@@ -26,9 +26,9 @@
 						<ul>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
-				<li class="active"><a href="namespace-Avisota.Queue.html">Queue</a>
+				<li><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
+				<li class="active"><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
 				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
@@ -46,20 +46,19 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
-				<li class="active"><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
-				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
+				<li><a href="class-Avisota.Recipient.MutableRecipient.html">MutableRecipient</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
+				<li><a href="class-Avisota.Recipient.RecipientInterface.html">RecipientInterface</a></li>
 			</ul>
 
 
+			<h3>Exceptions</h3>
+			<ul>
+				<li class="active"><a href="class-Avisota.Recipient.RecipientDataException.html">RecipientDataException</a></li>
+			</ul>
 
 
 		</div>
@@ -83,10 +82,10 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Avisota.Queue.html" title="Summary of Avisota\Queue"><span>Namespace</span></a>
+				<a href="namespace-Avisota.Recipient.html" title="Summary of Avisota\Recipient"><span>Namespace</span></a>
 			</li>
 			<li>
-				<a href="class-Avisota.Queue.QueueManager.html" title="Summary of Avisota\Queue\QueueManager"><span>Class</span></a>
+				<a href="class-Avisota.Recipient.RecipientDataException.html" title="Summary of Avisota\Recipient\RecipientDataException"><span>Class</span></a>
 			</li>
 		</ul>
 		<ul>
@@ -119,27 +118,11 @@
 </span></span><span id="13" class="l"><a class="l" href="#13">13: </a><span class="php-comment"> * @filesource
 </span></span><span id="14" class="l"><a class="l" href="#14">14: </a><span class="php-comment"> */</span>
 </span><span id="15" class="l"><a class="l" href="#15">15: </a>
-</span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-keyword1">namespace</span> Avisota\Queue;
+</span><span id="16" class="l"><a class="l" href="#16">16: </a><span class="php-keyword1">namespace</span> Avisota\Recipient;
 </span><span id="17" class="l"><a class="l" href="#17">17: </a>
-</span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-keyword1">use</span> Avisota\Message\MessageTemplateInterface;
-</span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-keyword1">use</span> Avisota\RecipientSource\RecipientSourceInterface;
-</span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-keyword1">use</span> Avisota\Transport\TransportInterface;
-</span><span id="21" class="l"><a class="l" href="#21">21: </a>
-</span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-keyword1">class</span> <a id="QueueManager" href="#QueueManager">QueueManager</a>
-</span><span id="23" class="l"><a class="l" href="#23">23: </a>{
-</span><span id="24" class="l"><a class="l" href="#24">24: </a>    <span class="php-comment">/**
-</span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment">     * Enqueue the message for all recipients into the queue.
-</span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment">     *
-</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment">     * @param MessageInterface         $message
-</span></span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-comment">     * @param RecipientSourceInterface $recipientSource
-</span></span><span id="29" class="l"><a class="l" href="#29">29: </a><span class="php-comment">     * @param QueueInterface           $queue
-</span></span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-comment">     */</span>
-</span><span id="31" class="l"><a class="l" href="#31">31: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_enqueue" href="#_enqueue">enqueue</a>(MessageInterface <span class="php-var">$message</span>, RecipientSourceInterface <span class="php-var">$recipientSource</span>, QueueInterface <span class="php-var">$queue</span>)
-</span><span id="32" class="l"><a class="l" href="#32">32: </a>    {
-</span><span id="33" class="l"><a class="l" href="#33">33: </a>
-</span><span id="34" class="l"><a class="l" href="#34">34: </a>    }
-</span><span id="35" class="l"><a class="l" href="#35">35: </a>}
-</span><span id="36" class="l"><a class="l" href="#36">36: </a></span></code></pre>
+</span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-keyword1">class</span> <a id="RecipientDataException" href="#RecipientDataException">RecipientDataException</a> <span class="php-keyword1">extends</span> \RuntimeException
+</span><span id="19" class="l"><a class="l" href="#19">19: </a>{
+</span><span id="20" class="l"><a class="l" href="#20">20: </a></span>}</code></pre>
 
 	<div id="footer">
 		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

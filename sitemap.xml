@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://avisota.github.io/core/index.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Message.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Queue.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Recipient.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.RecipientSource.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Transport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-None.html</loc>
+</url>
+
+
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Config.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Message.NativeMessage.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.NoOpQueueExecutionDecider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueExecutionConfig.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueManager.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.SimpleDatabaseQueue.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Recipient.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Recipient.MutableRecipient.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.CSVFile.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.SwiftTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Message.MessageInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.ArchivingQueueInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueExecutionDeciderInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Recipient.RecipientInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.RecipientSourceInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.TransportInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-MessageTemplateInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Recipient.RecipientDataException.html</loc>
+</url>
+</urlset>

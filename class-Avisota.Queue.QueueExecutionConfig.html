@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Interface Avisota\Queue\QueueInterface | avisota/core</title>
+	<title>Class Avisota\Queue\QueueExecutionConfig | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
 	<script type="text/javascript" src="elementlist.js?235258613"></script>
@@ -46,7 +46,7 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
+				<li class="active"><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
 				<li><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
 				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
 			</ul>
@@ -55,7 +55,7 @@
 			<ul>
 				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
 				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
-				<li class="active"><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
 			</ul>
 
 
@@ -103,7 +103,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Interface QueueInterface</h1>
+	<h1>Class QueueExecutionConfig</h1>
 
 
 
@@ -111,11 +111,6 @@
 
 
 
-	<div>
-		<h4>Direct known implementers</h4>
-			<a href="class-Avisota.Queue.ArchivingQueueInterface.html">Avisota\Queue\ArchivingQueueInterface</a>, 
-			<a href="class-Avisota.Queue.SimpleDatabaseQueue.html">Avisota\Queue\SimpleDatabaseQueue</a>
-	</div>
 
 
 
@@ -126,43 +121,40 @@
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Queue.html">Queue</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Avisota.Queue.QueueInterface.html#20-51" title="Go to source code">src/Avisota/Queue/QueueInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Queue.QueueExecutionConfig.html#18-65" title="Go to source code">src/Avisota/Queue/QueueExecutionConfig.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="isEmpty" id="_isEmpty">
+	<tr data-order="setLimit" id="_setLimit">
 
 		<td class="attributes"><code>
 			 public 
-			boolean
+			
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_isEmpty">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#22-27" title="Go to source code">isEmpty</a>( )</code>
+		<a class="anchor" href="#_setLimit">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueExecutionConfig.html#32-39" title="Go to source code">setLimit</a>( <span>integer <var>$limit</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Check if the queue is empty.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Check if the queue is empty.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>integer</code><br>$limit</dd>
+				</dl></div>
 
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br />
-				</div>
 
 
 
@@ -170,7 +162,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="length" id="_length">
+	<tr data-order="getLimit" id="_getLimit">
 
 		<td class="attributes"><code>
 			 public 
@@ -180,19 +172,15 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_length">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#29-34" title="Go to source code">length</a>( )</code>
+		<a class="anchor" href="#_getLimit">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueExecutionConfig.html#41-47" title="Go to source code">getLimit</a>( )</code>
 
 		<div class="description short">
 			
-<p>Return the length of the queue.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Return the length of the queue.</p>
-
 
 
 
@@ -207,7 +195,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="execute" id="_execute">
+	<tr data-order="setDecider" id="_setDecider">
 
 		<td class="attributes"><code>
 			 public 
@@ -217,27 +205,21 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_execute">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#36-42" title="Go to source code">execute</a>( <span>Avisota\Queue\TransportInterface <var>$transport</var></span>, <span><code><a href="class-Avisota.Queue.QueueExecutionConfig.html">Avisota\Queue\QueueExecutionConfig</a></code> <var>$config</var> = <span class="php-keyword1">null</span></span> )</code>
+		<a class="anchor" href="#_setDecider">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueExecutionConfig.html#49-56" title="Go to source code">setDecider</a>( <span><code><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">Avisota\Queue\QueueExecutionDeciderInterface</a></code> <var>$decider</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Execute a queue and send all messages.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Execute a queue and send all messages.</p>
-
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$transport</var></dt>
-					<dd><code><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code></code><br>$queue</dd>
-					<dt><var>$config</var></dt>
-					<dd><code>TransportInterface</code><br>$transport</dd>
+					<dt><var>$decider</var></dt>
+					<dd><code><code><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">Avisota\Queue\QueueExecutionDeciderInterface</a></code></code><br>$decider</dd>
 				</dl></div>
 
 
@@ -247,39 +229,32 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="enqueue" id="_enqueue">
+	<tr data-order="getDecider" id="_getDecider">
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">Avisota\Queue\QueueExecutionDeciderInterface</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_enqueue">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#44-50" title="Go to source code">enqueue</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span>DateTime <var>$deliveryDate</var> = <span class="php-keyword1">null</span></span> )</code>
+		<a class="anchor" href="#_getDecider">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueExecutionConfig.html#58-64" title="Go to source code">getDecider</a>( )</code>
 
 		<div class="description short">
 			
-<p>Enqueue a message.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Enqueue a message.</p>
 
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$message</var></dt>
-					<dd><code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code></code><br>$message The message to enqueue.</dd>
-					<dt><var>$deliveryDate</var></dt>
-					<dd><code>DateTime</code><br>$deliveryDate The message will not delivered until this date is reached.</dd>
-				</dl></div>
-
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">Avisota\Queue\QueueExecutionDeciderInterface</a></code></code><br />
+				</div>
 
 
 
@@ -300,6 +275,59 @@
 
 
 
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="limit" id="$limit">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Queue.QueueExecutionConfig.html#20-25" title="Go to source code"><var>$limit</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$limit" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Limit execution count.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Limit execution count.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="decider" id="$decider">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">Avisota\Queue\QueueExecutionDeciderInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Queue.QueueExecutionConfig.html#27-30" title="Go to source code"><var>$decider</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">null</span></code></td>
+		<td class="description"><div>
+			<a href="#$decider" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
 
 
 

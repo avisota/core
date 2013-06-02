@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 3.0dev" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Interface Avisota\Queue\ArchivingQueueInterface | avisota core api</title>
+	<title>Interface Avisota\Queue\ArchivingQueueInterface | avisota/core</title>
 
-	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
-	<script type="text/javascript" src="elementlist.js?3777936642"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?235258613"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -21,17 +21,21 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
-				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
-				<li class="active main"><a href="namespace-Avisota.Queue.html">Queue</a>
+				<li class="active"><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.Transport.html">Transport</a>
+				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
 			</ul>
 		</div>
 
@@ -41,15 +45,16 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
+				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
 				<li><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
 				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">ArchivingQueueEntryInterface</a></li>
 				<li class="active"><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueEntryInterface.html">QueueEntryInterface</a></li>
+				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
 				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
 			</ul>
 
@@ -125,12 +130,12 @@
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Queue.html">Queue</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Avisota.Queue.ArchivingQueueInterface.html#18-54" title="Go to source code">src/Avisota/Queue/ArchivingQueueInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Queue.ArchivingQueueInterface.html#18-47" title="Go to source code">src/Avisota/Queue/ArchivingQueueInterface.php</a><br />
 	</div>
 
 
 
-	<table class="summary methods" id="methods">
+	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="cleanup" id="_cleanup">
 
@@ -160,7 +165,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>bool<br />
+					<code>boolean</code><br />
 				</div>
 
 
@@ -197,7 +202,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>int<br />
+					<code>integer</code><br />
 				</div>
 
 
@@ -210,7 +215,7 @@
 
 		<td class="attributes"><code>
 			 public 
-			<code><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">Avisota\Queue\ArchivingQueueEntryInterface</a></code>
+			ArchivingQueueEntryInterface
 			
 			</code>
 		</td>
@@ -234,7 +239,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">Avisota\Queue\ArchivingQueueEntryInterface</a></code></code><br>ArchivingQueueEntryInterface<br />
+					<code>ArchivingQueueEntryInterface</code><br />
 				</div>
 
 
@@ -271,51 +276,12 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>int<br />
+					<code>integer</code><br />
 				</div>
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="next" id="_next">
-
-		<td class="attributes"><code>
-			 public 
-			<code><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">Avisota\Queue\ArchivingQueueEntryInterface</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_next">#</a>
-		<code><a href="source-class-Avisota.Queue.ArchivingQueueInterface.html#48-53" title="Go to source code">next</a>( )</code>
-
-		<div class="description short">
-			
-<p>Return the next message.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Return the next message.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><code><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">Avisota\Queue\ArchivingQueueEntryInterface</a></code></code><br>ArchivingQueueEntryInterface<br />
-				</div>
-
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Queue.QueueInterface.html#_next">Avisota\Queue\QueueInterface::next()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -326,6 +292,7 @@
 	<tr>
 		<td><code>
 			<a href="class-Avisota.Queue.QueueInterface.html#_enqueue">enqueue()</a>, 
+			<a href="class-Avisota.Queue.QueueInterface.html#_execute">execute()</a>, 
 			<a href="class-Avisota.Queue.QueueInterface.html#_isEmpty">isEmpty()</a>, 
 			<a href="class-Avisota.Queue.QueueInterface.html#_length">length()</a>
 		</code></td>
@@ -351,7 +318,7 @@
 </div>
 
 	<div id="footer">
-		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

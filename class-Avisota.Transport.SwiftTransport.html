@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 3.0dev" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Avisota\Transport\SwiftTransport | avisota core api</title>
+	<title>Class Avisota\Transport\SwiftTransport | avisota/core</title>
 
-	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
-	<script type="text/javascript" src="elementlist.js?3777936642"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?235258613"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -21,17 +21,21 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
-				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.Queue.html">Queue</a>
+				<li><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
-				<li class="active main"><a href="namespace-Avisota.Transport.html">Transport</a>
+				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li class="active"><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
 			</ul>
 		</div>
 
@@ -136,7 +140,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 
 
-	<table class="summary methods" id="methods">
+	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="createMailerConfig" id="_createMailerConfig">
 
@@ -196,7 +200,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code>AvisotaTransportInitialisationException</code><br>AvisotaTransportInitialisationException<br />
+					<code>AvisotaTransportInitialisationException</code><br />
 				</div>
 
 
@@ -232,15 +236,15 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$recipient</var></dt>
-					<dd></dd>
+					<dd><code>AvisotaRecipient</code><br>$recipient</dd>
 					<dt><var>$newsletter</var></dt>
-					<dd></dd>
+					<dd><code>AvisotaNewsletter</code><br>$newsletter</dd>
 				</dl></div>
 
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code>AvisotaTransportException</code><br>AvisotaTransportException<br />
+					<code>AvisotaTransportException</code><br />
 				</div>
 
 
@@ -276,15 +280,15 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$recipientEmail</var></dt>
-					<dd></dd>
+					<dd><code>string</code><br>$recipientEmail</dd>
 					<dt><var>$email</var></dt>
-					<dd></dd>
+					<dd><code>Mail</code><br>$email</dd>
 				</dl></div>
 
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code>AvisotaTransportException</code><br>AvisotaTransportException<br />
+					<code>AvisotaTransportException</code><br />
 				</div>
 
 
@@ -321,7 +325,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code>AvisotaTransportFinalisationException</code><br>AvisotaTransportFinalisationException<br />
+					<code>AvisotaTransportFinalisationException</code><br />
 				</div>
 
 
@@ -352,7 +356,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 
 
-	<table class="summary properties" id="properties">
+	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="mailerImplementation" id="$mailerImplementation">
 		<td class="attributes"><code>
@@ -362,6 +366,10 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 		<td class="name">
 				<a href="source-class-Avisota.Transport.SwiftTransport.html#27-30" title="Go to source code"><var>$mailerImplementation</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'swift'</span></code></td>
+		<td class="description"><div>
+			<a href="#$mailerImplementation" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -371,8 +379,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 				
 
 			</div>
-		</td>
-		<td class="value"><div><a href="#$mailerImplementation" class="anchor">#</a><code><span class="php-quote">'swift'</span></code></div></td>
+		</div></td>
 	</tr>
 	</table>
 
@@ -384,7 +391,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 </div>
 
 	<div id="footer">
-		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

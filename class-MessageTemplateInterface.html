@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Interface Avisota\RecipientSource\RecipientSourceInterface | avisota/core</title>
+	<title>Interface MessageTemplateInterface | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
 	<script type="text/javascript" src="elementlist.js?235258613"></script>
@@ -21,7 +21,7 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
+				<li><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
@@ -29,12 +29,12 @@
 						</li>
 				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
-				<li class="active"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
 				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
-				<li><a href="namespace-None.html">None</a>
+				<li class="active"><a href="namespace-None.html">None</a>
 						</li>
 			</ul>
 		</div>
@@ -43,14 +43,10 @@
 
 
 		<div id="elements">
-			<h3>Classes</h3>
-			<ul>
-				<li><a href="class-Avisota.RecipientSource.CSVFile.html">CSVFile</a></li>
-			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li class="active"><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html">RecipientSourceInterface</a></li>
+				<li class="active"><a href="class-MessageTemplateInterface.html">MessageTemplateInterface</a></li>
 			</ul>
 
 
@@ -77,7 +73,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Avisota.RecipientSource.html" title="Summary of Avisota\RecipientSource"><span>Namespace</span></a>
+				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -98,12 +94,14 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Interface RecipientSourceInterface</h1>
+	<h1>Interface MessageTemplateInterface</h1>
 
 
 	<div class="description">
 	
-<p>Class AvisotaRecipientSource</p>
+<p>Avisota newsletter and mailing system Copyright (C) 2013 Tristan Lins</p>
+
+<p>PHP version 5</p>
 
 	</div>
 
@@ -111,10 +109,6 @@
 
 
 
-	<div>
-		<h4>Direct known implementers</h4>
-			<a href="class-Avisota.RecipientSource.CSVFile.html">Avisota\RecipientSource\CSVFile</a>
-	</div>
 
 
 
@@ -122,94 +116,55 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.RecipientSource.html">RecipientSource</a><br />
-		<b>Package:</b> Avisota<br />
+		
+		<b>Package:</b> avisota-core<br />
 
 				<b>Copyright:</b>
 				bit3 UG 2013<br />
+				<b>License:</b>
+				<a href="LGPL-3.0+">LGPL-3.0+</a><br />
 				<b>Author:</b>
 				Tristan Lins &lt;<a
 href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#18-44" title="Go to source code">src/Avisota/RecipientSource/RecipientSourceInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-MessageTemplateInterface.html#4-25" title="Go to source code">src/Avisota/Templating/MessageTemplateInterface.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="getRecipientOptions" id="_getRecipientOptions">
+	<tr data-order="render" id="_render">
 
 		<td class="attributes"><code>
 			 public 
-			array
+			<code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getRecipientOptions">#</a>
-		<code><a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#28-34" title="Go to source code">getRecipientOptions</a>( )</code>
+		<a class="anchor" href="#_render">#</a>
+		<code><a href="source-class-MessageTemplateInterface.html#18-24" title="Go to source code">render</a>( <span>string|array <var>$recipient</var></span>, <span>array <var>$newsletterData</var> = <span class="php-keyword1">array</span>()</span> )</code>
 
 		<div class="description short">
 			
-<p>Get all selectable recipient options for this source. Every option can be an
-individual ID.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Get all selectable recipient options for this source. Every option can be an
-individual ID.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getRecipients" id="_getRecipients">
-
-		<td class="attributes"><code>
-			 public 
-			RecipientInterface[]
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getRecipients">#</a>
-		<code><a href="source-class-Avisota.RecipientSource.RecipientSourceInterface.html#36-43" title="Go to source code">getRecipients</a>( <span>array <var>$options</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Get complete recipients data for a list of options.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Get complete recipients data for a list of options.</p>
-
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$options</var></dt>
-					<dd><code>array</code><br>$options</dd>
+					<dt><var>$recipient</var></dt>
+					<dd><code>string|array</code><br>$recipientEmail The recipient email address or an array of recipient details.</dd>
+					<dt><var>$newsletterData</var></dt>
+					<dd><code>array</code><br>$newsletterData</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>RecipientInterface[]</code><br />
+					<code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code></code><br />
 				</div>
 
 

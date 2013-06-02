@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 3.0dev" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Avisota\RecipientSource\CSVFile | avisota core api</title>
+	<title>Class Avisota\RecipientSource\CSVFile | avisota/core</title>
 
-	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
-	<script type="text/javascript" src="elementlist.js?3777936642"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?235258613"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -21,17 +21,21 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
-				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.Queue.html">Queue</a>
+				<li><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li class="active main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.Transport.html">Transport</a>
+				<li class="active"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
 			</ul>
 		</div>
 
@@ -131,12 +135,12 @@
 				<b>Author:</b>
 				Tristan Lins &lt;<a
 href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.CSVFile.html#18-56" title="Go to source code">src/Avisota/RecipientSource/CSVFile.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.CSVFile.html#18-53" title="Go to source code">src/Avisota/RecipientSource/CSVFile.php</a><br />
 	</div>
 
 
 
-	<table class="summary methods" id="methods">
+	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="__construct" id="___construct">
 
@@ -178,26 +182,26 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRecipientOptions">#</a>
-		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#35-47" title="Go to source code">getRecipientOptions</a>( )</code>
+		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#35-44" title="Go to source code">getRecipientOptions</a>( )</code>
 
 		<div class="description short">
 			
 <p>Get all selectable recipient options for this source. Every option can be an
-individuell ID.</p>
+individual ID.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
 <p>Get all selectable recipient options for this source. Every option can be an
-individuell ID.</p>
+individual ID.</p>
 
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>array<br />
+					<code>array</code><br />
 				</div>
 
 
@@ -212,14 +216,14 @@ individuell ID.</p>
 
 		<td class="attributes"><code>
 			 public 
-			array
+			RecipientInterface[]
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRecipients">#</a>
-		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#49-55" title="Go to source code">getRecipients</a>( <span>array <var>$options</var></span> )</code>
+		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#46-52" title="Go to source code">getRecipients</a>( <span>array <var>$options</var></span> )</code>
 
 		<div class="description short">
 			
@@ -236,12 +240,12 @@ individuell ID.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$options</var></dt>
-					<dd>$varOption</dd>
+					<dd><code>array</code><br>$options</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>array</code><br>array<br />
+					<code>RecipientInterface[]</code><br />
 				</div>
 
 
@@ -265,7 +269,7 @@ individuell ID.</p>
 
 
 
-	<table class="summary properties" id="properties">
+	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
 	<tr data-order="config" id="$config">
 		<td class="attributes"><code>
@@ -275,6 +279,10 @@ individuell ID.</p>
 
 		<td class="name">
 				<a href="source-class-Avisota.RecipientSource.CSVFile.html#28" title="Go to source code"><var>$config</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$config" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -284,8 +292,7 @@ individuell ID.</p>
 				
 
 			</div>
-		</td>
-		<td class="value"><div><a href="#$config" class="anchor">#</a><code></code></div></td>
+		</div></td>
 	</tr>
 	</table>
 
@@ -297,7 +304,7 @@ individuell ID.</p>
 </div>
 
 	<div id="footer">
-		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

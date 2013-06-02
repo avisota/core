@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="generator" content="ApiGen 3.0dev" />
+	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Avisota\Queue\SimpleDatabaseQueue | avisota core api</title>
+	<title>Class Avisota\Queue\SimpleDatabaseQueue | avisota/core</title>
 
-	<script type="text/javascript" src="resources/combined.js?3569753172"></script>
-	<script type="text/javascript" src="elementlist.js?3777936642"></script>
-	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?4214719069" />
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?235258613"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
 
@@ -21,17 +21,21 @@
 		<div id="groups">
 			<h3>Namespaces</h3>
 			<ul>
-				<li class="active main"><a href="namespace-Avisota.html">Avisota<span></span></a>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
-				<li class="main"><a href="namespace-Avisota.Message.html">Message</a>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
-				<li class="active main"><a href="namespace-Avisota.Queue.html">Queue</a>
+				<li class="active"><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
-				<li class="main"><a href="namespace-Avisota.Transport.html">Transport</a>
+				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
 			</ul>
 		</div>
 
@@ -41,15 +45,16 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
+				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
 				<li><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
 				<li class="active"><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.ArchivingQueueEntryInterface.html">ArchivingQueueEntryInterface</a></li>
 				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueEntryInterface.html">QueueEntryInterface</a></li>
+				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
 				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
 			</ul>
 
@@ -125,12 +130,12 @@
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Queue.html">Queue</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#21-115" title="Go to source code">src/Avisota/Queue/SimpleDatabaseQueue.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#23-168" title="Go to source code">src/Avisota/Queue/SimpleDatabaseQueue.php</a><br />
 	</div>
 
 
 
-	<table class="summary methods" id="methods">
+	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
 	<tr data-order="createTableSchema" id="_createTableSchema">
 
@@ -143,7 +148,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createTableSchema">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#23-34" title="Go to source code">createTableSchema</a>( <span>mixed <var>$tableName</var></span> )</code>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#25-36" title="Go to source code">createTableSchema</a>( <span>mixed <var>$tableName</var></span> )</code>
 
 		<div class="description short">
 			
@@ -172,7 +177,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#46-69" title="Go to source code">__construct</a>( <span>Doctrine\DBAL\Connection <var>$connection</var></span>, <span>string <var>$tableName</var></span>, <span>boolean <var>$createTableIfNotExists</var> = <span class="php-keyword1">false</span></span> )</code>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#53-78" title="Go to source code">__construct</a>( <span><code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code> <var>$messageSerializer</var></span>, <span>Doctrine\DBAL\Connection <var>$connection</var></span>, <span>string <var>$tableName</var></span>, <span>boolean <var>$createTableIfNotExists</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			
@@ -184,14 +189,91 @@
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
+					<dt><var>$messageSerializer</var></dt>
+					<dd><code><code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code></code><br>$messageSerializer The message serializer.</dd>
 					<dt><var>$connection</var></dt>
-					<dd>The database connection.</dd>
+					<dd><code>Doctrine\DBAL\Connection</code><br>$connection The database connection.</dd>
 					<dt><var>$tableName</var></dt>
-					<dd>The name of the database table.</dd>
+					<dd><code>string</code><br>$tableName The name of the database table.</dd>
 					<dt><var>$createTableIfNotExists</var></dt>
-					<dd>Create the table if not exists.</dd>
+					<dd><code>boolean</code><br>$createTableIfNotExists Create the table if not exists.</dd>
 				</dl></div>
 
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMessageSerializer" id="_setMessageSerializer">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMessageSerializer">#</a>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#80-89" title="Go to source code">setMessageSerializer</a>( <span><code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code> <var>$messageSerializer</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the message serializer.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the message serializer.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$messageSerializer</var></dt>
+					<dd><code><code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code></code><br>$messageSerializer</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMessageSerializer" id="_getMessageSerializer">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMessageSerializer">#</a>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#91-99" title="Go to source code">getMessageSerializer</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the message serializer.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the message serializer.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code></code><br />
+				</div>
 
 
 
@@ -210,7 +292,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isEmpty">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#71-79" title="Go to source code">isEmpty</a>( )</code>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#101-107" title="Go to source code">isEmpty</a>( )</code>
 
 		<div class="description short">
 			
@@ -227,7 +309,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br>bool<br />
+					<code>boolean</code><br />
 				</div>
 
 
@@ -249,7 +331,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_length">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#81-91" title="Go to source code">length</a>( )</code>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#109-122" title="Go to source code">length</a>( )</code>
 
 		<div class="description short">
 			
@@ -266,7 +348,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>int<br />
+					<code>integer</code><br />
 				</div>
 
 
@@ -277,42 +359,45 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="next" id="_next">
+	<tr data-order="execute" id="_execute">
 
 		<td class="attributes"><code>
 			 public 
-			Swift_Message
+			
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_next">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#93-103" title="Go to source code">next</a>( )</code>
+		<a class="anchor" href="#_execute">#</a>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#124-152" title="Go to source code">execute</a>( <span>Avisota\Queue\TransportInterface <var>$transport</var></span>, <span><code><a href="class-Avisota.Queue.QueueExecutionConfig.html">Avisota\Queue\QueueExecutionConfig</a></code> <var>$config</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Return the next message.</p>
+<p>Execute a queue and send all messages.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Return the next message.</p>
+<p>Execute a queue and send all messages.</p>
 
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$transport</var></dt>
+					<dd><code><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code></code><br>$queue</dd>
+					<dt><var>$config</var></dt>
+					<dd><code>TransportInterface</code><br>$transport</dd>
+				</dl></div>
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>Swift_Message</code><br>\Swift_Message<br />
-				</div>
 
 
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Queue.QueueInterface.html#_next">Avisota\Queue\QueueInterface::next()</a></code></div>
+				<div class="list"><code><a href="class-Avisota.Queue.QueueInterface.html#_execute">Avisota\Queue\QueueInterface::execute()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -327,7 +412,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_enqueue">#</a>
-		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#105-114" title="Go to source code">enqueue</a>( <span>Swift_Message <var>$message</var></span>, <span>DateTime <var>$deliveryDate</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#154-167" title="Go to source code">enqueue</a>( <span>Swift_Message <var>$message</var></span>, <span>DateTime <var>$deliveryDate</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -344,9 +429,9 @@
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$message</var></dt>
-					<dd>The message to enqueue.</dd>
+					<dd><code>MessageInterface</code><br>$message The message to enqueue.</dd>
 					<dt><var>$deliveryDate</var></dt>
-					<dd>The message will not delivered until this date is reached.</dd>
+					<dd><code>DateTime</code><br>$deliveryDate The message will not delivered until this date is reached.</dd>
 				</dl></div>
 
 
@@ -371,16 +456,20 @@
 
 
 
-	<table class="summary properties" id="properties">
+	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="connection" id="$connection">
+	<tr data-order="messageSerializer" id="$messageSerializer">
 		<td class="attributes"><code>
 			protected  
-			Doctrine\DBAL\Connection
+			<code><a href="class-Avisota.Message.NativeMessage.html">Avisota\Message\NativeMessage</a></code>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#36-39" title="Go to source code"><var>$connection</var></a>
+				<a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#38-41" title="Go to source code"><var>$messageSerializer</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$messageSerializer" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -390,8 +479,30 @@
 				
 
 			</div>
+		</div></td>
+	</tr>
+	<tr data-order="connection" id="$connection">
+		<td class="attributes"><code>
+			protected  
+			Doctrine\DBAL\Connection
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#43-46" title="Go to source code"><var>$connection</var></a>
 		</td>
-		<td class="value"><div><a href="#$connection" class="anchor">#</a><code></code></div></td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$connection" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
 	</tr>
 	<tr data-order="tableName" id="$tableName">
 		<td class="attributes"><code>
@@ -400,7 +511,11 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#41-44" title="Go to source code"><var>$tableName</var></a>
+				<a href="source-class-Avisota.Queue.SimpleDatabaseQueue.html#48-51" title="Go to source code"><var>$tableName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$tableName" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -410,8 +525,7 @@
 				
 
 			</div>
-		</td>
-		<td class="value"><div><a href="#$tableName" class="anchor">#</a><code></code></div></td>
+		</div></td>
 	</tr>
 	</table>
 
@@ -423,7 +537,7 @@
 </div>
 
 	<div id="footer">
-		avisota core api API documentation generated by <a href="http://apigen.org">ApiGen 3.0dev</a>
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
 	</div>
 </div>
 </div>

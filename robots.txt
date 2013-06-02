@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://avisota.github.io/core/sitemap.xml

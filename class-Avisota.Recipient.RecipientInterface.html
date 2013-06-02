@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Avisota\Recipient | avisota/core</title>
+	<title>Interface Avisota\Recipient\RecipientInterface | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
 	<script type="text/javascript" src="elementlist.js?235258613"></script>
@@ -27,7 +27,7 @@
 						</li>
 				<li><a href="namespace-Avisota.Queue.html">Queue</a>
 						</li>
-				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
+				<li class="active"><a href="namespace-Avisota.Recipient.html">Recipient</a>
 						</li>
 				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
@@ -45,12 +45,19 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Avisota.Config.html">Config</a></li>
-				<li class="active"><a href="class-Avisota.Recipient.html">Recipient</a></li>
+				<li><a href="class-Avisota.Recipient.MutableRecipient.html">MutableRecipient</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-Avisota.Recipient.RecipientInterface.html">RecipientInterface</a></li>
 			</ul>
 
 
-
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Avisota.Recipient.RecipientDataException.html">RecipientDataException</a></li>
+			</ul>
 
 
 		</div>
@@ -74,7 +81,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Avisota.html" title="Summary of Avisota"><span>Namespace</span></a>
+				<a href="namespace-Avisota.Recipient.html" title="Summary of Avisota\Recipient"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -95,7 +102,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Recipient</h1>
+	<h1>Interface RecipientInterface</h1>
 
 
 
@@ -103,6 +110,10 @@
 
 
 
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Avisota.Recipient.MutableRecipient.html">Avisota\Recipient\MutableRecipient</a>
+	</div>
 
 
 
@@ -110,79 +121,16 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a><br />
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Recipient.html">Recipient</a><br />
 		
 
-		<b>Located at</b> <a href="source-class-Avisota.Recipient.html#18-69" title="Go to source code">src/Avisota/Recipient.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Recipient.RecipientInterface.html#18-73" title="Go to source code">src/Avisota/Recipient/RecipientInterface.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Avisota.Recipient.html#30-34" title="Go to source code">__construct</a>( <span>mixed <var>$email</var></span>, <span>array <var>$details</var> = <span class="php-keyword1">array</span>()</span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="setEmail" id="_setEmail">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setEmail">#</a>
-		<code><a href="source-class-Avisota.Recipient.html#36-43" title="Go to source code">setEmail</a>( <span>string <var>$email</var></span> )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$email</dd>
-				</dl></div>
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="getEmail" id="_getEmail">
 
 		<td class="attributes"><code>
@@ -194,14 +142,18 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getEmail">#</a>
-		<code><a href="source-class-Avisota.Recipient.html#45-51" title="Go to source code">getEmail</a>( )</code>
+		<code><a href="source-class-Avisota.Recipient.RecipientInterface.html#20-25" title="Go to source code">getEmail</a>( )</code>
 
 		<div class="description short">
 			
+<p>Get the recipient email address.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Get the recipient email address.</p>
+
 
 
 
@@ -216,33 +168,80 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setDetails" id="_setDetails">
+	<tr data-order="hasDetails" id="_hasDetails">
 
 		<td class="attributes"><code>
 			 public 
-			
+			boolean
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_setDetails">#</a>
-		<code><a href="source-class-Avisota.Recipient.html#53-60" title="Go to source code">setDetails</a>( <span>array <var>$details</var></span> )</code>
+		<a class="anchor" href="#_hasDetails">#</a>
+		<code><a href="source-class-Avisota.Recipient.RecipientInterface.html#27-32" title="Go to source code">hasDetails</a>( )</code>
 
 		<div class="description short">
 			
+<p>Check if this recipient has personal data.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Check if this recipient has personal data.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-Avisota.Recipient.RecipientInterface.html#34-42" title="Go to source code">get</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get a single personal data field value. Return null if the field does not
+exists.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get a single personal data field value. Return null if the field does not
+exists.</p>
+
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$details</var></dt>
-					<dd><code>array</code><br>$details</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
 				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
 
 
 
@@ -261,14 +260,74 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getDetails">#</a>
-		<code><a href="source-class-Avisota.Recipient.html#62-68" title="Go to source code">getDetails</a>( )</code>
+		<code><a href="source-class-Avisota.Recipient.RecipientInterface.html#44-57" title="Go to source code">getDetails</a>( )</code>
 
 		<div class="description short">
 			
+<p>Get all personal data values as associative array.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Get all personal data values as associative array.</p>
+
+<p>The personal data must have a key 'email', that contains the email
+address.</p>
+
+<pre>
+array (
+    'email' =&gt; '...',
+    ...
+)
+</pre>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getKeys" id="_getKeys">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getKeys">#</a>
+		<code><a href="source-class-Avisota.Recipient.RecipientInterface.html#59-72" title="Go to source code">getKeys</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get all personal data keys.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get all personal data keys.</p>
+
+<p>The keys must contain 'email'.</p>
+
+<pre>
+array (
+    'email',
+    ...
+)
+</pre>
+
 
 
 
@@ -296,55 +355,6 @@
 
 
 
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="email" id="$email">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Avisota.Recipient.html#20-23" title="Go to source code"><var>$email</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$email" class="anchor">#</a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="details" id="$details">
-		<td class="attributes"><code>
-			protected  
-			array
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Avisota.Recipient.html#25-28" title="Go to source code"><var>$details</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$details" class="anchor">#</a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</div></td>
-	</tr>
-	</table>
 
 
 
