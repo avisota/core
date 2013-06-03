@@ -19,10 +19,10 @@
 	<loc>http://avisota.github.io/core/namespace-Avisota.RecipientSource.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/namespace-Avisota.Transport.html</loc>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Templating.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/namespace-None.html</loc>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Transport.html</loc>
 </url>
 
 
@@ -75,12 +75,12 @@
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.RecipientSourceInterface.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.Templating.MessageTemplateInterface.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Transport.TransportInterface.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-MessageTemplateInterface.html</loc>
-</url>
-<url>
-	<loc>http://avisota.github.io/core/class-Avisota.Recipient.RecipientDataException.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Recipient.MutableRecipientDataException.html</loc>
 </url>
 </urlset>
