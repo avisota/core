@@ -15,6 +15,6 @@
 
 namespace Avisota\Recipient;
 
-class RecipientDataException extends \RuntimeException
+class MutableRecipientDataException extends \RuntimeException
 {
 }

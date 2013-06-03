@@ -1,4 +1,4 @@
 Avisota core system
 ===================
 
-[API documentation](http://avisota.github.io/core/)
+[![API DOCS](https://bit3.de/files/Icons/apidocs.png)](http://avisota.github.io/core/)

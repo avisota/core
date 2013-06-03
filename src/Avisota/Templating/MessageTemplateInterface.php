@@ -13,13 +13,19 @@
  * @filesource
  */
 
+namespace Avisota\Templating;
+
+use Avisota\Recipient\RecipientInterface;
+
 interface MessageTemplateInterface
 {
 	/**
-	 * @param string|array $recipientEmail The recipient email address or an array of recipient details.
-	 * @param array        $newsletterData
+	 * Render a message for the given recipient.
+	 *
+	 * @param RecipientInterface $recipientEmail The recipient data.
+	 * @param array              $newsletterData Additional newsletter data.
 	 *
 	 * @return \Avisota\Message\MessageInterface
 	 */
-	public function render($recipient, array $newsletterData = array());
+	public function render(RecipientInterface $recipient, array $newsletterData = array());
 }

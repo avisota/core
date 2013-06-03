@@ -41,12 +41,12 @@ class MutableRecipient implements RecipientInterface
 	 *
 	 * @param $email
 	 *
-	 * @throws RecipientDataException
+	 * @throws MutableRecipientDataException
 	 */
 	public function setEmail($email)
 	{
 		if (empty($email)) {
-			throw new RecipientDataException('Email is required');
+			throw new MutableRecipientDataException('Email is required');
 		}
 
 		$this->data['email'] = (string) $email;
