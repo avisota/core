@@ -15,7 +15,7 @@
 
 namespace Avisota\Queue;
 
-class QueueExecutionConfig
+class ExecutionConfig
 {
 	/**
 	 * Limit execution count.
@@ -25,7 +25,7 @@ class QueueExecutionConfig
 	protected $limit = 0;
 
 	/**
-	 * @var QueueExecutionDeciderInterface
+	 * @var ExecutionDeciderInterface
 	 */
 	protected $decider = null;
 
@@ -47,16 +47,16 @@ class QueueExecutionConfig
 	}
 
 	/**
-	 * @param \Avisota\Queue\QueueExecutionDeciderInterface $decider
+	 * @param \Avisota\Queue\ExecutionDeciderInterface $decider
 	 */
-	public function setDecider(QueueExecutionDeciderInterface $decider)
+	public function setDecider(ExecutionDeciderInterface $decider)
 	{
 		$this->decider = $decider;
 		return $this;
 	}
 
 	/**
-	 * @return \Avisota\Queue\QueueExecutionDeciderInterface
+	 * @return \Avisota\Queue\ExecutionDeciderInterface
 	 */
 	public function getDecider()
 	{

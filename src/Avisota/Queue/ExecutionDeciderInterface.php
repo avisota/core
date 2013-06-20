@@ -18,11 +18,11 @@ namespace Avisota\Queue;
 use Avisota\Message\MessageInterface;
 
 /**
- * Class QueueExecutionDeciderInterface
+ * Class ExecutionDeciderInterface
  *
  * @package avisota-core
  */
-interface QueueExecutionDeciderInterface
+interface ExecutionDeciderInterface
 {
 	/**
 	 * Check if the message is accepted.

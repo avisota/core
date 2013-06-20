@@ -15,6 +15,8 @@
 
 namespace Avisota\Transport;
 
+use Avisota\Message\MessageInterface;
+
 /**
  * Class AvisotaTransportModule
  *
@@ -27,28 +29,19 @@ interface TransportInterface
 {
 	/**
 	 * Initialise transport.
-	 *
-	 * @return void
-	 * @throws AvisotaTransportInitialisationException
 	 */
 	public function initialise();
 
 	/**
-	 * Transport an email.
+	 * Transport a message.
 	 *
-	 * @param string $recipientEmail
-	 * @param Mail   $email
-	 *
-	 * @return void
-	 * @throws AvisotaTransportException
+	 * @param MessageInterface $message
+	 * @return TransportStatus
 	 */
-	public function transport(\Swift_Message $email);
+	public function transport(MessageInterface $message);
 
 	/**
 	 * Flush transport.
-	 *
-	 * @return void
-	 * @throws AvisotaTransportFinalisationException
 	 */
 	public function flush();
 }

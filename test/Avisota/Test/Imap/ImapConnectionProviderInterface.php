@@ -13,17 +13,12 @@
  * @filesource
  */
 
-namespace Avisota\Queue;
+namespace Avisota\Test\Imap;
 
-use Avisota\Message\MessageInterface;
-
-class NoOpQueueExecutionDecider implements QueueExecutionDeciderInterface
+interface ImapConnectionProviderInterface
 {
 	/**
-	 * {@inheritdoc}
+	 * @return ressource
 	 */
-	public function accept(MessageInterface $message)
-	{
-		return true;
-	}
+	public function createImapConnection();
 }

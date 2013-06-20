@@ -15,6 +15,8 @@
 
 namespace Avisota\Transport;
 
+use Avisota\Message\MessageInterface;
+
 /**
  * Class AvisotaTransportSwiftTransport
  *
@@ -22,83 +24,50 @@ namespace Avisota\Transport;
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    Avisota
  */
-class SwiftTransport implements TransportInterface
+abstract class SwiftTransport implements TransportInterface
 {
 	/**
-	 * @var string
+	 * @var \Swift_Mailer|null
 	 */
-	protected $mailerImplementation = 'swift';
+	protected $swiftMailer;
 
-	protected function createMailerConfig()
+	/**
+	 * @return \Swift_Mailer
+	 */
+	abstract protected function createMailer();
+
+	protected function resetMailer()
 	{
-		$mailerConfig = parent::createMailerConfig();
+		$this->swiftMailer = null;
+	}
 
-		switch ($this->config->swiftUseSmtp) {
-			case 'swiftSmtpOn':
-				$mailerConfig->setUseSMTP(true);
-				$mailerConfig->setSmtpHost($this->config->swiftSmtpHost);
-				$mailerConfig->setSmtpPort($this->config->swiftSmtpPort);
-				$mailerConfig->setSmtpUser($this->config->swiftSmtpUser);
-				$mailerConfig->setSmtpPassword($this->config->swiftSmtpPass);
-				$mailerConfig->setSmtpEncryption($this->config->swiftSmtpEnc);
-				break;
-
-			case 'swiftSmtpOff':
-				$mailerConfig->setUseSMTP(false);
-				break;
+	/**
+	 * {@inheritdoc}
+	 */
+	public function initialise()
+	{
+		if (!$this->swiftMailer) {
+			$this->swiftMailer = $this->createMailer();
 		}
-
-		return $mailerConfig;
 	}
 
 	/**
-	 * Initialise the transport.
-	 *
-	 * @return void
-	 * @throws AvisotaTransportInitialisationException
+	 * {@inheritdoc}
 	 */
-	public function initialiseTransport()
+	public function flush()
 	{
-		// TODO: Implement initialiseTransport() method.
 	}
 
 	/**
-	 * Transport a specific newsletter.
-	 *
-	 *
-	 * @param AvisotaRecipient  $recipient
-	 * @param AvisotaNewsletter $newsletter
-	 *
-	 * @return void
-	 * @throws AvisotaTransportException
+	 * {@inheritdoc}
 	 */
-	public function transportNewsletter(AvisotaRecipient $recipient, AvisotaNewsletter $newsletter)
+	public function transport(MessageInterface $message)
 	{
-		// TODO: Implement transportNewsletter() method.
-	}
+		$email = $message->createSwiftMessage();
 
-	/**
-	 * Transport a mail.
-	 *
-	 * @param string $recipientEmail
-	 * @param Mail   $email
-	 *
-	 * @return void
-	 * @throws AvisotaTransportException
-	 */
-	public function transportEmail($recipientEmail, Mail $email)
-	{
-		// TODO: Implement transportEmail() method.
-	}
+		$failedRecipients = array();
+		$successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
 
-	/**
-	 * Finalise the transport.
-	 *
-	 * @return void
-	 * @throws AvisotaTransportFinalisationException
-	 */
-	public function finaliseTransport()
-	{
-		// TODO: Implement finaliseTransport() method.
+		return new TransportStatus($message, $successfullySendCount, $failedRecipients);
 	}
 }
