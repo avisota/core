@@ -7,7 +7,7 @@
 	<title>Class Avisota\Transport\SwiftTransport | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?4094836125"></script>
+	<script type="text/javascript" src="elementlist.js?3015202931"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
 				<li><a href="namespace-Avisota.Queue.html">Queue</a>
@@ -33,6 +35,19 @@
 						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
 				<li class="active"><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
@@ -45,7 +60,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Avisota.Transport.SwiftSmtpTransport.html">SwiftSmtpTransport</a></li>
 				<li class="active"><a href="class-Avisota.Transport.SwiftTransport.html">SwiftTransport</a></li>
+				<li><a href="class-Avisota.Transport.TransportStatus.html">TransportStatus</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
@@ -103,7 +120,7 @@
 
 	<div class="description">
 	
-<p>Class AvisotaTransportSwiftTransport</p>
+<p>Abstract transport using a swift transport.</p>
 
 	</div>
 
@@ -118,6 +135,10 @@
 	</dl>
 
 
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-Avisota.Transport.SwiftSmtpTransport.html">Avisota\Transport\SwiftSmtpTransport</a>
+	</div>
 
 
 
@@ -125,24 +146,52 @@
 
 
 	<div class="info">
-		
+		<b>Abstract</b><br />
 		
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Transport.html">Transport</a><br />
-		<b>Package:</b> Avisota<br />
+		<b>Package:</b> avisota-core<br />
 
-				<b>Copyright:</b>
-				bit3 UG 2013<br />
-				<b>Author:</b>
-				Tristan Lins &lt;<a
-href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Avisota.Transport.SwiftTransport.html#18-104" title="Go to source code">src/Avisota/Transport/SwiftTransport.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Transport.SwiftTransport.html#19-70" title="Go to source code">src/Avisota/Transport/SwiftTransport.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="createMailerConfig" id="_createMailerConfig">
+	<tr data-order="createMailer" id="_createMailer">
+
+		<td class="attributes"><code>
+			abstract protected 
+			Swift_Mailer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createMailer">#</a>
+		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#31-34" title="Go to source code">createMailer</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Swift_Mailer</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="resetMailer" id="_resetMailer">
 
 		<td class="attributes"><code>
 			 protected 
@@ -152,8 +201,8 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_createMailerConfig">#</a>
-		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#32-52" title="Go to source code">createMailerConfig</a>( )</code>
+		<a class="anchor" href="#_resetMailer">#</a>
+		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#36-39" title="Go to source code">resetMailer</a>( )</code>
 
 		<div class="description short">
 			
@@ -171,7 +220,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="initialiseTransport" id="_initialiseTransport">
+	<tr data-order="initialise" id="_initialise">
 
 		<td class="attributes"><code>
 			 public 
@@ -181,34 +230,32 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_initialiseTransport">#</a>
-		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#54-63" title="Go to source code">initialiseTransport</a>( )</code>
+		<a class="anchor" href="#_initialise">#</a>
+		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#41-49" title="Go to source code">initialise</a>( )</code>
 
 		<div class="description short">
 			
-<p>Initialise the transport.</p>
+<p>Initialise transport.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Initialise the transport.</p>
+<p>Initialise transport.</p>
 
 
 
 
 
-				<h4>Throws</h4>
-				<div class="list">
-					<code>AvisotaTransportInitialisationException</code><br />
-				</div>
 
 
 
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Transport.TransportInterface.html#_initialise">Avisota\Transport\TransportInterface::initialise()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="transportNewsletter" id="_transportNewsletter">
+	<tr data-order="flush" id="_flush">
 
 		<td class="attributes"><code>
 			 public 
@@ -218,133 +265,77 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_transportNewsletter">#</a>
-		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#65-78" title="Go to source code">transportNewsletter</a>( <span>Avisota\Transport\AvisotaRecipient <var>$recipient</var></span>, <span>Avisota\Transport\AvisotaNewsletter <var>$newsletter</var></span> )</code>
+		<a class="anchor" href="#_flush">#</a>
+		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#51-56" title="Go to source code">flush</a>( )</code>
 
 		<div class="description short">
 			
-<p>Transport a specific newsletter.</p>
+<p>Flush transport.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Transport a specific newsletter.</p>
+<p>Flush transport.</p>
+
+
+
+
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Transport.TransportInterface.html#_flush">Avisota\Transport\TransportInterface::flush()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="transport" id="_transport">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_transport">#</a>
+		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#58-69" title="Go to source code">transport</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Transport a message.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Transport a message.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$recipient</var></dt>
-					<dd><code>AvisotaRecipient</code><br>$recipient</dd>
-					<dt><var>$newsletter</var></dt>
-					<dd><code>AvisotaNewsletter</code><br>$newsletter</dd>
+					<dt><var>$message</var></dt>
+					<dd><code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code></code><br>$message</dd>
 				</dl></div>
 
-
-				<h4>Throws</h4>
+				<h4>Returns</h4>
 				<div class="list">
-					<code>AvisotaTransportException</code><br />
+					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code></code><br />
 				</div>
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="transportEmail" id="_transportEmail">
 
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_transportEmail">#</a>
-		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#80-92" title="Go to source code">transportEmail</a>( <span>string <var>$recipientEmail</var></span>, <span>Avisota\Transport\Mail <var>$email</var></span> )</code>
-
-		<div class="description short">
-			
-<p>Transport a mail.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Transport a mail.</p>
-
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$recipientEmail</var></dt>
-					<dd><code>string</code><br>$recipientEmail</dd>
-					<dt><var>$email</var></dt>
-					<dd><code>Mail</code><br>$email</dd>
-				</dl></div>
-
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code>AvisotaTransportException</code><br />
-				</div>
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="finaliseTransport" id="_finaliseTransport">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_finaliseTransport">#</a>
-		<code><a href="source-class-Avisota.Transport.SwiftTransport.html#94-103" title="Go to source code">finaliseTransport</a>( )</code>
-
-		<div class="description short">
-			
-<p>Finalise the transport.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Finalise the transport.</p>
-
-
-
-
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code>AvisotaTransportFinalisationException</code><br />
-				</div>
-
-
-
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Transport.TransportInterface.html#_transport">Avisota\Transport\TransportInterface::transport()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Avisota.Transport.TransportInterface.html#methods">Avisota\Transport\TransportInterface</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Avisota.Transport.TransportInterface.html#_flush">flush()</a>, 
-			<a href="class-Avisota.Transport.TransportInterface.html#_initialise">initialise()</a>, 
-			<a href="class-Avisota.Transport.TransportInterface.html#_transport">transport()</a>
-		</code></td>
-	</tr>
-	</table>
 
 
 
@@ -358,18 +349,18 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="mailerImplementation" id="$mailerImplementation">
+	<tr data-order="swiftMailer" id="$swiftMailer">
 		<td class="attributes"><code>
 			protected  
-			string
+			Swift_Mailer|null
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Avisota.Transport.SwiftTransport.html#27-30" title="Go to source code"><var>$mailerImplementation</var></a>
+				<a href="source-class-Avisota.Transport.SwiftTransport.html#26-29" title="Go to source code"><var>$swiftMailer</var></a>
 		</td>
-		<td class="value"><code><span class="php-quote">'swift'</span></code></td>
+		<td class="value"><code></code></td>
 		<td class="description"><div>
-			<a href="#$mailerImplementation" class="anchor">#</a>
+			<a href="#$swiftMailer" class="anchor">#</a>
 
 			<div class="description short">
 				

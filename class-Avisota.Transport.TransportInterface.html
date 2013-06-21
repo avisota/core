@@ -7,7 +7,7 @@
 	<title>Interface Avisota\Transport\TransportInterface | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?4094836125"></script>
+	<script type="text/javascript" src="elementlist.js?3015202931"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
 				<li><a href="namespace-Avisota.Queue.html">Queue</a>
@@ -33,6 +35,19 @@
 						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
 				<li class="active"><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
@@ -45,7 +60,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Avisota.Transport.SwiftSmtpTransport.html">SwiftSmtpTransport</a></li>
 				<li><a href="class-Avisota.Transport.SwiftTransport.html">SwiftTransport</a></li>
+				<li><a href="class-Avisota.Transport.TransportStatus.html">TransportStatus</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
@@ -103,7 +120,7 @@
 
 	<div class="description">
 	
-<p>Class AvisotaTransportModule</p>
+<p>The transport interface.</p>
 
 	</div>
 
@@ -113,9 +130,14 @@
 
 	<div>
 		<h4>Direct known implementers</h4>
+			<a href="class-Avisota.Test.Transport.NoOpTransport.html">Avisota\Test\Transport\NoOpTransport</a>, 
 			<a href="class-Avisota.Transport.SwiftTransport.html">Avisota\Transport\SwiftTransport</a>
 	</div>
 
+	<div>
+		<h4>Indirect known implementers</h4>
+			<a href="class-Avisota.Transport.SwiftSmtpTransport.html">Avisota\Transport\SwiftSmtpTransport</a>
+	</div>
 
 
 
@@ -123,14 +145,9 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Transport.html">Transport</a><br />
-		<b>Package:</b> Avisota<br />
+		<b>Package:</b> avisota-core<br />
 
-				<b>Copyright:</b>
-				bit3 UG 2013<br />
-				<b>Author:</b>
-				Tristan Lins &lt;<a
-href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<br />
-		<b>Located at</b> <a href="source-class-Avisota.Transport.TransportInterface.html#18-54" title="Go to source code">src/Avisota/Transport/TransportInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Transport.TransportInterface.html#19-43" title="Go to source code">src/Avisota/Transport/TransportInterface.php</a><br />
 	</div>
 
 
@@ -148,7 +165,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_initialise">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#28-34" title="Go to source code">initialise</a>( )</code>
+		<code><a href="source-class-Avisota.Transport.TransportInterface.html#26-29" title="Go to source code">initialise</a>( )</code>
 
 		<div class="description short">
 			
@@ -164,10 +181,6 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 
 
-				<h4>Throws</h4>
-				<div class="list">
-					<code>AvisotaTransportInitialisationException</code><br />
-				</div>
 
 
 
@@ -178,38 +191,38 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_transport">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#36-45" title="Go to source code">transport</a>( <span>Swift_Message <var>$email</var></span> )</code>
+		<code><a href="source-class-Avisota.Transport.TransportInterface.html#31-37" title="Go to source code">transport</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Transport an email.</p>
+<p>Transport a message.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Transport an email.</p>
+<p>Transport a message.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$email</var></dt>
-					<dd><code>string</code><br>$recipientEmail</dd>
+					<dt><var>$message</var></dt>
+					<dd><code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code></code><br>$message</dd>
 				</dl></div>
 
-
-				<h4>Throws</h4>
+				<h4>Returns</h4>
 				<div class="list">
-					<code>AvisotaTransportException</code><br />
+					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code></code><br />
 				</div>
+
 
 
 
@@ -227,7 +240,7 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 		<td class="name"><div>
 		<a class="anchor" href="#_flush">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#47-53" title="Go to source code">flush</a>( )</code>
+		<code><a href="source-class-Avisota.Transport.TransportInterface.html#39-42" title="Go to source code">flush</a>( )</code>
 
 		<div class="description short">
 			
@@ -243,10 +256,6 @@ href="mailto:tristan.lins&#64;bit3.de">tristan.lins&#64;<!---->bit3.de</a>&gt;<b
 
 
 
-				<h4>Throws</h4>
-				<div class="list">
-					<code>AvisotaTransportFinalisationException</code><br />
-				</div>
 
 
 

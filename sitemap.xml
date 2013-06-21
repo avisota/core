@@ -7,6 +7,9 @@
 	<loc>http://avisota.github.io/core/namespace-Avisota.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Event.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/namespace-Avisota.Message.html</loc>
 </url>
 <url>
@@ -22,30 +25,48 @@
 	<loc>http://avisota.github.io/core/namespace-Avisota.Templating.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Database.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Imap.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Message.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Queue.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Transport.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/namespace-Avisota.Transport.html</loc>
 </url>
 
 
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Config.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Event.AbstractTransportMessageEvent.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Event.PostTransportMessageEvent.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Event.PreTransportMessageEvent.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Message.NativeMessage.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Queue.NoOpQueueExecutionDecider.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.ExecutionConfig.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueExecutionConfig.html</loc>
-</url>
-<url>
-	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueManager.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueHelper.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Queue.SimpleDatabaseQueue.html</loc>
-</url>
-<url>
-	<loc>http://avisota.github.io/core/class-Avisota.Recipient.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Recipient.MutableRecipient.html</loc>
@@ -54,7 +75,46 @@
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.CSVFile.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.AbstractQueueTest.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.AbstractSimpleDatabaseQueueTest.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Database.SqliteDoctrineConnectionProvider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Imap.ImapConnectionProvider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Imap.ImapMailboxChecker.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Message.TestMessage.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Queue.TestQueueExecutionDecider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.SmtpTransportSimpleDatabaseQueueTest.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.NoOpTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.NoOpTransportProvider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.SmtpTransportProvider.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.SwiftSmtpTransport.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Transport.SwiftTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.TransportStatus.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Message.MessageInterface.html</loc>
@@ -63,7 +123,16 @@
 	<loc>http://avisota.github.io/core/class-Avisota.Queue.ArchivingQueueInterface.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueExecutionDeciderInterface.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.ExecutionDeciderInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.LoggingQueueInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Queue.MutableQueueInterface.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Queue.QueueInterface.html</loc>
@@ -76,6 +145,15 @@
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Templating.MessageTemplateInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Database.DoctrineConnectionProviderInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Imap.ImapConnectionProviderInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.TransportProviderInterface.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Transport.TransportInterface.html</loc>

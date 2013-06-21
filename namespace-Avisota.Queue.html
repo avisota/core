@@ -7,7 +7,7 @@
 	<title>Namespace Avisota\Queue | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?4094836125"></script>
+	<script type="text/javascript" src="elementlist.js?3015202931"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
 				<li class="active"><a href="namespace-Avisota.Queue.html">Queue</a>
@@ -33,6 +35,19 @@
 						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
 				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
@@ -45,16 +60,18 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
-				<li><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
+				<li><a href="class-Avisota.Queue.ExecutionConfig.html">ExecutionConfig</a></li>
+				<li><a href="class-Avisota.Queue.QueueHelper.html">QueueHelper</a></li>
 				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
+				<li><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">EventEmittingQueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.ExecutionDeciderInterface.html">ExecutionDeciderInterface</a></li>
+				<li><a href="class-Avisota.Queue.LoggingQueueInterface.html">LoggingQueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.MutableQueueInterface.html">MutableQueueInterface</a></li>
 				<li><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
 			</ul>
 
@@ -109,20 +126,16 @@
 <table class="summary" id="classes">
 <caption>Classes summary</caption>
 <tr>
-	<td class="name"><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></td>
-	<td>Class QueueExecutionDeciderInterface</td>
+	<td class="name"><a href="class-Avisota.Queue.ExecutionConfig.html">ExecutionConfig</a></td>
+	<td>The execution config for a queue.</td>
 </tr>
 <tr>
-	<td class="name"><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></td>
-	<td></td>
-</tr>
-<tr>
-	<td class="name"><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></td>
-	<td></td>
+	<td class="name"><a href="class-Avisota.Queue.QueueHelper.html">QueueHelper</a></td>
+	<td>A collection of helper functions.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></td>
-	<td></td>
+	<td>A simple single threaded queue storing the messages in a small database table.</td>
 </tr>
 </table>
 
@@ -130,15 +143,29 @@
 <caption>Interfaces summary</caption>
 <tr>
 	<td class="name"><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></td>
-	<td></td>
+	<td>A queue that archive send messages and provide information about successfully
+and faulty messages.</td>
 </tr>
 <tr>
-	<td class="name"><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></td>
-	<td>Class QueueExecutionDeciderInterface</td>
+	<td class="name"><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">EventEmittingQueueInterface</a></td>
+	<td>A queue that emits events over an event dispatcher.</td>
+</tr>
+<tr>
+	<td class="name"><a href="class-Avisota.Queue.ExecutionDeciderInterface.html">ExecutionDeciderInterface</a></td>
+	<td>The execution decider decide if a message will be send now or delayed for next
+run.</td>
+</tr>
+<tr>
+	<td class="name"><a href="class-Avisota.Queue.LoggingQueueInterface.html">LoggingQueueInterface</a></td>
+	<td>A queue that logs its actions.</td>
+</tr>
+<tr>
+	<td class="name"><a href="class-Avisota.Queue.MutableQueueInterface.html">MutableQueueInterface</a></td>
+	<td>A queue where messages can be dequeued from.</td>
 </tr>
 <tr>
 	<td class="name"><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></td>
-	<td></td>
+	<td>The basic message queue interface.</td>
 </tr>
 </table>
 

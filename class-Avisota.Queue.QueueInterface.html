@@ -7,7 +7,7 @@
 	<title>Interface Avisota\Queue\QueueInterface | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?4094836125"></script>
+	<script type="text/javascript" src="elementlist.js?3015202931"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -23,6 +23,8 @@
 			<ul>
 				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
 						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
 				<li><a href="namespace-Avisota.Message.html">Message</a>
 						</li>
 				<li class="active"><a href="namespace-Avisota.Queue.html">Queue</a>
@@ -33,6 +35,19 @@
 						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
 				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
@@ -45,16 +60,18 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Avisota.Queue.NoOpQueueExecutionDecider.html">NoOpQueueExecutionDecider</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionConfig.html">QueueExecutionConfig</a></li>
-				<li><a href="class-Avisota.Queue.QueueManager.html">QueueManager</a></li>
+				<li><a href="class-Avisota.Queue.ExecutionConfig.html">ExecutionConfig</a></li>
+				<li><a href="class-Avisota.Queue.QueueHelper.html">QueueHelper</a></li>
 				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">SimpleDatabaseQueue</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-Avisota.Queue.ArchivingQueueInterface.html">ArchivingQueueInterface</a></li>
-				<li><a href="class-Avisota.Queue.QueueExecutionDeciderInterface.html">QueueExecutionDeciderInterface</a></li>
+				<li><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">EventEmittingQueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.ExecutionDeciderInterface.html">ExecutionDeciderInterface</a></li>
+				<li><a href="class-Avisota.Queue.LoggingQueueInterface.html">LoggingQueueInterface</a></li>
+				<li><a href="class-Avisota.Queue.MutableQueueInterface.html">MutableQueueInterface</a></li>
 				<li class="active"><a href="class-Avisota.Queue.QueueInterface.html">QueueInterface</a></li>
 			</ul>
 
@@ -106,6 +123,11 @@
 	<h1>Interface QueueInterface</h1>
 
 
+	<div class="description">
+	
+<p>The basic message queue interface.</p>
+
+	</div>
 
 
 
@@ -114,9 +136,13 @@
 	<div>
 		<h4>Direct known implementers</h4>
 			<a href="class-Avisota.Queue.ArchivingQueueInterface.html">Avisota\Queue\ArchivingQueueInterface</a>, 
-			<a href="class-Avisota.Queue.SimpleDatabaseQueue.html">Avisota\Queue\SimpleDatabaseQueue</a>
+			<a href="class-Avisota.Queue.MutableQueueInterface.html">Avisota\Queue\MutableQueueInterface</a>
 	</div>
 
+	<div>
+		<h4>Indirect known implementers</h4>
+			<a href="class-Avisota.Queue.SimpleDatabaseQueue.html">Avisota\Queue\SimpleDatabaseQueue</a>
+	</div>
 
 
 
@@ -124,9 +150,9 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Queue.html">Queue</a><br />
-		
+		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.Queue.QueueInterface.html#20-51" title="Go to source code">src/Avisota/Queue/QueueInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Queue.QueueInterface.html#21-68" title="Go to source code">src/Avisota/Queue/QueueInterface.php</a><br />
 	</div>
 
 
@@ -144,7 +170,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isEmpty">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#22-27" title="Go to source code">isEmpty</a>( )</code>
+		<code><a href="source-class-Avisota.Queue.QueueInterface.html#28-33" title="Go to source code">isEmpty</a>( )</code>
 
 		<div class="description short">
 			
@@ -181,7 +207,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_length">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#29-34" title="Go to source code">length</a>( )</code>
+		<code><a href="source-class-Avisota.Queue.QueueInterface.html#35-40" title="Go to source code">length</a>( )</code>
 
 		<div class="description short">
 			
@@ -207,18 +233,55 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="getMessages" id="_getMessages">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMessages">#</a>
+		<code><a href="source-class-Avisota.Queue.QueueInterface.html#42-47" title="Go to source code">getMessages</a>( )</code>
+
+		<div class="description short">
+			
+<p>Return all messages from the queue.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return all messages from the queue.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a>[]</code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="execute" id="_execute">
 
 		<td class="attributes"><code>
 			 public 
-			
+			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a>[]</code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_execute">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#36-42" title="Go to source code">execute</a>( <span>Avisota\Queue\TransportInterface <var>$transport</var></span>, <span><code><a href="class-Avisota.Queue.QueueExecutionConfig.html">Avisota\Queue\QueueExecutionConfig</a></code> <var>$config</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Avisota.Queue.QueueInterface.html#49-57" title="Go to source code">execute</a>( <span><code><a href="class-Avisota.Transport.TransportInterface.html">Avisota\Transport\TransportInterface</a></code> <var>$transport</var></span>, <span><code><a href="class-Avisota.Queue.ExecutionConfig.html">Avisota\Queue\ExecutionConfig</a></code> <var>$config</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -237,9 +300,13 @@
 					<dt><var>$transport</var></dt>
 					<dd><code><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code></code><br>$queue</dd>
 					<dt><var>$config</var></dt>
-					<dd><code>TransportInterface</code><br>$transport</dd>
+					<dd><code><code><a href="class-Avisota.Transport.TransportInterface.html">Avisota\Transport\TransportInterface</a></code></code><br>$transport</dd>
 				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a>[]</code></code><br />
+				</div>
 
 
 
@@ -251,14 +318,14 @@
 
 		<td class="attributes"><code>
 			 public 
-			
+			boolean
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_enqueue">#</a>
-		<code><a href="source-class-Avisota.Queue.QueueInterface.html#44-50" title="Go to source code">enqueue</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span>DateTime <var>$deliveryDate</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Avisota.Queue.QueueInterface.html#59-67" title="Go to source code">enqueue</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span>DateTime <var>$deliveryDate</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -280,6 +347,10 @@
 					<dd><code>DateTime</code><br>$deliveryDate The message will not delivered until this date is reached.</dd>
 				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
 
 
 
