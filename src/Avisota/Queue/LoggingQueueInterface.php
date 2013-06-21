@@ -2,21 +2,29 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Queue;
 
 use Psr\Log\LoggerInterface;
 
+/**
+ * A queue that logs its actions.
+ *
+ * A succeeded transport will be logged as debug message.
+ * A partial succeeded transport will be logged as warn message.
+ * A failed transport will be logged as error message.
+ *
+ * @package avisota-core
+ */
 interface LoggingQueueInterface
 {
 	/**

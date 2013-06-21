@@ -2,15 +2,14 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Transport;
@@ -18,12 +17,9 @@ namespace Avisota\Transport;
 use Avisota\Message\MessageInterface;
 
 /**
- * Class TransportStatus
+ * The transport status information.
  *
- *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
- * @package    Avisota
+ * @package avisota-core
  */
 class TransportStatus
 {
@@ -35,7 +31,7 @@ class TransportStatus
 	/**
 	 * @var int
 	 */
-	protected $successfullySended;
+	protected $successfullySend;
 
 	/**
 	 * @var array
@@ -47,10 +43,10 @@ class TransportStatus
 	 */
 	protected $exception;
 
-	function __construct(MessageInterface $message, $successfullySended, $failedRecipients, \Exception $exception = null)
+	function __construct(MessageInterface $message, $successfullySend, array $failedRecipients = array(), \Exception $exception = null)
 	{
 		$this->message = $message;
-		$this->successfullySended = (int) $successfullySended;
+		$this->successfullySend = (int) $successfullySend;
 		$this->failedRecipients   = (array) $failedRecipients;
 		$this->exception = $exception;
 	}
@@ -66,9 +62,9 @@ class TransportStatus
 	/**
 	 * @return int
 	 */
-	public function getSuccessfullySended()
+	public function getSuccessfullySend()
 	{
-		return $this->successfullySended;
+		return $this->successfullySend;
 	}
 
 	/**

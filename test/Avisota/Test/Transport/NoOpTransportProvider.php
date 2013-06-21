@@ -14,10 +14,22 @@
 
 namespace Avisota\Test\Transport;
 
-interface TransportProviderInterface
+use Avisota\Transport\SwiftSmtpTransport;
+
+class NoOpTransportProvider implements TransportProviderInterface
 {
+	protected $succeededStatus;
+
+	function __construct($succeededStatus)
+	{
+		$this->succeededStatus = $succeededStatus;
+	}
+
 	/**
 	 * @return \Swift_Transport
 	 */
-	public function createTransport();
+	public function createTransport()
+	{
+		return new NoOpTransport($this->succeededStatus);
+	}
 }

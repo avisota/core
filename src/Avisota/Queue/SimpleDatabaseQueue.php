@@ -2,20 +2,20 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Queue;
 
-use Avisota\Event\MessagePreTransportEvent;
+use Avisota\Event\PostTransportMessageEvent;
+use Avisota\Event\PreTransportMessageEvent;
 use Avisota\Message\MessageInterface;
 use Avisota\Message\NativeMessage;
 use Avisota\Transport\TransportInterface;
@@ -27,8 +27,6 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
- * Class SimpleDatabaseQueue
- *
  * A simple single threaded queue storing the messages in a small database table.
  *
  * @package Avisota\Queue
@@ -242,7 +240,7 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 			if ($this->eventDispatcher) {
 				$this->eventDispatcher->dispatch(
 					'avisota_queue_execution_pre_transport',
-					new MessagePreTransportEvent($message, $this)
+					new PreTransportMessageEvent($message, $this)
 				);
 			}
 
@@ -261,23 +259,78 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 							$recipients[] = $email;
 						}
 					}
-					$this->logger->debug(
-						sprintf(
-							'Transport message "%s" to %s via transport "%s" successfully',
-							$message->getSubject(),
-							implode(', ', $recipients),
-							get_class($transport)
-						),
-						array(
-							 'message' => $message,
-						)
-					);
+					if ($status->getSuccessfullySend() > 0 && count($status->getFailedRecipients()) > 0) {
+						$failedRecipients = array();
+						foreach ($status->getFailedRecipients() as $email => $name) {
+							if (is_numeric($email)) {
+								$failedRecipients[] = $name;
+							}
+							else {
+								$failedRecipients[] = sprintf('%s <%s>', $email, $name);
+							}
+						}
+						$this->logger->warning(
+							sprintf(
+								'Transport message "%s" to %s via transport "%s" partial succeeded, failed for: %s with %s',
+								$message->getSubject(),
+								implode(', ', $recipients),
+								get_class($transport),
+								implode(', ', $failedRecipients),
+								$status->getException() ? $status->getException()->getMessage() : 'no message'
+							),
+							array(
+								 'message' => $message,
+								 'status'  => $status,
+								 'exception' => $status->getException(),
+							)
+						);
+					}
+					else if (count($status->getFailedRecipients()) > 0) {
+						$failedRecipients = array();
+						foreach ($status->getFailedRecipients() as $email => $name) {
+							if (is_numeric($email)) {
+								$failedRecipients[] = $name;
+							}
+							else {
+								$failedRecipients[] = sprintf('%s <%s>', $email, $name);
+							}
+						}
+						$this->logger->error(
+							sprintf(
+								'Transport message "%s" to %s via transport "%s" failed for: %s with %s',
+								$message->getSubject(),
+								implode(', ', $recipients),
+								get_class($transport),
+								implode(', ', $failedRecipients),
+								$status->getException() ? $status->getException()->getMessage() : 'no message'
+							),
+							array(
+								 'message' => $message,
+								 'status'  => $status,
+								 'exception' => $status->getException(),
+							)
+						);
+					}
+					else {
+						$this->logger->debug(
+							sprintf(
+								'Transport message "%s" to %s via transport "%s" succeed',
+								$message->getSubject(),
+								implode(', ', $recipients),
+								get_class($transport)
+							),
+							array(
+								 'message' => $message,
+								 'status'  => $status,
+							)
+						);
+					}
 				}
 
 				if ($this->eventDispatcher) {
 					$this->eventDispatcher->dispatch(
 						'avisota_queue_execution_post_transport',
-						new MessagePostTransportEvent($message, $this, true)
+						new PostTransportMessageEvent($message, $this, true)
 					);
 				}
 			}

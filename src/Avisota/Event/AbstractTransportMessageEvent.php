@@ -2,15 +2,14 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Event;
@@ -19,14 +18,24 @@ use Avisota\Message\MessageInterface;
 use Avisota\Queue\EventEmittingQueueInterface;
 use Symfony\Component\EventDispatcher\Event;
 
-abstract class AbstractMessagePreTransportEvent extends Event
+/**
+ * Abstract event triggered by an
+ * {@link http://avisota.github.io/core/class-Avisota.Event.EventEmittingQueueInterface.html event emitting queue}.
+ *
+ * @package avisota-core
+ */
+abstract class AbstractTransportMessageEvent extends Event
 {
 	/**
+	 * The message to be transported.
+	 *
 	 * @var MessageInterface
 	 */
 	protected $message;
 
 	/**
+	 * The queue that send the message.
+	 *
 	 * @var EventEmittingQueueInterface
 	 */
 	protected $queue;
@@ -38,6 +47,8 @@ abstract class AbstractMessagePreTransportEvent extends Event
 	}
 
 	/**
+	 * Get the message to be transported.
+	 *
 	 * @return \Avisota\Message\MessageInterface
 	 */
 	public function getMessage()
@@ -46,6 +57,8 @@ abstract class AbstractMessagePreTransportEvent extends Event
 	}
 
 	/**
+	 * Get the transporting queue.
+	 *
 	 * @return \Avisota\Queue\EventEmittingQueueInterface
 	 */
 	public function getQueue()

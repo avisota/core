@@ -16,11 +16,20 @@
 	<!--
 	use the environment variables in your local phpunit.xml to enable transport testing
 	-->
+	<!--
 	<php>
 		<env name="AVISOTA_TEST_SMTP_HOST" value="" />
 		<env name="AVISOTA_TEST_SMTP_PORT" value="" />
 		<env name="AVISOTA_TEST_SMTP_USERNAME" value="" />
 		<env name="AVISOTA_TEST_SMTP_PASSWORD" value="" />
 		<env name="AVISOTA_TEST_SMTP_ENCRYPTION" value="" />
+
+		<env name="AVISOTA_TEST_IMAP_HOST" value="" />
+		<env name="AVISOTA_TEST_IMAP_PORT" value="" />
+		<env name="AVISOTA_TEST_IMAP_PROTOCOL" value="" />
+		<env name="AVISOTA_TEST_IMAP_USERNAME" value="" />
+		<env name="AVISOTA_TEST_IMAP_PASSWORD" value="" />
+		<env name="AVISOTA_TEST_IMAP_ENCRYPTION" value="" />
 	</php>
+	-->
 </phpunit>

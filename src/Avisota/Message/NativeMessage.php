@@ -2,21 +2,20 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Message;
 
 /**
- * Class NativeMessage
+ * A message containing a native swift message.
  *
  * @package avisota-core
  */
@@ -54,7 +53,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return array
+	 * {@inheritdoc}
 	 */
 	public function getCopyRecipient()
 	{
@@ -62,7 +61,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return array
+	 * {@inheritdoc}
 	 */
 	public function getBlindCopyRecipient()
 	{
@@ -70,7 +69,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return string
+	 * {@inheritdoc}
 	 */
 	public function getFrom()
 	{
@@ -78,7 +77,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return string
+	 * {@inheritdoc}
 	 */
 	public function getSender()
 	{
@@ -86,7 +85,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return string
+	 * {@inheritdoc}
 	 */
 	public function getReplyTo()
 	{
@@ -94,7 +93,7 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * @return string
+	 * {@inheritdoc}
 	 */
 	public function getSubject()
 	{

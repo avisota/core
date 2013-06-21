@@ -2,15 +2,14 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Queue;
@@ -19,6 +18,11 @@ use Avisota\Message\MessageInterface;
 use Avisota\Transport\TransportInterface;
 use Avisota\Transport\TransportStatus;
 
+/**
+ * The basic message queue interface.
+ *
+ * @package avisota-core
+ */
 interface QueueInterface
 {
 	/**

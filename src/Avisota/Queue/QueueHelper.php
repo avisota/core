@@ -2,24 +2,27 @@
 
 /**
  * Avisota newsletter and mailing system
- * Copyright (C) 2013 Tristan Lins
  *
- * PHP version 5
+ * PHP Version 5.3
  *
  * @copyright  bit3 UG 2013
  * @author     Tristan Lins <tristan.lins@bit3.de>
  * @package    avisota-core
  * @license    LGPL-3.0+
- * @filesource
+ * @link       http://avisota.org
  */
 
 namespace Avisota\Queue;
 
 use Avisota\Message\MessageTemplateInterface;
 use Avisota\RecipientSource\RecipientSourceInterface;
-use Avisota\Transport\TransportInterface;
 
-class QueueManager
+/**
+ * A collection of helper functions.
+ *
+ * @package avisota-core
+ */
+class QueueHelper
 {
 	/**
 	 * Enqueue the message for all recipients into the queue.
@@ -30,6 +33,6 @@ class QueueManager
 	 */
 	public function enqueue(MessageInterface $message, RecipientSourceInterface $recipientSource, QueueInterface $queue)
 	{
-
+		throw new Exception('Not implemented yet');
 	}
 }
