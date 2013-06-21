@@ -20,7 +20,7 @@ use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Event triggered before an
- * {@link http://avisota.github.io/core/class-Avisota.Event.EventEmittingQueueInterface.html event emitting queue}
+ * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html event emitting queue}
  * send a message.
  *
  * @package avisota-core
