@@ -18,5 +18,7 @@ env:
         - secure: "LtcKEnAQGuPBDJa7tKBFUtr1NpIVWea1bibDD0SYpe6h4sjAcMmukqLKSTTx\nkEBn27P8UfeeoxCVTn6BuP5J+voRqBDb+foupuELMAVqtaYedpfxjd4FBM2V\nFWpfLIARSP6ZXmE/YTYfH2P3oOC2q0ed2oGoEhsZtASWybhEpdk="
         - secure: "o8XICPK5iViTeQUzLXvJr6Q2wO/I1d0eNIwqlSwQFkKLMZwXNB79t538H2Fl\nMY5QIURndSbeccm1PtW8tU5XZHMXryEGUhNXbArewpv80vh3HEfvItRk9CDK\nwzPzmYqB97N4rkuui8Nw0D6/BysYBkeV8gy1qE5costG2GjJh98="
 
-install: composer install --prefer-dist --dev
+install:
+    - sudo apt-get install php5-imap
+    - composer install --prefer-dist --dev
 script: ./vendor/bin/phpunit
