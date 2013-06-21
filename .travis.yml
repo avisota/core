@@ -19,6 +19,7 @@ env:
         - secure: "o8XICPK5iViTeQUzLXvJr6Q2wO/I1d0eNIwqlSwQFkKLMZwXNB79t538H2Fl\nMY5QIURndSbeccm1PtW8tU5XZHMXryEGUhNXbArewpv80vh3HEfvItRk9CDK\nwzPzmYqB97N4rkuui8Nw0D6/BysYBkeV8gy1qE5costG2GjJh98="
 
 install:
-    - sudo apt-get install php5-imap
+    - pecl install imap
+    - echo "extension=imap.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
     - composer install --prefer-dist --dev
 script: ./vendor/bin/phpunit
