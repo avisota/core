@@ -71,7 +71,7 @@ abstract class AbstractQueueTest extends \PHPUnit_Framework_TestCase
 	{
 		$queue = $this->createQueue();
 
-		$count    = mt_rand(10, 100);
+		$count    = mt_rand(5, 10);
 		$messages = array();
 
 		for ($i = 0; $i < $count; $i++) {
@@ -127,7 +127,7 @@ abstract class AbstractQueueTest extends \PHPUnit_Framework_TestCase
 			return;
 		}
 
-		$count    = mt_rand(10, 100);
+		$count    = mt_rand(5, 10);
 		$messages = array();
 
 		for ($i = 0; $i < $count; $i++) {
