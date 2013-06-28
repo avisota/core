@@ -22,19 +22,11 @@ namespace Avisota\RecipientSource;
 interface RecipientSourceInterface
 {
 	/**
-	 * Get all selectable recipient options for this source.
-	 * Every option can be an individual ID.
-	 *
-	 * @return array
-	 */
-	public function getRecipientOptions();
-
-	/**
 	 * Get complete recipients data for a list of options.
 	 *
 	 * @param array $options
 	 *
 	 * @return RecipientInterface[]
 	 */
-	public function getRecipients($options);
+	public function getRecipients();
 }
