@@ -8,7 +8,7 @@
 	<title>File src/Avisota/Event/PostTransportMessageEvent.php | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?391440909"></script>
+	<script type="text/javascript" src="elementlist.js?894646403"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -133,58 +133,41 @@
 </span><span id="16" class="l"><a class="l" href="#16">16: </a>
 </span><span id="17" class="l"><a class="l" href="#17">17: </a><span class="php-keyword1">use</span> Avisota\Message\MessageInterface;
 </span><span id="18" class="l"><a class="l" href="#18">18: </a><span class="php-keyword1">use</span> Avisota\Queue\EventEmittingQueueInterface;
-</span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-keyword1">use</span> Symfony\Component\EventDispatcher\Event;
-</span><span id="20" class="l"><a class="l" href="#20">20: </a>
-</span><span id="21" class="l"><a class="l" href="#21">21: </a><span class="php-comment">/**
-</span></span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment"> * Event triggered after an
-</span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment"> * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html event emitting queue}
-</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment"> * send a message.
-</span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment"> *
-</span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment"> * @package avisota-core
-</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment"> */</span>
-</span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-keyword1">class</span> <a id="PostTransportMessageEvent" href="#PostTransportMessageEvent">PostTransportMessageEvent</a> <span class="php-keyword1">extends</span> AbstractTransportMessageEvent
-</span><span id="29" class="l"><a class="l" href="#29">29: </a>{
-</span><span id="30" class="l"><a class="l" href="#30">30: </a>    <span class="php-comment">/**
-</span></span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment">     * The transport status.
-</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment">     *
-</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment">     * @var bool
+</span><span id="19" class="l"><a class="l" href="#19">19: </a><span class="php-keyword1">use</span> Avisota\Transport\TransportStatus;
+</span><span id="20" class="l"><a class="l" href="#20">20: </a><span class="php-keyword1">use</span> Symfony\Component\EventDispatcher\Event;
+</span><span id="21" class="l"><a class="l" href="#21">21: </a>
+</span><span id="22" class="l"><a class="l" href="#22">22: </a><span class="php-comment">/**
+</span></span><span id="23" class="l"><a class="l" href="#23">23: </a><span class="php-comment"> * Event triggered after an
+</span></span><span id="24" class="l"><a class="l" href="#24">24: </a><span class="php-comment"> * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html
+</span></span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="php-comment"> * event emitting queue}
+</span></span><span id="26" class="l"><a class="l" href="#26">26: </a><span class="php-comment"> * send a message.
+</span></span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-comment"> *
+</span></span><span id="28" class="l"><a class="l" href="#28">28: </a><span class="php-comment"> * @package avisota-core
+</span></span><span id="29" class="l"><a class="l" href="#29">29: </a><span class="php-comment"> */</span>
+</span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-keyword1">class</span> <a id="PostTransportMessageEvent" href="#PostTransportMessageEvent">PostTransportMessageEvent</a> <span class="php-keyword1">extends</span> AbstractTransportMessageEvent
+</span><span id="31" class="l"><a class="l" href="#31">31: </a>{
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>    <span class="php-comment">/**
+</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment">     * @var TransportStatus
 </span></span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-comment">     */</span>
-</span><span id="35" class="l"><a class="l" href="#35">35: </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$succeeded" href="#$succeeded">$succeeded</a></span>;
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$status" href="#$status">$status</a></span>;
 </span><span id="36" class="l"><a class="l" href="#36">36: </a>
-</span><span id="37" class="l"><a class="l" href="#37">37: </a>    <span class="php-comment">/**
-</span></span><span id="38" class="l"><a class="l" href="#38">38: </a><span class="php-comment">     * The transport exception.
-</span></span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-comment">     *
-</span></span><span id="40" class="l"><a class="l" href="#40">40: </a><span class="php-comment">     * @var \Exception|null
-</span></span><span id="41" class="l"><a class="l" href="#41">41: </a><span class="php-comment">     */</span>
-</span><span id="42" class="l"><a class="l" href="#42">42: </a>    <span class="php-keyword1">protected</span> <span class="php-var"><a id="$exception" href="#$exception">$exception</a></span>;
-</span><span id="43" class="l"><a class="l" href="#43">43: </a>
-</span><span id="44" class="l"><a class="l" href="#44">44: </a>    <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(MessageInterface <span class="php-var">$message</span>, EventEmittingQueueInterface <span class="php-var">$queue</span>, <span class="php-var">$succeeded</span>, \Exception <span class="php-var">$exception</span> = <span class="php-keyword1">null</span>)
-</span><span id="45" class="l"><a class="l" href="#45">45: </a>    {
-</span><span id="46" class="l"><a class="l" href="#46">46: </a>        parent::__construct(<span class="php-var">$message</span>, <span class="php-var">$queue</span>);
-</span><span id="47" class="l"><a class="l" href="#47">47: </a>        <span class="php-var">$this</span>-&gt;succeeded = <span class="php-var">$succeeded</span>;
-</span><span id="48" class="l"><a class="l" href="#48">48: </a>        <span class="php-var">$this</span>-&gt;exception = <span class="php-var">$exception</span>;
-</span><span id="49" class="l"><a class="l" href="#49">49: </a>    }
-</span><span id="50" class="l"><a class="l" href="#50">50: </a>
-</span><span id="51" class="l"><a class="l" href="#51">51: </a>    <span class="php-comment">/**
-</span></span><span id="52" class="l"><a class="l" href="#52">52: </a><span class="php-comment">     * Check if the transport succeeded.
-</span></span><span id="53" class="l"><a class="l" href="#53">53: </a><span class="php-comment">     *
-</span></span><span id="54" class="l"><a class="l" href="#54">54: </a><span class="php-comment">     * @return boolean
-</span></span><span id="55" class="l"><a class="l" href="#55">55: </a><span class="php-comment">     */</span>
-</span><span id="56" class="l"><a class="l" href="#56">56: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_isSucceeded" href="#_isSucceeded">isSucceeded</a>()
-</span><span id="57" class="l"><a class="l" href="#57">57: </a>    {
-</span><span id="58" class="l"><a class="l" href="#58">58: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;succeeded;
-</span><span id="59" class="l"><a class="l" href="#59">59: </a>    }
-</span><span id="60" class="l"><a class="l" href="#60">60: </a>
-</span><span id="61" class="l"><a class="l" href="#61">61: </a>    <span class="php-comment">/**
-</span></span><span id="62" class="l"><a class="l" href="#62">62: </a><span class="php-comment">     * If available, return the transport exception.
-</span></span><span id="63" class="l"><a class="l" href="#63">63: </a><span class="php-comment">     *
-</span></span><span id="64" class="l"><a class="l" href="#64">64: </a><span class="php-comment">     * @return \Exception|null
-</span></span><span id="65" class="l"><a class="l" href="#65">65: </a><span class="php-comment">     */</span>
-</span><span id="66" class="l"><a class="l" href="#66">66: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getException" href="#_getException">getException</a>()
-</span><span id="67" class="l"><a class="l" href="#67">67: </a>    {
-</span><span id="68" class="l"><a class="l" href="#68">68: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;exception;
-</span><span id="69" class="l"><a class="l" href="#69">69: </a>    }
-</span><span id="70" class="l"><a class="l" href="#70">70: </a></span>}</code></pre>
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>        MessageInterface <span class="php-var">$message</span>,
+</span><span id="39" class="l"><a class="l" href="#39">39: </a>        EventEmittingQueueInterface <span class="php-var">$queue</span>,
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>        TransportStatus <span class="php-var">$status</span>
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>    ) {
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>        parent::__construct(<span class="php-var">$message</span>, <span class="php-var">$queue</span>);
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>        <span class="php-var">$this</span>-&gt;status = <span class="php-var">$status</span>;
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>    }
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>    <span class="php-comment">/**
+</span></span><span id="47" class="l"><a class="l" href="#47">47: </a><span class="php-comment">     * @return \Avisota\Transport\TransportStatus
+</span></span><span id="48" class="l"><a class="l" href="#48">48: </a><span class="php-comment">     */</span>
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getStatus" href="#_getStatus">getStatus</a>()
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>    {
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;status;
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>    }
+</span><span id="53" class="l"><a class="l" href="#53">53: </a></span>}</code></pre>
 
 	<div id="footer">
 		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

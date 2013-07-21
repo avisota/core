@@ -7,7 +7,7 @@
 	<title>Class Avisota\Event\PostTransportMessageEvent | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?391440909"></script>
+	<script type="text/javascript" src="elementlist.js?894646403"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -157,7 +157,7 @@ Symfony\Component\EventDispatcher\Event
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Event.html">Event</a><br />
 		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.Event.PostTransportMessageEvent.html#21-70" title="Go to source code">src/Avisota/Event/PostTransportMessageEvent.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Event.PostTransportMessageEvent.html#22-53" title="Go to source code">src/Avisota/Event/PostTransportMessageEvent.php</a><br />
 	</div>
 
 
@@ -175,7 +175,7 @@ Symfony\Component\EventDispatcher\Event
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#44-49" title="Go to source code">__construct</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span><code><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">Avisota\Queue\EventEmittingQueueInterface</a></code> <var>$queue</var></span>, <span>mixed <var>$succeeded</var></span>, <span>Exception <var>$exception</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#37-44" title="Go to source code">__construct</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span><code><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">Avisota\Queue\EventEmittingQueueInterface</a></code> <var>$queue</var></span>, <span><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code> <var>$status</var></span> )</code>
 
 		<div class="description short">
 			
@@ -195,72 +195,31 @@ Symfony\Component\EventDispatcher\Event
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="isSucceeded" id="_isSucceeded">
+	<tr data-order="getStatus" id="_getStatus">
 
 		<td class="attributes"><code>
 			 public 
-			boolean
+			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_isSucceeded">#</a>
-		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#51-59" title="Go to source code">isSucceeded</a>( )</code>
+		<a class="anchor" href="#_getStatus">#</a>
+		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#46-52" title="Go to source code">getStatus</a>( )</code>
 
 		<div class="description short">
 			
-<p>Check if the transport succeeded.</p>
-
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Check if the transport succeeded.</p>
-
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br />
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getException" id="_getException">
-
-		<td class="attributes"><code>
-			 public 
-			Exception|null
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getException">#</a>
-		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#61-69" title="Go to source code">getException</a>( )</code>
-
-		<div class="description short">
-			
-<p>If available, return the transport exception.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>If available, return the transport exception.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>Exception|null</code><br />
+					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code></code><br />
 				</div>
 
 
@@ -293,56 +252,25 @@ Symfony\Component\EventDispatcher\Event
 
 	<table class="summary" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="succeeded" id="$succeeded">
+	<tr data-order="status" id="$status">
 		<td class="attributes"><code>
 			protected  
-			boolean
+			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Avisota.Event.PostTransportMessageEvent.html#30-35" title="Go to source code"><var>$succeeded</var></a>
+				<a href="source-class-Avisota.Event.PostTransportMessageEvent.html#32-35" title="Go to source code"><var>$status</var></a>
 		</td>
 		<td class="value"><code></code></td>
 		<td class="description"><div>
-			<a href="#$succeeded" class="anchor">#</a>
+			<a href="#$status" class="anchor">#</a>
 
 			<div class="description short">
 				
-<p>The transport status.</p>
-
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>The transport status.</p>
-
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="exception" id="$exception">
-		<td class="attributes"><code>
-			protected  
-			Exception|null
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Avisota.Event.PostTransportMessageEvent.html#37-42" title="Go to source code"><var>$exception</var></a>
-		</td>
-		<td class="value"><code></code></td>
-		<td class="description"><div>
-			<a href="#$exception" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>The transport exception.</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>The transport exception.</p>
-
 
 			</div>
 		</div></td>
