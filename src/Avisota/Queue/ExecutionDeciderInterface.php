@@ -17,7 +17,8 @@ namespace Avisota\Queue;
 use Avisota\Message\MessageInterface;
 
 /**
- * The execution decider decide if a message will be send now or delayed for next run.
+ * The execution decider decide if a message will be send now or delayed
+ * for next run.
  *
  * @package avisota-core
  */

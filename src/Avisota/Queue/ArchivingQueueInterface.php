@@ -15,7 +15,8 @@
 namespace Avisota\Queue;
 
 /**
- * A queue that archive send messages and provide information about successfully and faulty messages.
+ * A queue that archive send messages and provide information about
+ * successfully and faulty messages.
  *
  * @package avisota-core
  */

@@ -114,73 +114,7 @@ class NativeMessage implements MessageInterface
 	public function serialize()
 	{
 		return serialize($this->message);
-
-		/*
-		$data = new \stdClass();
-
-		$data->subject       = $message->getSubject();
-		$data->date          = $message->getDate();
-		$data->returnPath    = $message->getReturnPath();
-		$data->sender        = $message->getSender();
-		$data->from          = $message->getFrom();
-		$data->replyTo       = $message->getReplyTo();
-		$data->to            = $message->getTo();
-		$data->cc            = $message->getCc();
-		$data->bcc           = $message->getBcc();
-		$data->priority      = $message->getPriority();
-		$data->readReceiptTo = $message->getReadReceiptTo();
-
-		$data->body = $this->serializeChildren($message);
-
-		return $data;
-		*/
 	}
-
-	/*
-	public function serializeChildren(\Swift_Mime_MimeEntity $entry)
-	{
-		$data = new \stdClass();
-
-		$data->contentType = $entry->getContentType();
-		$data->id          = $entry->getId();
-		$entry->getHeaders();
-		$data->body          = $entry->getBody();
-		$data->description   = $entry->getDescription();
-		$data->maxLineLength = $entry->getMaxLineLength();
-		$data->boundary      = $entry->getBoundary();
-
-		if ($entry instanceof \Swift_Attachment) {
-			/** @var \Swift_Attachment $entry * /
-			var_dump($entry->getBody());
-		}
-
-		if ($entry instanceof \Swift_Mime_MimePart) {
-			/** @var \Swift_Mime_MimePart $entry * /
-			$data->charset = $entry->getCharset();
-			$data->format  = $entry->getFormat();
-			$data->delSp   = $entry->getDelSp();
-		}
-
-		$data->headers = array();
-		$headers = $entry->getHeaders();
-		foreach ($headers->listAll() as $header) {
-			$data->headers[$header] = array();
-
-			/** @var \Swift_Mime_Header[] $contents * /
-			$contents = $headers->getAll($header);
-			foreach ($contents as $content) {
-				$data->headers[$header] = $content->getFieldBody();
-			}
-		}
-
-		$data->children = array();
-		foreach ($entry->getChildren() as $children) {
-			$data->children[] = $this->serializeChildren($children);
-		}
-
-		return $data;
-	}
-	*/
 
 	/**
 	 * {@inheritdoc}

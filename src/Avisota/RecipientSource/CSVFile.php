@@ -23,6 +23,9 @@ class CSVFile implements RecipientSourceInterface
 {
 	private $config;
 
+	/**
+	 * @param $configData
+	 */
 	public function __construct($configData)
 	{
 		$this->config = $configData;

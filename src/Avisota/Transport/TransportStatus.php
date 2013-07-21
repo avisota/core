@@ -43,12 +43,16 @@ class TransportStatus
 	 */
 	protected $exception;
 
-	function __construct(MessageInterface $message, $successfullySend, array $failedRecipients = array(), \Exception $exception = null)
-	{
-		$this->message = $message;
+	public function __construct(
+		MessageInterface $message,
+		$successfullySend,
+		array $failedRecipients = array(),
+		\Exception $exception = null
+	) {
+		$this->message          = $message;
 		$this->successfullySend = (int) $successfullySend;
-		$this->failedRecipients   = (array) $failedRecipients;
-		$this->exception = $exception;
+		$this->failedRecipients = (array) $failedRecipients;
+		$this->exception        = $exception;
 	}
 
 	/**

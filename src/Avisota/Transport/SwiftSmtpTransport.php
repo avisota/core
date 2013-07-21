@@ -53,8 +53,22 @@ class SwiftSmtpTransport extends SwiftTransport
 	 */
 	protected $swiftMailer;
 
-	function __construct($host = 'localhost', $port = null, $username = null, $password = null, $encryption = null)
-	{
+	/**
+	 * @param string $host
+	 * @param null   $port
+	 * @param null   $username
+	 * @param null   $password
+	 * @param null   $encryption
+	 *
+	 * @return SwiftSmtpTransport
+	 */
+	public function __construct(
+		$host = 'localhost',
+		$port = null,
+		$username = null,
+		$password = null,
+		$encryption = null
+	) {
 		$this->host       = $host;
 		$this->port       = $port;
 		$this->username   = $username;

@@ -33,6 +33,9 @@ abstract class SwiftTransport implements TransportInterface
 	 */
 	abstract protected function createMailer();
 
+	/**
+	 * @return void
+	 */
 	protected function resetMailer()
 	{
 		$this->swiftMailer = null;

@@ -31,7 +31,8 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  *
  * @package Avisota\Queue
  */
-class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueInterface, LoggingQueueInterface
+class SimpleDatabaseQueue
+	implements MutableQueueInterface, EventEmittingQueueInterface, LoggingQueueInterface
 {
 	static public function createTableSchema($tableName)
 	{
@@ -71,7 +72,7 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 	 * @param string        $tableName              The name of the database table.
 	 * @param bool          $createTableIfNotExists Create the table if not exists.
 	 */
-	function __construct(
+	public function __construct(
 		Connection $connection,
 		$tableName,
 		$createTableIfNotExists = false,
@@ -147,7 +148,7 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 	{
 		$queryBuilder = $this->connection->createQueryBuilder();
 		/** @var Statement $statement */
-		$statement = $query = $queryBuilder
+		$statement = $queryBuilder
 			->select('COUNT(q.id)')
 			->from($this->tableName, 'q')
 			->execute();
@@ -178,25 +179,16 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 	 */
 	public function execute(TransportInterface $transport, ExecutionConfig $config = null)
 	{
-		$queryBuilder = $this->connection->createQueryBuilder();
-		$queryBuilder
-			->select('q.*')
-			->from($this->tableName, 'q');
+		$resultSet = $this->selectRecords($config);
 
-		$decider = null;
+		$results = array();
 
 		if ($config) {
 			$decider = $config->getDecider();
-			if ($config->getLimit() > 0) {
-				$queryBuilder->setMaxResults($config->getLimit());
-			}
 		}
-
-		/** @var Statement $statement */
-		$statement = $queryBuilder->execute();
-		$resultSet = $statement->fetchAll();
-
-		$results = array();
+		else {
+			$decider = null;
+		}
 
 		/**
 		 * Initialise transport system
@@ -211,163 +203,28 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 				}
 			}
 
-			try {
-				/** @var MessageInterface $message */
-				$message = unserialize($record['message']);
-			}
-			catch (\Exception $e) {
-				// log failed transport
-				if ($this->logger) {
-					$this->logger->error(
-						sprintf(
-							'Could not deserialize message "%s": %s',
-							$record['message'],
-							$e->getMessage()
-						)
-					);
-				}
-
-				$this->connection->delete($this->tableName, array('id' => $record['id']));
-
-				continue;
-			}
+			$message = $this->deserializeMessage($record);
 
 			// skip message
-			if ($decider && !$decider->accept($message)) {
+			if (!$message || $decider && !$decider->accept($message)) {
 				continue;
 			}
 
-			if ($this->eventDispatcher) {
-				$this->eventDispatcher->dispatch(
-					'avisota_queue_execution_pre_transport',
-					new PreTransportMessageEvent($message, $this)
-				);
-			}
+			// log pre transport
+			$this->logPreTransportStatus($transport, $message);
 
 			try {
 				// try to transport message
 				$status = $transport->transport($message);
 
 				// log successful transport
-				if ($this->logger) {
-					$recipients = array();
-					foreach ($message->getRecipient() as $email => $name) {
-						if (is_numeric($email)) {
-							$recipients[] = $name;
-						}
-						else {
-							$recipients[] = $email;
-						}
-					}
-					if ($status->getSuccessfullySend() > 0 && count($status->getFailedRecipients()) > 0) {
-						$failedRecipients = array();
-						foreach ($status->getFailedRecipients() as $email => $name) {
-							if (is_numeric($email)) {
-								$failedRecipients[] = $name;
-							}
-							else {
-								$failedRecipients[] = sprintf('%s <%s>', $email, $name);
-							}
-						}
-						$this->logger->warning(
-							sprintf(
-								'Transport message "%s" to %s via transport "%s" partial succeeded, failed for: %s with %s',
-								$message->getSubject(),
-								implode(', ', $recipients),
-								get_class($transport),
-								implode(', ', $failedRecipients),
-								$status->getException() ? $status->getException()->getMessage() : 'no message'
-							),
-							array(
-								 'message' => $message,
-								 'status'  => $status,
-								 'exception' => $status->getException(),
-							)
-						);
-					}
-					else if (count($status->getFailedRecipients()) > 0) {
-						$failedRecipients = array();
-						foreach ($status->getFailedRecipients() as $email => $name) {
-							if (is_numeric($email)) {
-								$failedRecipients[] = $name;
-							}
-							else {
-								$failedRecipients[] = sprintf('%s <%s>', $email, $name);
-							}
-						}
-						$this->logger->error(
-							sprintf(
-								'Transport message "%s" to %s via transport "%s" failed for: %s with %s',
-								$message->getSubject(),
-								implode(', ', $recipients),
-								get_class($transport),
-								implode(', ', $failedRecipients),
-								$status->getException() ? $status->getException()->getMessage() : 'no message'
-							),
-							array(
-								 'message' => $message,
-								 'status'  => $status,
-								 'exception' => $status->getException(),
-							)
-						);
-					}
-					else {
-						$this->logger->debug(
-							sprintf(
-								'Transport message "%s" to %s via transport "%s" succeed',
-								$message->getSubject(),
-								implode(', ', $recipients),
-								get_class($transport)
-							),
-							array(
-								 'message' => $message,
-								 'status'  => $status,
-							)
-						);
-					}
-				}
-
-				if ($this->eventDispatcher) {
-					$this->eventDispatcher->dispatch(
-						'avisota_queue_execution_post_transport',
-						new PostTransportMessageEvent($message, $this, true)
-					);
-				}
+				$this->logSuccessfulStatus($transport, $message, $status);
 			}
 			catch (\Exception $e) {
 				$status = new TransportStatus($message, 0, $message->getRecipient(), $e);
 
 				// log failed transport
-				if ($this->logger) {
-					$recipients = array();
-					foreach ($message->getRecipient() as $email => $name) {
-						if (is_numeric($email)) {
-							$recipients[] = $name;
-						}
-						else {
-							$recipients[] = $email;
-						}
-					}
-					$this->logger->error(
-						sprintf(
-							'Could not transport message "%s" to %s via transport "%s": %s',
-							$message->getSubject(),
-							implode(', ', $recipients),
-							get_class($transport),
-							$e->getMessage()
-						),
-						array(
-							 'message' => $message,
-						)
-					);
-				}
-
-				if ($this->eventDispatcher) {
-					$this->eventDispatcher->dispatch(
-						'avisota_queue_execution_post_transport',
-						new MessagePostTransportEvent($message, $this, false, $e)
-					);
-				}
+				$this->logFailedStatus($transport, $message, $status);
 			}
 
 			$results[] = $status;
@@ -382,6 +239,198 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 	}
 
 	/**
+	 * @return array[]
+	 */
+	protected function selectRecords(ExecutionConfig $config = null)
+	{
+		$queryBuilder = $this->connection->createQueryBuilder();
+		$queryBuilder
+			->select('q.*')
+			->from($this->tableName, 'q');
+
+		if ($config) {
+			if ($config->getLimit() > 0) {
+				$queryBuilder->setMaxResults($config->getLimit());
+			}
+		}
+
+		/** @var Statement $statement */
+		$statement = $queryBuilder->execute();
+		$resultSet = $statement->fetchAll();
+
+		return $resultSet;
+	}
+
+	/**
+	 * @param array $record
+	 *
+	 * @return MessageInterface
+	 */
+	protected function deserializeMessage(array $record)
+	{
+		try {
+			return unserialize($record['message']);
+		}
+		catch (\Exception $e) {
+			// log failed transport
+			if ($this->logger) {
+				$this->logger->error(
+					sprintf(
+						'Could not deserialize message "%s": %s',
+						$record['message'],
+						$e->getMessage()
+					)
+				);
+			}
+
+			$this->connection->delete($this->tableName, array('id' => $record['id']));
+
+			return false;
+		}
+	}
+
+	protected function prepareRecipientsForLogging(array $recipients)
+	{
+		$recipientNames = array();
+		foreach ($recipients as $email => $name) {
+			if (is_numeric($email)) {
+				$recipientNames[] = $name;
+			}
+			else {
+				$recipientNames[] = $email;
+			}
+		}
+		return implode(', ', $recipientNames);
+	}
+
+	protected function logPreTransportStatus(TransportInterface $transport, MessageInterface $message)
+	{
+		if ($this->logger) {
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			$this->logger->error(
+				sprintf(
+					'Begin transport of message "%s" to %s via transport "%s"',
+					$message->getSubject(),
+					$recipients,
+					get_class($transport)
+				),
+				array(
+					'message' => $message,
+				)
+			);
+		}
+
+		if ($this->eventDispatcher) {
+			$this->eventDispatcher->dispatch(
+				'avisota_queue_execution_pre_transport',
+				new PreTransportMessageEvent($message, $this)
+			);
+		}
+	}
+
+	protected function logSuccessfulStatus(
+		TransportInterface $transport,
+		MessageInterface $message,
+		TransportStatus $status
+	) {
+		if ($this->logger) {
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			if ($status->getSuccessfullySend() > 0 && count($status->getFailedRecipients()) > 0) {
+				$failedRecipients = $this->prepareRecipientsForLogging($status->getFailedRecipients());
+				$this->logger->warning(
+					sprintf(
+						'Transport message "%s" to %s via transport "%s" partial succeeded, failed for: %s with %s',
+						$message->getSubject(),
+						$recipients,
+						get_class($transport),
+						$failedRecipients,
+						$status->getException() ? $status
+							->getException()
+							->getMessage() : 'no message'
+					),
+					array(
+						'message'   => $message,
+						'status'    => $status,
+						'exception' => $status->getException(),
+					)
+				);
+			}
+			else if (count($status->getFailedRecipients()) > 0) {
+				$failedRecipients = $this->prepareRecipientsForLogging($status->getFailedRecipients());
+				$this->logger->error(
+					sprintf(
+						'Transport message "%s" to %s via transport "%s" failed for: %s with %s',
+						$message->getSubject(),
+						$recipients,
+						get_class($transport),
+						$failedRecipients,
+						$status->getException() ? $status
+							->getException()
+							->getMessage() : 'no message'
+					),
+					array(
+						'message'   => $message,
+						'status'    => $status,
+						'exception' => $status->getException(),
+					)
+				);
+			}
+			else {
+				$this->logger->debug(
+					sprintf(
+						'Transport message "%s" to %s via transport "%s" succeed',
+						$message->getSubject(),
+						$recipients,
+						get_class($transport)
+					),
+					array(
+						'message' => $message,
+						'status'  => $status,
+					)
+				);
+			}
+		}
+
+		if ($this->eventDispatcher) {
+			$this->eventDispatcher->dispatch(
+				'avisota_queue_execution_post_transport',
+				new PostTransportMessageEvent($message, $this, $status)
+			);
+		}
+	}
+
+	protected function logFailedStatus(
+		TransportInterface $transport,
+		MessageInterface $message,
+		TransportStatus $status
+	) {
+		if ($this->logger) {
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			$this->logger->error(
+				sprintf(
+					'Could not transport message "%s" to %s via transport "%s": %s',
+					$message->getSubject(),
+					$recipients,
+					get_class($transport),
+					$status
+						->getException()
+						->getMessage()
+				),
+				array(
+					'message' => $message,
+				)
+			);
+		}
+
+		if ($this->eventDispatcher) {
+			$this->eventDispatcher->dispatch(
+				'avisota_queue_execution_post_transport',
+				new PostTransportMessageEvent($message, $this, $status)
+			);
+		}
+	}
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function enqueue(MessageInterface $message, \DateTime $deliveryDate = null)
@@ -389,9 +438,9 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 		$affectedRows = $this->connection->insert(
 			$this->tableName,
 			array(
-				 'enqueue'       => date('Y-m-d H:i:s'),
-				 'message'       => serialize($message),
-				 'delivery_date' => $deliveryDate
+				'enqueue'       => date('Y-m-d H:i:s'),
+				'message'       => serialize($message),
+				'delivery_date' => $deliveryDate
 			)
 		);
 
@@ -406,7 +455,7 @@ class SimpleDatabaseQueue implements MutableQueueInterface, EventEmittingQueueIn
 		$affectedRows = $this->connection->delete(
 			$this->tableName,
 			array(
-				 'message' => serialize($message),
+				'message' => serialize($message),
 			)
 		);
 

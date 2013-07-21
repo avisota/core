@@ -30,9 +30,15 @@ class QueueHelper
 	 * @param MessageInterface         $message
 	 * @param RecipientSourceInterface $recipientSource
 	 * @param QueueInterface           $queue
+	 *
+	 * @return void
 	 */
-	public function enqueue(MessageInterface $message, RecipientSourceInterface $recipientSource, QueueInterface $queue)
-	{
+	public function enqueue(
+		MessageInterface $message,
+		RecipientSourceInterface $recipientSource,
+		QueueInterface $queue
+	) {
+		echo ($message . $recipientSource . $queue);
 		throw new Exception('Not implemented yet');
 	}
 }

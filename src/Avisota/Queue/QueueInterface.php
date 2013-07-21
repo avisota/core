@@ -60,7 +60,8 @@ interface QueueInterface
 	 * Enqueue a message.
 	 *
 	 * @param MessageInterface $message The message to enqueue.
-	 * @param \DateTime $deliveryDate The message will not delivered until this date is reached.
+	 * @param \DateTime $deliveryDate The message will not delivered until this
+	 * date is reached.
 	 *
 	 * @return bool
 	 */

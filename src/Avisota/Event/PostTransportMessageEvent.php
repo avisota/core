@@ -16,11 +16,13 @@ namespace Avisota\Event;
 
 use Avisota\Message\MessageInterface;
 use Avisota\Queue\EventEmittingQueueInterface;
+use Avisota\Transport\TransportStatus;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Event triggered after an
- * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html event emitting queue}
+ * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html
+ * event emitting queue}
  * send a message.
  *
  * @package avisota-core
@@ -28,43 +30,24 @@ use Symfony\Component\EventDispatcher\Event;
 class PostTransportMessageEvent extends AbstractTransportMessageEvent
 {
 	/**
-	 * The transport status.
-	 *
-	 * @var bool
+	 * @var TransportStatus
 	 */
-	protected $succeeded;
+	protected $status;
 
-	/**
-	 * The transport exception.
-	 *
-	 * @var \Exception|null
-	 */
-	protected $exception;
-
-	function __construct(MessageInterface $message, EventEmittingQueueInterface $queue, $succeeded, \Exception $exception = null)
-	{
+	public function __construct(
+		MessageInterface $message,
+		EventEmittingQueueInterface $queue,
+		TransportStatus $status
+	) {
 		parent::__construct($message, $queue);
-		$this->succeeded = $succeeded;
-		$this->exception = $exception;
+		$this->status = $status;
 	}
 
 	/**
-	 * Check if the transport succeeded.
-	 *
-	 * @return boolean
+	 * @return \Avisota\Transport\TransportStatus
 	 */
-	public function isSucceeded()
+	public function getStatus()
 	{
-		return $this->succeeded;
-	}
-
-	/**
-	 * If available, return the transport exception.
-	 *
-	 * @return \Exception|null
-	 */
-	public function getException()
-	{
-		return $this->exception;
+		return $this->status;
 	}
 }

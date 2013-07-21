@@ -20,7 +20,8 @@ use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Abstract event triggered by an
- * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html event emitting queue}.
+ * {@link http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html
+ * event emitting queue}.
  *
  * @package avisota-core
  */
@@ -40,7 +41,7 @@ abstract class AbstractTransportMessageEvent extends Event
 	 */
 	protected $queue;
 
-	function __construct(MessageInterface $message, EventEmittingQueueInterface $queue)
+	public function __construct(MessageInterface $message, EventEmittingQueueInterface $queue)
 	{
 		$this->message = $message;
 		$this->queue   = $queue;

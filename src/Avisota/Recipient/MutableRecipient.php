@@ -26,6 +26,10 @@ class MutableRecipient implements RecipientInterface
 	 */
 	protected $data = array();
 
+	/**
+	 * @param       $email
+	 * @param array $details
+	 */
 	public function __construct($email, array $details = array())
 	{
 		$this->setEmail($email);
@@ -45,6 +49,7 @@ class MutableRecipient implements RecipientInterface
 	 *
 	 * @param $email
 	 *
+	 * @return void
 	 * @throws MutableRecipientDataException
 	 */
 	public function setEmail($email)
@@ -79,7 +84,10 @@ class MutableRecipient implements RecipientInterface
 	 * Set a personal data field.
 	 *
 	 * @param string $name  The name of the field.
-	 * @param mixed  $value The value of the field. A value of <code>null</code> delete the field.
+	 * @param mixed  $value The value of the field. A value of
+	 *                      <code>null</code> delete the field.
+	 *
+	 * @return void
 	 */
 	public function set($name, $value)
 	{
@@ -106,6 +114,8 @@ class MutableRecipient implements RecipientInterface
 	 * Set multiple personal data fields.
 	 *
 	 * @param array $details
+	 *
+	 * @return void
 	 */
 	public function setDetails(array $details)
 	{

@@ -25,6 +25,8 @@ interface TransportInterface
 {
 	/**
 	 * Initialise transport.
+	 *
+	 * @return void
 	 */
 	public function initialise();
 
@@ -38,6 +40,8 @@ interface TransportInterface
 
 	/**
 	 * Flush transport.
+	 *
+	 * @return void
 	 */
 	public function flush();
 }
