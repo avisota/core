@@ -29,7 +29,7 @@ class SwiftTransport extends AbstractTransport
 	 */
 	protected $swiftMailer;
 
-	function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
+	public function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
 	{
 		$this->setSwiftMailer($swiftMailer);
 		$this->setRenderer($renderer);

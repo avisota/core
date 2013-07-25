@@ -29,7 +29,10 @@ class QueueTransport implements TransportInterface
 	 */
 	protected $queue;
 
-	function __construct(QueueInterface $queue)
+	/**
+	 * @param QueueInterface $queue
+	 */
+	public function __construct(QueueInterface $queue)
 	{
 		$this->queue = $queue;
 	}
