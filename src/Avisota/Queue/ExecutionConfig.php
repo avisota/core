@@ -26,7 +26,14 @@ class ExecutionConfig
 	 *
 	 * @var int
 	 */
-	protected $limit = 0;
+	protected $messageLimit = 0;
+
+	/**
+	 * Limit execution time in seconds.
+	 *
+	 * @var int
+	 */
+	protected $timeLimit = 0;
 
 	/**
 	 * @var ExecutionDeciderInterface
@@ -34,20 +41,37 @@ class ExecutionConfig
 	protected $decider = null;
 
 	/**
-	 * @param int $limit
+	 * @param int $messageLimit
 	 */
-	public function setLimit($limit)
+	public function setMessageLimit($messageLimit)
 	{
-		$this->limit = (int) $limit;
+		$this->messageLimit = (int) $messageLimit;
 		return $this;
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getLimit()
+	public function getMessageLimit()
 	{
-		return $this->limit;
+		return $this->messageLimit;
+	}
+
+	/**
+	 * @param int $timeLimit
+	 */
+	public function setTimeLimit($timeLimit)
+	{
+		$this->timeLimit = $timeLimit;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getTimeLimit()
+	{
+		return $this->timeLimit;
 	}
 
 	/**

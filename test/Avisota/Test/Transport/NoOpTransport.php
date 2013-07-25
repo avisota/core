@@ -57,7 +57,7 @@ class NoOpTransport implements TransportInterface
 	 *
 	 * @return TransportStatus
 	 */
-	public function transport(MessageInterface $message)
+	public function send(MessageInterface $message)
 	{
 		$this->messages[] = $message;
 
@@ -66,10 +66,10 @@ class NoOpTransport implements TransportInterface
 				return new TransportStatus($message, 1);
 
 			case static::SUCCEED_PARTIAL:
-				return new TransportStatus($message, 1, $message->getRecipient());
+				return new TransportStatus($message, 1, $message->getRecipients());
 
 			case static::FAILED:
-				return new TransportStatus($message, 0, $message->getRecipient());
+				return new TransportStatus($message, 0, $message->getRecipients());
 		}
 	}
 

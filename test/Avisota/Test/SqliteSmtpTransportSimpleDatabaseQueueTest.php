@@ -23,7 +23,7 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Statement;
 
-class SmtpTransportSimpleDatabaseQueueTest extends AbstractSimpleDatabaseQueueTest
+class SqliteSmtpTransportSimpleDatabaseQueueTest extends AbstractSimpleDatabaseQueueTest
 {
 	public function setUp()
 	{

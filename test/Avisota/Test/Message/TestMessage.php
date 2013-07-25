@@ -38,7 +38,7 @@ class TestMessage implements MessageInterface
 	/**
 	 * @return array
 	 */
-	public function getRecipient()
+	public function getRecipients()
 	{
 		return array('unittest@avisota.org');
 	}
@@ -58,7 +58,7 @@ class TestMessage implements MessageInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getCopyRecipient()
+	public function getCopyRecipients()
 	{
 		return array();
 	}
@@ -66,7 +66,7 @@ class TestMessage implements MessageInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getBlindCopyRecipient()
+	public function getBlindCopyRecipients()
 	{
 		return array();
 	}
@@ -101,19 +101,6 @@ class TestMessage implements MessageInterface
 	public function getSubject()
 	{
 		return 'Unit Test test message';
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function createSwiftMessage()
-	{
-		$message = \Swift_Message::newInstance();
-		$message->setTo($this->getRecipient());
-		$message->setFrom($this->getFrom());
-		$message->setSubject($this->getSubject());
-		$message->setBody($this->text, 'text/plain');
-		return $message;
 	}
 
 	/**

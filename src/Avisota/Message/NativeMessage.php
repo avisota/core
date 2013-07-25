@@ -39,7 +39,7 @@ class NativeMessage implements MessageInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getRecipient()
+	public function getRecipients()
 	{
 		return $this->message->getTo();
 	}
@@ -55,7 +55,7 @@ class NativeMessage implements MessageInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getCopyRecipient()
+	public function getCopyRecipients()
 	{
 		return $this->message->getCc();
 	}
@@ -63,7 +63,7 @@ class NativeMessage implements MessageInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getBlindCopyRecipient()
+	public function getBlindCopyRecipients()
 	{
 		return $this->message->getBcc();
 	}
@@ -101,9 +101,9 @@ class NativeMessage implements MessageInterface
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return \Swift_Message
 	 */
-	public function createSwiftMessage()
+	public function getMessage()
 	{
 		return $this->message;
 	}

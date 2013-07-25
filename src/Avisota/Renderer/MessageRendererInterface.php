@@ -12,36 +12,30 @@
  * @link       http://avisota.org
  */
 
-namespace Avisota\Transport;
+namespace Avisota\Renderer;
 
 use Avisota\Message\MessageInterface;
 
 /**
- * The transport interface.
+ * The basic message interface.
  *
  * @package avisota-core
  */
-interface TransportInterface
+interface MessageRendererInterface
 {
 	/**
-	 * Initialise transport.
+	 * Render a message and create a Swift_Message.
 	 *
-	 * @return void
+	 * @return \Swift_Message
 	 */
-	public function initialise();
+	public function renderMessage(MessageInterface $message);
 
 	/**
-	 * Transport a message.
+	 * Check if this renderer can render the message.
 	 *
 	 * @param MessageInterface $message
-	 * @return TransportStatus
-	 */
-	public function send(MessageInterface $message);
-
-	/**
-	 * Flush transport.
 	 *
-	 * @return void
+	 * @return bool
 	 */
-	public function flush();
+	public function canRender(MessageInterface $message);
 }

@@ -14,14 +14,14 @@
 
 namespace Avisota\Transport;
 
-use Avisota\Message\MessageInterface;
+use Avisota\Renderer\MessageRendererInterface;
 
 /**
  * Transport using swift smtp transport.
  *
  * @package avisota-core
  */
-class SwiftSmtpTransport extends SwiftTransport
+class SmtpTransport extends AbstractSwiftTransport
 {
 	/**
 	 * @var string
@@ -60,20 +60,22 @@ class SwiftSmtpTransport extends SwiftTransport
 	 * @param null   $password
 	 * @param null   $encryption
 	 *
-	 * @return SwiftSmtpTransport
+	 * @return SmtpTransport
 	 */
 	public function __construct(
 		$host = 'localhost',
 		$port = null,
 		$username = null,
 		$password = null,
-		$encryption = null
+		$encryption = null,
+		MessageRendererInterface $renderer
 	) {
 		$this->host       = $host;
 		$this->port       = $port;
 		$this->username   = $username;
 		$this->password   = $password;
 		$this->encryption = $encryption;
+		$this->setRenderer($renderer);
 	}
 
 	/**

@@ -24,22 +24,17 @@ interface MessageInterface extends \Serializable
 	/**
 	 * @return array
 	 */
-	public function getRecipient();
+	public function getRecipients();
 
 	/**
 	 * @return array
 	 */
-	public function getRecipientDetails();
+	public function getCopyRecipients();
 
 	/**
 	 * @return array
 	 */
-	public function getCopyRecipient();
-
-	/**
-	 * @return array
-	 */
-	public function getBlindCopyRecipient();
+	public function getBlindCopyRecipients();
 
 	/**
 	 * @return string
@@ -60,9 +55,4 @@ interface MessageInterface extends \Serializable
 	 * @return string
 	 */
 	public function getSubject();
-
-	/**
-	 * @return \Swift_Message
-	 */
-	public function createSwiftMessage();
 }

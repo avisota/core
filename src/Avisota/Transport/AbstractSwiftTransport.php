@@ -15,41 +15,30 @@
 namespace Avisota\Transport;
 
 use Avisota\Message\MessageInterface;
-use Avisota\Renderer\MessageRendererInterface;
 
 /**
- * Transport using a pre configured swift transport.
+ * Abstract transport using a swift transport.
  *
  * @package avisota-core
  */
-class SwiftTransport extends AbstractTransport
+abstract class AbstractSwiftTransport extends AbstractTransport
 {
 	/**
 	 * @var \Swift_Mailer|null
 	 */
 	protected $swiftMailer;
 
-	function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
-	{
-		$this->setSwiftMailer($swiftMailer);
-		$this->setRenderer($renderer);
-	}
-
-	/**
-	 * @param \Swift_Mailer $swiftMailer
-	 */
-	public function setSwiftMailer(\Swift_Mailer $swiftMailer)
-	{
-		$this->swiftMailer = $swiftMailer;
-		return $this;
-	}
-
 	/**
 	 * @return \Swift_Mailer
 	 */
-	public function getSwiftMailer()
+	abstract protected function createMailer();
+
+	/**
+	 * @return void
+	 */
+	protected function resetMailer()
 	{
-		return $this->swiftMailer;
+		$this->swiftMailer = null;
 	}
 
 	/**
@@ -57,6 +46,9 @@ class SwiftTransport extends AbstractTransport
 	 */
 	public function initialise()
 	{
+		if (!$this->swiftMailer) {
+			$this->swiftMailer = $this->createMailer();
+		}
 	}
 
 	/**

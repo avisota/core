@@ -179,6 +179,8 @@ class SimpleDatabaseQueue
 	 */
 	public function execute(TransportInterface $transport, ExecutionConfig $config = null)
 	{
+		$timeout = $config && $config->getTimeLimit() > 0 ? time() + $config->getTimeLimit() : PHP_INT_MAX;
+
 		$resultSet = $this->selectRecords($config);
 
 		$results = array();
@@ -195,47 +197,23 @@ class SimpleDatabaseQueue
 		 */
 		$transport->initialise();
 
-		foreach ($resultSet as $record) {
-			if ($record['delivery_date']) {
-				$deliveryDate = \DateTime::createFromFormat('Y-m-d H:i:s', $record['delivery_date']);
-				if ($deliveryDate->getTimestamp() > time()) {
-					continue;
-				}
+		while (count($resultSet) && time() < $timeout) {
+			$record = array_shift($resultSet);
+
+			$status = $this->transport($transport, $decider, $record);
+
+			if ($status) {
+				$results[] = $status;
+				$this->connection->delete($this->tableName, array('id' => $record['id']));
 			}
-
-			$message = $this->deserializeMessage($record);
-
-			// skip message
-			if (!$message || $decider && !$decider->accept($message)) {
-				continue;
-			}
-
-			// log pre transport
-			$this->logPreTransportStatus($transport, $message);
-
-			try {
-				// try to transport message
-				$status = $transport->transport($message);
-
-				// log successful transport
-				$this->logSuccessfulStatus($transport, $message, $status);
-			}
-			catch (\Exception $e) {
-				$status = new TransportStatus($message, 0, $message->getRecipient(), $e);
-
-				// log failed transport
-				$this->logFailedStatus($transport, $message, $status);
-			}
-
-			$results[] = $status;
-
-			$this->connection->delete($this->tableName, array('id' => $record['id']));
 		}
 
 		/**
 		 * Flush transport
 		 */
 		$transport->flush();
+
+		return $results;
 	}
 
 	/**
@@ -249,8 +227,8 @@ class SimpleDatabaseQueue
 			->from($this->tableName, 'q');
 
 		if ($config) {
-			if ($config->getLimit() > 0) {
-				$queryBuilder->setMaxResults($config->getLimit());
+			if ($config->getMessageLimit() > 0) {
+				$queryBuilder->setMaxResults($config->getMessageLimit());
 			}
 		}
 
@@ -289,6 +267,59 @@ class SimpleDatabaseQueue
 		}
 	}
 
+	/**
+	 * Do the transport of the message and create a status information object.
+	 *
+	 * @param TransportInterface $transport
+	 * @param MessageInterface   $message
+	 *
+	 * @return TransportStatus
+	 */
+	protected function transport(TransportInterface $transport, ExecutionDeciderInterface $decider = null, $record)
+	{
+		if ($record['delivery_date']) {
+			$deliveryDate = \DateTime::createFromFormat('Y-m-d H:i:s', $record['delivery_date']);
+			if ($deliveryDate->getTimestamp() > time()) {
+				return false;
+			}
+		}
+
+		$message = $this->deserializeMessage($record);
+
+		// skip message
+		if (!$message || $decider && !$decider->accept($message)) {
+			return false;
+		}
+
+		// log pre transport
+		$this->logPreTransportStatus($transport, $message);
+
+		try {
+			// try to transport message
+			$status = $transport->send($message);
+
+			// log successful transport
+			$this->logSuccessfulStatus($transport, $message, $status);
+		}
+		catch (\Exception $e) {
+			$status = new TransportStatus(
+				$message,
+				0,
+				array_merge(
+					$message->getRecipients(),
+					$message->getCopyRecipients(),
+					$message->getBlindCopyRecipients()
+				),
+				$e
+			);
+
+			// log failed transport
+			$this->logFailedStatus($transport, $message, $status);
+		}
+
+		return $status;
+	}
+
 	protected function prepareRecipientsForLogging(array $recipients)
 	{
 		$recipientNames = array();
@@ -306,7 +337,7 @@ class SimpleDatabaseQueue
 	protected function logPreTransportStatus(TransportInterface $transport, MessageInterface $message)
 	{
 		if ($this->logger) {
-			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipients());
 			$this->logger->error(
 				sprintf(
 					'Begin transport of message "%s" to %s via transport "%s"',
@@ -334,7 +365,7 @@ class SimpleDatabaseQueue
 		TransportStatus $status
 	) {
 		if ($this->logger) {
-			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipients());
 			if ($status->getSuccessfullySend() > 0 && count($status->getFailedRecipients()) > 0) {
 				$failedRecipients = $this->prepareRecipientsForLogging($status->getFailedRecipients());
 				$this->logger->warning(
@@ -405,7 +436,7 @@ class SimpleDatabaseQueue
 		TransportStatus $status
 	) {
 		if ($this->logger) {
-			$recipients = $this->prepareRecipientsForLogging($message->getRecipient());
+			$recipients = $this->prepareRecipientsForLogging($message->getRecipients());
 			$this->logger->error(
 				sprintf(
 					'Could not transport message "%s" to %s via transport "%s": %s',

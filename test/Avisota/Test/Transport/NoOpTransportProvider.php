@@ -14,7 +14,7 @@
 
 namespace Avisota\Test\Transport;
 
-use Avisota\Transport\SwiftSmtpTransport;
+use Avisota\Transport\SmtpTransport;
 
 class NoOpTransportProvider implements TransportProviderInterface
 {
