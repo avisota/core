@@ -16,6 +16,11 @@ namespace Avisota\Transport;
 
 use Avisota\Renderer\MessageRendererInterface;
 
+/**
+ * Abstract transport base class.
+ *
+ * @author     Tristan Lins <tristan.lins@bit3.de>
+ */
 abstract class AbstractTransport implements TransportInterface
 {
 	/**
