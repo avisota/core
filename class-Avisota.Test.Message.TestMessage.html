@@ -7,7 +7,7 @@
 	<title>Class Avisota\Test\Message\TestMessage | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?894646403"></script>
+	<script type="text/javascript" src="elementlist.js?2583402873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -33,6 +33,8 @@
 						</li>
 				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
+				<li><a href="namespace-Avisota.Renderer.html">Renderer</a>
+						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
 				<li class="active"><a href="namespace-Avisota.Test.html">Test<span></span></a>
@@ -44,6 +46,8 @@
 				<li class="active"><a href="namespace-Avisota.Test.Message.html">Message</a>
 						</li>
 				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Renderer.html">Renderer</a>
 						</li>
 				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
 						</li>
@@ -144,7 +148,7 @@
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Test.html">Test</a>\<a href="namespace-Avisota.Test.Message.html">Message</a><br />
 		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.Test.Message.TestMessage.html#19-134" title="Go to source code">test/Avisota/Test/Message/TestMessage.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Test.Message.TestMessage.html#19-121" title="Go to source code">test/Avisota/Test/Message/TestMessage.php</a><br />
 	</div>
 
 
@@ -213,7 +217,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getRecipient" id="_getRecipient">
+	<tr data-order="getRecipients" id="_getRecipients">
 
 		<td class="attributes"><code>
 			 public 
@@ -223,8 +227,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getRecipient">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#38-44" title="Go to source code">getRecipient</a>( )</code>
+		<a class="anchor" href="#_getRecipients">#</a>
+		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#38-44" title="Go to source code">getRecipients</a>( )</code>
 
 		<div class="description short">
 			
@@ -244,7 +248,7 @@
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getRecipient">Avisota\Message\MessageInterface::getRecipient()</a></code></div>
+				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getRecipients">Avisota\Message\MessageInterface::getRecipients()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -252,7 +256,7 @@
 
 		<td class="attributes"><code>
 			 public 
-			array
+			
 			
 			</code>
 		</td>
@@ -270,20 +274,14 @@
 
 
 
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
 
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getRecipientDetails">Avisota\Message\MessageInterface::getRecipientDetails()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getCopyRecipient" id="_getCopyRecipient">
+	<tr data-order="getCopyRecipients" id="_getCopyRecipients">
 
 		<td class="attributes"><code>
 			 public 
@@ -293,8 +291,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getCopyRecipient">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#58-64" title="Go to source code">getCopyRecipient</a>( )</code>
+		<a class="anchor" href="#_getCopyRecipients">#</a>
+		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#58-64" title="Go to source code">getCopyRecipients</a>( )</code>
 
 		<div class="description short">
 			
@@ -314,11 +312,11 @@
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getCopyRecipient">Avisota\Message\MessageInterface::getCopyRecipient()</a></code></div>
+				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getCopyRecipients">Avisota\Message\MessageInterface::getCopyRecipients()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getBlindCopyRecipient" id="_getBlindCopyRecipient">
+	<tr data-order="getBlindCopyRecipients" id="_getBlindCopyRecipients">
 
 		<td class="attributes"><code>
 			 public 
@@ -328,8 +326,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getBlindCopyRecipient">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#66-72" title="Go to source code">getBlindCopyRecipient</a>( )</code>
+		<a class="anchor" href="#_getBlindCopyRecipients">#</a>
+		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#66-72" title="Go to source code">getBlindCopyRecipients</a>( )</code>
 
 		<div class="description short">
 			
@@ -349,7 +347,7 @@
 
 
 				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getBlindCopyRecipient">Avisota\Message\MessageInterface::getBlindCopyRecipient()</a></code></div>
+				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_getBlindCopyRecipients">Avisota\Message\MessageInterface::getBlindCopyRecipients()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -493,41 +491,6 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="createSwiftMessage" id="_createSwiftMessage">
-
-		<td class="attributes"><code>
-			 public 
-			Swift_Message
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_createSwiftMessage">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#106-117" title="Go to source code">createSwiftMessage</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>Swift_Message</code><br />
-				</div>
-
-
-
-
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Avisota.Message.MessageInterface.html#_createSwiftMessage">Avisota\Message\MessageInterface::createSwiftMessage()</a></code></div>
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="serialize" id="_serialize">
 
 		<td class="attributes"><code>
@@ -539,7 +502,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_serialize">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#119-125" title="Go to source code">serialize</a>( )</code>
+		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#106-112" title="Go to source code">serialize</a>( )</code>
 
 		<div class="description short">
 			
@@ -568,7 +531,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unserialize">#</a>
-		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#127-133" title="Go to source code">unserialize</a>( <span>mixed <var>$serialized</var></span> )</code>
+		<code><a href="source-class-Avisota.Test.Message.TestMessage.html#114-120" title="Go to source code">unserialize</a>( <span>mixed <var>$serialized</var></span> )</code>
 
 		<div class="description short">
 			

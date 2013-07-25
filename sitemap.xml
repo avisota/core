@@ -22,6 +22,9 @@
 	<loc>http://avisota.github.io/core/namespace-Avisota.RecipientSource.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Renderer.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/namespace-Avisota.Templating.html</loc>
 </url>
 <url>
@@ -38,6 +41,9 @@
 </url>
 <url>
 	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Queue.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Renderer.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/namespace-Avisota.Test.Transport.html</loc>
@@ -75,6 +81,9 @@
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.CSVFile.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.Renderer.MessageRendererChain.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Test.AbstractQueueTest.html</loc>
 </url>
 <url>
@@ -96,7 +105,10 @@
 	<loc>http://avisota.github.io/core/class-Avisota.Test.Queue.TestQueueExecutionDecider.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Test.SmtpTransportSimpleDatabaseQueueTest.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.Renderer.TestMessageRenderer.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Test.SqliteSmtpTransportSimpleDatabaseQueueTest.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.NoOpTransport.html</loc>
@@ -108,7 +120,16 @@
 	<loc>http://avisota.github.io/core/class-Avisota.Test.Transport.SmtpTransportProvider.html</loc>
 </url>
 <url>
-	<loc>http://avisota.github.io/core/class-Avisota.Transport.SwiftSmtpTransport.html</loc>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.AbstractSwiftTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.AbstractTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.QueueTransport.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Transport.SmtpTransport.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Transport.SwiftTransport.html</loc>
@@ -142,6 +163,9 @@
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.RecipientSourceInterface.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Renderer.MessageRendererInterface.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Templating.MessageTemplateInterface.html</loc>

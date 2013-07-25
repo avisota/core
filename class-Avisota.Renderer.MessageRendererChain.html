@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Avisota\Renderer\MessageRendererChain | avisota/core</title>
+
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?2583402873"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
+						</li>
+				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li class="active"><a href="namespace-Avisota.Renderer.html">Renderer</a>
+						</li>
+				<li><a href="namespace-Avisota.Templating.html">Templating</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Renderer.html">Renderer</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Avisota.Renderer.MessageRendererChain.html">MessageRendererChain</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Avisota.Renderer.MessageRendererInterface.html">MessageRendererInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Avisota.Renderer.html" title="Summary of Avisota\Renderer"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="avisota-core-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class MessageRendererChain</h1>
+
+
+	<div class="description">
+	
+<p>The basic message interface.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Avisota\Renderer\MessageRendererChain</span></b>			
+			 implements 
+				<a href="class-Avisota.Renderer.MessageRendererInterface.html"><span>Avisota\Renderer\MessageRendererInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Renderer.html">Renderer</a><br />
+		<b>Package:</b> avisota-core<br />
+
+		<b>Located at</b> <a href="source-class-Avisota.Renderer.MessageRendererChain.html#17-97" title="Go to source code">src/Avisota/Renderer/MessageRendererChain.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="addRenderer" id="_addRenderer">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addRenderer">#</a>
+		<code><a href="source-class-Avisota.Renderer.MessageRendererChain.html#29-49" title="Go to source code">addRenderer</a>( <span><code><a href="class-Avisota.Renderer.MessageRendererInterface.html">Avisota\Renderer\MessageRendererInterface</a></code> <var>$renderer</var></span>, <span>integer <var>$priority</var> = <span class="php-num">0</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Add a renderer to this chain.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add a renderer to this chain.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$renderer</var></dt>
+					<dd><code><code><a href="class-Avisota.Renderer.MessageRendererInterface.html">Avisota\Renderer\MessageRendererInterface</a></code></code><br>$renderer The renderer to add.</dd>
+					<dt><var>$priority</var></dt>
+					<dd><code>integer</code><br>$priority The priority of the renderer, higher value means higher priority.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="removeRenderer" id="_removeRenderer">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_removeRenderer">#</a>
+		<code><a href="source-class-Avisota.Renderer.MessageRendererChain.html#51-64" title="Go to source code">removeRenderer</a>( <span><code><a href="class-Avisota.Renderer.MessageRendererInterface.html">Avisota\Renderer\MessageRendererInterface</a></code> <var>$renderer</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Remove a renderer from this chain.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Remove a renderer from this chain.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$renderer</var></dt>
+					<dd><code><code><a href="class-Avisota.Renderer.MessageRendererInterface.html">Avisota\Renderer\MessageRendererInterface</a></code></code><br>$renderer</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderMessage" id="_renderMessage">
+
+		<td class="attributes"><code>
+			 public 
+			Swift_Message
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderMessage">#</a>
+		<code><a href="source-class-Avisota.Renderer.MessageRendererChain.html#66-80" title="Go to source code">renderMessage</a>( <span>Avisota\Renderer\MessageInterface <var>$message</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Render a message and create a Swift_Message.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Render a message and create a Swift_Message.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Swift_Message</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Renderer.MessageRendererInterface.html#_renderMessage">Avisota\Renderer\MessageRendererInterface::renderMessage()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="canRender" id="_canRender">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_canRender">#</a>
+		<code><a href="source-class-Avisota.Renderer.MessageRendererChain.html#82-96" title="Go to source code">canRender</a>( <span>Avisota\Renderer\MessageInterface <var>$message</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Check if this renderer can render the message.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Check if this renderer can render the message.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message</var></dt>
+					<dd><code>MessageInterface</code><br>$message</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Renderer.MessageRendererInterface.html#_canRender">Avisota\Renderer\MessageRendererInterface::canRender()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="chain" id="$chain">
+		<td class="attributes"><code>
+			protected  
+			MessageRendererInterface[][]
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Renderer.MessageRendererChain.html#24-27" title="Go to source code"><var>$chain</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$chain" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

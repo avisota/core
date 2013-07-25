@@ -7,7 +7,7 @@
 	<title>Tree | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?894646403"></script>
+	<script type="text/javascript" src="elementlist.js?2583402873"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -33,6 +33,8 @@
 						</li>
 				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
+				<li><a href="namespace-Avisota.Renderer.html">Renderer</a>
+						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
 				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
@@ -44,6 +46,8 @@
 				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
 						</li>
 				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Renderer.html">Renderer</a>
 						</li>
 				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
 						</li>
@@ -69,6 +73,7 @@
 				<li><a href="class-Avisota.Queue.SimpleDatabaseQueue.html">Avisota\Queue\SimpleDatabaseQueue</a></li>
 				<li><a href="class-Avisota.Recipient.MutableRecipient.html">Avisota\Recipient\MutableRecipient</a></li>
 				<li><a href="class-Avisota.RecipientSource.CSVFile.html">Avisota\RecipientSource\CSVFile</a></li>
+				<li><a href="class-Avisota.Renderer.MessageRendererChain.html">Avisota\Renderer\MessageRendererChain</a></li>
 				<li><a href="class-Avisota.Test.AbstractQueueTest.html">Avisota\Test\AbstractQueueTest</a></li>
 				<li><a href="class-Avisota.Test.AbstractSimpleDatabaseQueueTest.html">Avisota\Test\AbstractSimpleDatabaseQueueTest</a></li>
 				<li><a href="class-Avisota.Test.Database.SqliteDoctrineConnectionProvider.html">Avisota\Test\Database\SqliteDoctrineConnectionProvider</a></li>
@@ -76,11 +81,15 @@
 				<li><a href="class-Avisota.Test.Imap.ImapMailboxChecker.html">Avisota\Test\Imap\ImapMailboxChecker</a></li>
 				<li><a href="class-Avisota.Test.Message.TestMessage.html">Avisota\Test\Message\TestMessage</a></li>
 				<li><a href="class-Avisota.Test.Queue.TestQueueExecutionDecider.html">Avisota\Test\Queue\TestQueueExecutionDecider</a></li>
-				<li><a href="class-Avisota.Test.SmtpTransportSimpleDatabaseQueueTest.html">Avisota\Test\SmtpTransportSimpleDatabaseQueueTest</a></li>
+				<li><a href="class-Avisota.Test.Renderer.TestMessageRenderer.html">Avisota\Test\Renderer\TestMessageRenderer</a></li>
+				<li><a href="class-Avisota.Test.SqliteSmtpTransportSimpleDatabaseQueueTest.html">Avisota\Test\SqliteSmtpTransportSimpleDatabaseQueueTest</a></li>
 				<li><a href="class-Avisota.Test.Transport.NoOpTransport.html">Avisota\Test\Transport\NoOpTransport</a></li>
 				<li><a href="class-Avisota.Test.Transport.NoOpTransportProvider.html">Avisota\Test\Transport\NoOpTransportProvider</a></li>
 				<li><a href="class-Avisota.Test.Transport.SmtpTransportProvider.html">Avisota\Test\Transport\SmtpTransportProvider</a></li>
-				<li><a href="class-Avisota.Transport.SwiftSmtpTransport.html">Avisota\Transport\SwiftSmtpTransport</a></li>
+				<li><a href="class-Avisota.Transport.AbstractSwiftTransport.html">Avisota\Transport\AbstractSwiftTransport</a></li>
+				<li><a href="class-Avisota.Transport.AbstractTransport.html">Avisota\Transport\AbstractTransport</a></li>
+				<li><a href="class-Avisota.Transport.QueueTransport.html">Avisota\Transport\QueueTransport</a></li>
+				<li><a href="class-Avisota.Transport.SmtpTransport.html">Avisota\Transport\SmtpTransport</a></li>
 				<li><a href="class-Avisota.Transport.SwiftTransport.html">Avisota\Transport\SwiftTransport</a></li>
 				<li><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></li>
 			</ul>
@@ -96,6 +105,7 @@
 				<li><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></li>
 				<li><a href="class-Avisota.Recipient.RecipientInterface.html">Avisota\Recipient\RecipientInterface</a></li>
 				<li><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html">Avisota\RecipientSource\RecipientSourceInterface</a></li>
+				<li><a href="class-Avisota.Renderer.MessageRendererInterface.html">Avisota\Renderer\MessageRendererInterface</a></li>
 				<li><a href="class-Avisota.Templating.MessageTemplateInterface.html">Avisota\Templating\MessageTemplateInterface</a></li>
 				<li><a href="class-Avisota.Test.Database.DoctrineConnectionProviderInterface.html">Avisota\Test\Database\DoctrineConnectionProviderInterface</a></li>
 				<li><a href="class-Avisota.Test.Imap.ImapConnectionProviderInterface.html">Avisota\Test\Imap\ImapConnectionProviderInterface</a></li>
@@ -213,6 +223,15 @@
 
 				</li>
 
+			<li><div class="notlast"><a href="class-Avisota.Renderer.MessageRendererChain.html"><span>Avisota\Renderer\MessageRendererChain</span></a>
+			 implements 
+				<a href="class-Avisota.Renderer.MessageRendererInterface.html"><span>Avisota\Renderer\MessageRendererInterface</span></a>
+			
+			
+			</div>
+
+				</li>
+
 			<li><div class="notlast"><a href="class-Avisota.Test.Database.SqliteDoctrineConnectionProvider.html"><span>Avisota\Test\Database\SqliteDoctrineConnectionProvider</span></a>
 			 implements 
 				<a href="class-Avisota.Test.Database.DoctrineConnectionProviderInterface.html"><span>Avisota\Test\Database\DoctrineConnectionProviderInterface</span></a>
@@ -256,6 +275,15 @@
 
 				</li>
 
+			<li><div class="notlast"><a href="class-Avisota.Test.Renderer.TestMessageRenderer.html"><span>Avisota\Test\Renderer\TestMessageRenderer</span></a>
+			 implements 
+				<a href="class-Avisota.Renderer.MessageRendererInterface.html"><span>Avisota\Renderer\MessageRendererInterface</span></a>
+			
+			
+			</div>
+
+				</li>
+
 			<li><div class="notlast"><a href="class-Avisota.Test.Transport.NoOpTransport.html"><span>Avisota\Test\Transport\NoOpTransport</span></a>
 			 implements 
 				<a href="class-Avisota.Transport.TransportInterface.html"><span>Avisota\Transport\TransportInterface</span></a>
@@ -283,7 +311,7 @@
 
 				</li>
 
-			<li><div class="notlast"><a href="class-Avisota.Transport.SwiftTransport.html"><span>Avisota\Transport\SwiftTransport</span></a>
+			<li><div class="notlast"><a href="class-Avisota.Transport.AbstractTransport.html"><span>Avisota\Transport\AbstractTransport</span></a>
 			 implements 
 				<a href="class-Avisota.Transport.TransportInterface.html"><span>Avisota\Transport\TransportInterface</span></a>
 			
@@ -292,12 +320,35 @@
 
 				<ul>
 
-			<li class="last"><div class="last"><a href="class-Avisota.Transport.SwiftSmtpTransport.html"><span>Avisota\Transport\SwiftSmtpTransport</span></a>
+			<li><div class="notlast"><a href="class-Avisota.Transport.AbstractSwiftTransport.html"><span>Avisota\Transport\AbstractSwiftTransport</span></a>
+			
+			
+			</div>
+
+				<ul>
+
+			<li class="last"><div class="last"><a href="class-Avisota.Transport.SmtpTransport.html"><span>Avisota\Transport\SmtpTransport</span></a>
 			
 			
 			</div>
 
 				</ul></li>
+
+			<li class="last"><div class="last"><a href="class-Avisota.Transport.SwiftTransport.html"><span>Avisota\Transport\SwiftTransport</span></a>
+			
+			
+			</div>
+
+				</ul></li>
+
+			<li><div class="notlast"><a href="class-Avisota.Transport.QueueTransport.html"><span>Avisota\Transport\QueueTransport</span></a>
+			 implements 
+				<a href="class-Avisota.Transport.TransportInterface.html"><span>Avisota\Transport\TransportInterface</span></a>
+			
+			
+			</div>
+
+				</li>
 
 			<li><div class="notlast"><a href="class-Avisota.Transport.TransportStatus.html"><span>Avisota\Transport\TransportStatus</span></a>
 			
@@ -326,7 +377,7 @@
 
 				<ul>
 
-			<li class="last"><div class="last"><a href="class-Avisota.Test.SmtpTransportSimpleDatabaseQueueTest.html"><span>Avisota\Test\SmtpTransportSimpleDatabaseQueueTest</span></a>
+			<li class="last"><div class="last"><a href="class-Avisota.Test.SqliteSmtpTransportSimpleDatabaseQueueTest.html"><span>Avisota\Test\SqliteSmtpTransportSimpleDatabaseQueueTest</span></a>
 			
 			
 			</div>
@@ -430,6 +481,13 @@
 				</li>
 
 			<li><div class="notlast"><a href="class-Avisota.Recipient.RecipientInterface.html"><span>Avisota\Recipient\RecipientInterface</span></a>
+			
+			
+			</div>
+
+				</li>
+
+			<li><div class="notlast"><a href="class-Avisota.Renderer.MessageRendererInterface.html"><span>Avisota\Renderer\MessageRendererInterface</span></a>
 			
 			
 			</div>
