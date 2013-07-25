@@ -30,7 +30,8 @@ class MessageRendererChain implements MessageRendererInterface
 	 * Add a renderer to this chain.
 	 *
 	 * @param MessageRendererInterface $renderer The renderer to add.
-	 * @param int                      $priority The priority of the renderer, higher value means higher priority.
+	 * @param int                      $priority The priority of the renderer,
+	 *                                           higher value means higher priority.
 	 *
 	 * @return void
 	 */

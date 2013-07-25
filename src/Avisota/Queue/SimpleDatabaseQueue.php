@@ -179,7 +179,9 @@ class SimpleDatabaseQueue
 	 */
 	public function execute(TransportInterface $transport, ExecutionConfig $config = null)
 	{
-		$timeout = $config && $config->getTimeLimit() > 0 ? time() + $config->getTimeLimit() : PHP_INT_MAX;
+		$timeout = $config && $config->getTimeLimit() > 0
+			? time() + $config->getTimeLimit()
+			: PHP_INT_MAX;
 
 		$resultSet = $this->selectRecords($config);
 
