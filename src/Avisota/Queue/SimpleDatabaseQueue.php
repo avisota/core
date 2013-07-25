@@ -277,8 +277,11 @@ class SimpleDatabaseQueue
 	 *
 	 * @return TransportStatus
 	 */
-	protected function transport(TransportInterface $transport, ExecutionDeciderInterface $decider = null, $record)
-	{
+	protected function transport(
+		TransportInterface $transport,
+		ExecutionDeciderInterface $decider = null,
+		$record
+	) {
 		if ($record['delivery_date']) {
 			$deliveryDate = \DateTime::createFromFormat('Y-m-d H:i:s', $record['delivery_date']);
 			if ($deliveryDate->getTimestamp() > time()) {
