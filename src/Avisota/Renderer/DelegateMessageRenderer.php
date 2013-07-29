@@ -17,6 +17,12 @@ namespace Avisota\Renderer;
 use Avisota\Message\MessageInterface;
 use Avisota\Message\NativeMessage;
 
+/**
+ * Class DelegateMessageRenderer
+ *
+ * Implementation of a delegate message renderer.
+ * Primary used as base class for custom implementations.
+ */
 class DelegateMessageRenderer implements MessageRendererInterface
 {
 	/**
