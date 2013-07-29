@@ -14,6 +14,8 @@
 
 namespace Avisota\Renderer;
 
+use Avisota\Message\MessageInterface;
+
 /**
  * The basic message interface.
  *
