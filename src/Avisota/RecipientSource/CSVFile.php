@@ -21,25 +21,14 @@ namespace Avisota\RecipientSource;
  */
 class CSVFile implements RecipientSourceInterface
 {
-	private $config;
+	private $file;
 
 	/**
-	 * @param $configData
+	 * @param string $fileData
 	 */
-	public function __construct($configData)
+	public function __construct($file)
 	{
-		$this->config = $configData;
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getRecipientOptions()
-	{
-		if ($this->config->csvFileSrc) {
-			return array('*' => basename($this->config->csvFileSrc));
-		}
-		return array();
+		$this->file = (string) $file;
 	}
 
 	/**
