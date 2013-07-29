@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Interface Avisota\Transport\TransportInterface | avisota/core</title>
+	<title>Class Avisota\Renderer\NativeMessageRenderer | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
 	<script type="text/javascript" src="elementlist.js?580342838"></script>
@@ -33,7 +33,7 @@
 						</li>
 				<li><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
 						</li>
-				<li><a href="namespace-Avisota.Renderer.html">Renderer</a>
+				<li class="active"><a href="namespace-Avisota.Renderer.html">Renderer</a>
 						</li>
 				<li><a href="namespace-Avisota.Templating.html">Templating</a>
 						</li>
@@ -52,7 +52,7 @@
 				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
 						</li>
 							</ul></li>
-				<li class="active"><a href="namespace-Avisota.Transport.html">Transport</a>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
 						</li>
 							</ul></li>
 			</ul>
@@ -64,17 +64,14 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Avisota.Transport.AbstractSwiftTransport.html">AbstractSwiftTransport</a></li>
-				<li><a href="class-Avisota.Transport.AbstractTransport.html">AbstractTransport</a></li>
-				<li><a href="class-Avisota.Transport.QueueTransport.html">QueueTransport</a></li>
-				<li><a href="class-Avisota.Transport.SmtpTransport.html">SmtpTransport</a></li>
-				<li><a href="class-Avisota.Transport.SwiftTransport.html">SwiftTransport</a></li>
-				<li><a href="class-Avisota.Transport.TransportStatus.html">TransportStatus</a></li>
+				<li><a href="class-Avisota.Renderer.DelegateMessageRenderer.html">DelegateMessageRenderer</a></li>
+				<li><a href="class-Avisota.Renderer.MessageRendererChain.html">MessageRendererChain</a></li>
+				<li class="active"><a href="class-Avisota.Renderer.NativeMessageRenderer.html">NativeMessageRenderer</a></li>
 			</ul>
 
 			<h3>Interfaces</h3>
 			<ul>
-				<li class="active"><a href="class-Avisota.Transport.TransportInterface.html">TransportInterface</a></li>
+				<li><a href="class-Avisota.Renderer.MessageRendererInterface.html">MessageRendererInterface</a></li>
 			</ul>
 
 
@@ -101,7 +98,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-Avisota.Transport.html" title="Summary of Avisota\Transport"><span>Namespace</span></a>
+				<a href="namespace-Avisota.Renderer.html" title="Summary of Avisota\Renderer"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -125,103 +122,106 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Interface TransportInterface</h1>
+	<h1>Class NativeMessageRenderer</h1>
 
 
 	<div class="description">
 	
-<p>The transport interface.</p>
+<p>The basic message interface.</p>
 
 	</div>
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Avisota\Renderer\NativeMessageRenderer</span></b>			
+			 implements 
+				<a href="class-Avisota.Renderer.MessageRendererInterface.html"><span>Avisota\Renderer\MessageRendererInterface</span></a>
+			
+			
+		</dd>
+	</dl>
 
 
 
 
-	<div>
-		<h4>Direct known implementers</h4>
-			<a href="class-Avisota.Test.Transport.NoOpTransport.html">Avisota\Test\Transport\NoOpTransport</a>, 
-			<a href="class-Avisota.Transport.AbstractTransport.html">Avisota\Transport\AbstractTransport</a>, 
-			<a href="class-Avisota.Transport.QueueTransport.html">Avisota\Transport\QueueTransport</a>
-	</div>
 
-	<div>
-		<h4>Indirect known implementers</h4>
-			<a href="class-Avisota.Transport.AbstractSwiftTransport.html">Avisota\Transport\AbstractSwiftTransport</a>, 
-			<a href="class-Avisota.Transport.SmtpTransport.html">Avisota\Transport\SmtpTransport</a>, 
-			<a href="class-Avisota.Transport.SwiftTransport.html">Avisota\Transport\SwiftTransport</a>
-	</div>
 
 
 
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Transport.html">Transport</a><br />
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Renderer.html">Renderer</a><br />
 		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.Transport.TransportInterface.html#19-47" title="Go to source code">src/Avisota/Transport/TransportInterface.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Renderer.NativeMessageRenderer.html#20-42" title="Go to source code">src/Avisota/Renderer/NativeMessageRenderer.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="initialise" id="_initialise">
+	<tr data-order="renderMessage" id="_renderMessage">
 
 		<td class="attributes"><code>
 			 public 
-			
+			Swift_Message
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_initialise">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#26-31" title="Go to source code">initialise</a>( )</code>
+		<a class="anchor" href="#_renderMessage">#</a>
+		<code><a href="source-class-Avisota.Renderer.NativeMessageRenderer.html#27-33" title="Go to source code">renderMessage</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Initialise transport.</p>
+<p>Render a message and create a Swift_Message.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Initialise transport.</p>
+<p>Render a message and create a Swift_Message.</p>
 
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Swift_Message</code><br />
+				</div>
 
 
 
 
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Renderer.MessageRendererInterface.html#_renderMessage">Avisota\Renderer\MessageRendererInterface::renderMessage()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="send" id="_send">
+	<tr data-order="canRender" id="_canRender">
 
 		<td class="attributes"><code>
 			 public 
-			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
+			boolean
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_send">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#33-39" title="Go to source code">send</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span> )</code>
+		<a class="anchor" href="#_canRender">#</a>
+		<code><a href="source-class-Avisota.Renderer.NativeMessageRenderer.html#35-41" title="Go to source code">canRender</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Transport a message.</p>
+<p>Check if this renderer can render the message.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Transport a message.</p>
+<p>Check if this renderer can render the message.</p>
 
 
 
@@ -233,45 +233,14 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code></code><br />
+					<code>boolean</code><br />
 				</div>
 
 
 
 
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="flush" id="_flush">
-
-		<td class="attributes"><code>
-			 public 
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_flush">#</a>
-		<code><a href="source-class-Avisota.Transport.TransportInterface.html#41-46" title="Go to source code">flush</a>( )</code>
-
-		<div class="description short">
-			
-<p>Flush transport.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Flush transport.</p>
-
-
-
-
-
-
-
-
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.Renderer.MessageRendererInterface.html#_canRender">Avisota\Renderer\MessageRendererInterface::canRender()</a></code></div>
 		</div>
 		</div></td>
 	</tr>

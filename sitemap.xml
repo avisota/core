@@ -81,7 +81,13 @@
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.CSVFile.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.Renderer.DelegateMessageRenderer.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Renderer.MessageRendererChain.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Renderer.NativeMessageRenderer.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Test.AbstractQueueTest.html</loc>
