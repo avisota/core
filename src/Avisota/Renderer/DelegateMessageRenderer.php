@@ -30,7 +30,7 @@ class DelegateMessageRenderer implements MessageRendererInterface
 	 */
 	protected $delegate;
 
-	function __construct(MessageRendererInterface $delegate)
+	public function __construct(MessageRendererInterface $delegate)
 	{
 		$this->delegate = $delegate;
 	}
