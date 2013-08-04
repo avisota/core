@@ -187,7 +187,8 @@ class QueueHelper
 	 *
 	 * @return void
 	 */
-	public function enqueue($_ = null) {
+	public function enqueue()
+	{
 		$messageTemplate = $this->messageTemplate;
 		$recipientSource = $this->recipientSource;
 		$queue = $this->queue;
