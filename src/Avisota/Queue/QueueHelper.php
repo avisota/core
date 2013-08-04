@@ -14,8 +14,8 @@
 
 namespace Avisota\Queue;
 
-use Avisota\Message\MessageTemplateInterface;
 use Avisota\RecipientSource\RecipientSourceInterface;
+use Avisota\Templating\MessageTemplateInterface;
 
 /**
  * A collection of helper functions.
@@ -25,20 +25,239 @@ use Avisota\RecipientSource\RecipientSourceInterface;
 class QueueHelper
 {
 	/**
+	 * @var MessageTemplateInterface
+	 */
+	protected $messageTemplate = null;
+
+	/**
+	 * @var RecipientSourceInterface
+	 */
+	protected $recipientSource = null;
+
+	/**
+	 * @var QueueInterface
+	 */
+	protected $queue = null;
+
+	/**
+	 * @var int
+	 */
+	protected $limit = null;
+
+	/**
+	 * @var int
+	 */
+	protected $offset = null;
+
+	/**
+	 * @var array
+	 */
+	protected $newsletterData = null;
+
+	/**
+	 * @var \DateTime
+	 */
+	protected $deliveryDate = null;
+
+	/**
+	 * @param \Avisota\Templating\MessageTemplateInterface $messageTemplate
+	 */
+	public function setMessageTemplate($messageTemplate)
+	{
+		$this->messageTemplate = $messageTemplate;
+		return $this;
+	}
+
+	/**
+	 * @return \Avisota\Templating\MessageTemplateInterface
+	 */
+	public function getMessageTemplate()
+	{
+		return $this->messageTemplate;
+	}
+
+	/**
+	 * @param \Avisota\RecipientSource\RecipientSourceInterface $recipientSource
+	 */
+	public function setRecipientSource($recipientSource)
+	{
+		$this->recipientSource = $recipientSource;
+		return $this;
+	}
+
+	/**
+	 * @return \Avisota\RecipientSource\RecipientSourceInterface
+	 */
+	public function getRecipientSource()
+	{
+		return $this->recipientSource;
+	}
+
+	/**
+	 * @param \Avisota\Queue\QueueInterface $queue
+	 */
+	public function setQueue($queue)
+	{
+		$this->queue = $queue;
+		return $this;
+	}
+
+	/**
+	 * @return \Avisota\Queue\QueueInterface
+	 */
+	public function getQueue()
+	{
+		return $this->queue;
+	}
+
+	/**
+	 * @param int $limit
+	 */
+	public function setLimit($limit)
+	{
+		$this->limit = $limit;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getLimit()
+	{
+		return $this->limit;
+	}
+
+	/**
+	 * @param int $offset
+	 */
+	public function setOffset($offset)
+	{
+		$this->offset = $offset;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getOffset()
+	{
+		return $this->offset;
+	}
+
+	/**
+	 * @param array $newsletterData
+	 */
+	public function setNewsletterData($newsletterData)
+	{
+		$this->newsletterData = $newsletterData;
+		return $this;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getNewsletterData()
+	{
+		return $this->newsletterData;
+	}
+
+	/**
+	 * @param \DateTime $deliveryDate
+	 */
+	public function setDeliveryDate($deliveryDate)
+	{
+		$this->deliveryDate = $deliveryDate;
+		return $this;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getDeliveryDate()
+	{
+		return $this->deliveryDate;
+	}
+
+	/**
 	 * Enqueue the message for all recipients into the queue.
 	 *
-	 * @param MessageInterface         $message
-	 * @param RecipientSourceInterface $recipientSource
-	 * @param QueueInterface           $queue
+	 * @param mixed $_ All data that is not yet provided.
+	 * Please note that $limit is prefered before $offset,
+	 * if you want to only set $offset pass 0 for $limit first.
 	 *
 	 * @return void
 	 */
-	public function enqueue(
-		MessageInterface $message,
-		RecipientSourceInterface $recipientSource,
-		QueueInterface $queue
-	) {
-		echo ($message . $recipientSource . $queue);
-		throw new Exception('Not implemented yet');
+	public function enqueue($_ = null) {
+		$messageTemplate = $this->messageTemplate;
+		$recipientSource = $this->recipientSource;
+		$queue = $this->queue;
+		$limit = $this->limit;
+		$offset = $this->offset;
+		$newsletterData = $this->newsletterData;
+		$deliveryDate = $this->deliveryDate;
+
+		$args = func_get_args();
+		foreach ($args as $arg) {
+			if ($arg instanceof MessageTemplateInterface) {
+				$messageTemplate = $arg;
+				continue;
+			}
+			else if ($arg instanceof RecipientSourceInterface) {
+				$recipientSource = $arg;
+				continue;
+			}
+			else if ($arg instanceof QueueInterface) {
+				$queue = $arg;
+				continue;
+			}
+			else if (is_int($arg)) {
+				if ($limit === null) {
+					$limit = $arg;
+					continue;
+				}
+				if ($offset === null) {
+					$offset = $arg;
+					continue;
+				}
+			}
+			else if (is_array($arg)) {
+				$newsletterData = $arg;
+				continue;
+			}
+			else if ($arg instanceof \DateTime) {
+				$deliveryDate = $arg;
+				continue;
+			}
+
+			if (is_object($arg)) {
+				$arg = get_class($arg);
+			}
+			else {
+				$arg = gettype($arg) . ' ' . var_export($arg, true);
+			}
+			throw new \RuntimeException('Unexpected parameter ' . $arg);
+		}
+
+		if (!$messageTemplate) {
+			throw new \RuntimeException('Missing required message template');
+		}
+		if (!$recipientSource) {
+			throw new \RuntimeException('Missing required recipient source');
+		}
+		if (!$queue) {
+			throw new \RuntimeException('Missing required queue');
+		}
+
+		$count = 0;
+		$recipients = $recipientSource->getRecipients($limit, $offset);
+
+		foreach ($recipients as $recipient) {
+			$message = $messageTemplate->render($recipient, $newsletterData);
+			if ($queue->enqueue($message, $deliveryDate)) {
+				$count ++;
+			}
+		}
+
+		return $count;
 	}
 }
