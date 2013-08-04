@@ -92,7 +92,7 @@ class MutableRecipient implements RecipientInterface
 	public function set($name, $value)
 	{
 		if ($name == 'email') {
-			$this->setEmail($name);
+			$this->setEmail($value);
 		}
 		else if ($value === null) {
 			unset($this->data[$name]);
