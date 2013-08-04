@@ -32,9 +32,19 @@ class CSVFile implements RecipientSourceInterface
 	}
 
 	/**
+	 * Count the recipients.
+	 *
+	 * @return int
+	 */
+	public function countRecipients()
+	{
+		throw new \Exception('Not implemented yet');
+	}
+
+	/**
 	 * {@inheritdoc}
 	 */
-	public function getRecipients($options)
+	public function getRecipients($limit = null, $offset = null)
 	{
 		throw new \Exception('Not implemented yet');
 	}

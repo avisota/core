@@ -22,11 +22,19 @@ namespace Avisota\RecipientSource;
 interface RecipientSourceInterface
 {
 	/**
-	 * Get complete recipients data for a list of options.
+	 * Count the recipients.
 	 *
-	 * @param array $options
+	 * @return int
+	 */
+	public function countRecipients();
+
+	/**
+	 * Get all recipients.
+	 *
+	 * @param int $limit  Limit result to given count.
+	 * @param int $offset Skip certain count of recipients.
 	 *
 	 * @return RecipientInterface[]
 	 */
-	public function getRecipients();
+	public function getRecipients($limit = null, $offset = null);
 }
