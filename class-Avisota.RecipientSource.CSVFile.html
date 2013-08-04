@@ -7,7 +7,7 @@
 	<title>Class Avisota\RecipientSource\CSVFile | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
-	<script type="text/javascript" src="elementlist.js?580342838"></script>
+	<script type="text/javascript" src="elementlist.js?2019091055"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -152,7 +152,7 @@
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.RecipientSource.html">RecipientSource</a><br />
 		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.CSVFile.html#17-41" title="Go to source code">src/Avisota/RecipientSource/CSVFile.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.CSVFile.html#17-51" title="Go to source code">src/Avisota/RecipientSource/CSVFile.php</a><br />
 	</div>
 
 
@@ -193,6 +193,45 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="countRecipients" id="_countRecipients">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_countRecipients">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#34-42" title="Go to source code">countRecipients</a>( )</code>
+
+		<div class="description short">
+			
+<p>Count the recipients.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Count the recipients.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html#_countRecipients">Avisota\RecipientSource\RecipientSourceInterface::countRecipients()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="getRecipients" id="_getRecipients">
 
 		<td class="attributes"><code>
@@ -204,24 +243,26 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRecipients">#</a>
-		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#34-40" title="Go to source code">getRecipients</a>( <span>array <var>$options</var></span> )</code>
+		<code><a href="source-class-Avisota.RecipientSource.CSVFile.html#44-50" title="Go to source code">getRecipients</a>( <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$offset</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Get complete recipients data for a list of options.</p>
+<p>Get all recipients.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Get complete recipients data for a list of options.</p>
+<p>Get all recipients.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$options</var></dt>
-					<dd><code>array</code><br>$options</dd>
+					<dt><var>$limit</var></dt>
+					<dd><code>integer</code><br>$limit Limit result to given count.</dd>
+					<dt><var>$offset</var></dt>
+					<dd><code>integer</code><br>$offset Skip certain count of recipients.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
