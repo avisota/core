@@ -186,6 +186,10 @@ class QueueHelper
 	 * if you want to only set $offset pass 0 for $limit first.
 	 *
 	 * @return void
+	 *
+	 * Complexity cannot easily reduced without a huge overhead :-(
+	 * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+	 * @SuppressWarnings(PHPMD.NPathComplexity)
 	 */
 	public function enqueue()
 	{
