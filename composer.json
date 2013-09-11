@@ -31,7 +31,7 @@
 		"bit3/php-coding-standard":"2.*",
 		"monolog/monolog": "~1",
 		"symfony/event-dispatcher": "2.3.*",
-		"swiftmailer/swiftmailer": "~4,~5"
+		"swiftmailer/swiftmailer": ">=4,<6"
 	},
 	"autoload":{
 		"psr-0":{
