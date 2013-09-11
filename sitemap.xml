@@ -81,6 +81,9 @@
 	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.CSVFile.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.RecipientSource.Dummy.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Renderer.DelegateMessageRenderer.html</loc>
 </url>
 <url>

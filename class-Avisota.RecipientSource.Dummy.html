@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Avisota\RecipientSource\Dummy | avisota/core</title>
+
+	<script type="text/javascript" src="resources/combined.js?3245353428"></script>
+	<script type="text/javascript" src="elementlist.js?3062695566"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-Avisota.html">Avisota<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Event.html">Event</a>
+						</li>
+				<li><a href="namespace-Avisota.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Recipient.html">Recipient</a>
+						</li>
+				<li class="active"><a href="namespace-Avisota.RecipientSource.html">RecipientSource</a>
+						</li>
+				<li><a href="namespace-Avisota.Renderer.html">Renderer</a>
+						</li>
+				<li><a href="namespace-Avisota.Templating.html">Templating</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.html">Test<span></span></a>
+						<ul>
+				<li><a href="namespace-Avisota.Test.Database.html">Database</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Imap.html">Imap</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Message.html">Message</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Queue.html">Queue</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Renderer.html">Renderer</a>
+						</li>
+				<li><a href="namespace-Avisota.Test.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-Avisota.Transport.html">Transport</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Avisota.RecipientSource.CSVFile.html">CSVFile</a></li>
+				<li class="active"><a href="class-Avisota.RecipientSource.Dummy.html">Dummy</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html">RecipientSourceInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Avisota.RecipientSource.html" title="Summary of Avisota\RecipientSource"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="avisota-core-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Dummy</h1>
+
+
+	<div class="description">
+	
+<p>A recipient source that read the recipients from a csv file.</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Avisota\RecipientSource\Dummy</span></b>			
+			 implements 
+				<a href="class-Avisota.RecipientSource.RecipientSourceInterface.html"><span>Avisota\RecipientSource\RecipientSourceInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.RecipientSource.html">RecipientSource</a><br />
+		<b>Package:</b> avisota-core<br />
+
+		<b>Located at</b> <a href="source-class-Avisota.RecipientSource.Dummy.html#19-445" title="Go to source code">src/Avisota/RecipientSource/Dummy.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#41-48" title="Go to source code">__construct</a>( <span>string <var>$minCount</var></span>, <span>mixed <var>$maxCount</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$minCount</var></dt>
+					<dd><code>string</code><br>$fileData</dd>
+					<dt><var>$maxCount</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="countRecipients" id="_countRecipients">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_countRecipients">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#50-58" title="Go to source code">countRecipients</a>( )</code>
+
+		<div class="description short">
+			
+<p>Count the recipients.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Count the recipients.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html#_countRecipients">Avisota\RecipientSource\RecipientSourceInterface::countRecipients()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRecipients" id="_getRecipients">
+
+		<td class="attributes"><code>
+			 public 
+			RecipientInterface[]
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRecipients">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#60-139" title="Go to source code">getRecipients</a>( <span>integer <var>$limit</var> = <span class="php-keyword1">null</span></span>, <span>integer <var>$offset</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Get all recipients.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get all recipients.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$limit</var></dt>
+					<dd><code>integer</code><br>$limit Limit result to given count.</dd>
+					<dt><var>$offset</var></dt>
+					<dd><code>integer</code><br>$offset Skip certain count of recipients.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>RecipientInterface[]</code><br />
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Avisota.RecipientSource.RecipientSourceInterface.html#_getRecipients">Avisota\RecipientSource\RecipientSourceInterface::getRecipients()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMinCount" id="_setMinCount">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMinCount">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#141-148" title="Go to source code">setMinCount</a>( <span>integer <var>$minCount</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$minCount</var></dt>
+					<dd><code>integer</code><br>$minCount</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMinCount" id="_getMinCount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMinCount">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#150-156" title="Go to source code">getMinCount</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setMaxCount" id="_setMaxCount">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setMaxCount">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#158-165" title="Go to source code">setMaxCount</a>( <span>integer <var>$maxCount</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$maxCount</var></dt>
+					<dd><code>integer</code><br>$maxCount</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMaxCount" id="_getMaxCount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMaxCount">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#167-173" title="Go to source code">getMaxCount</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setForenames" id="_setForenames">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setForenames">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#175-182" title="Go to source code">setForenames</a>( <span>array <var>$forenames</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$forenames</var></dt>
+					<dd><code>array</code><br>$forenames</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getForenames" id="_getForenames">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getForenames">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#184-190" title="Go to source code">getForenames</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setSurnames" id="_setSurnames">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setSurnames">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#192-199" title="Go to source code">setSurnames</a>( <span>array <var>$surnames</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$surnames</var></dt>
+					<dd><code>array</code><br>$surnames</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSurnames" id="_getSurnames">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSurnames">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#201-207" title="Go to source code">getSurnames</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setDomains" id="_setDomains">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDomains">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#209-216" title="Go to source code">setDomains</a>( <span>array <var>$domains</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$domains</var></dt>
+					<dd><code>array</code><br>$domains</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getDomains" id="_getDomains">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getDomains">#</a>
+		<code><a href="source-class-Avisota.RecipientSource.Dummy.html#218-224" title="Go to source code">getDomains</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="minCount" id="$minCount">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#26-29" title="Go to source code"><var>$minCount</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$minCount" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="maxCount" id="$maxCount">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#31-34" title="Go to source code"><var>$maxCount</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$maxCount" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="set" id="$set">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#36-39" title="Go to source code"><var>$set</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$set" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="forenames" id="$forenames">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#226-327" title="Go to source code"><var>$forenames</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">'Adelheid'</span>,
+	<span class="php-quote">'Andreas'</span>,
+	<span class="php-quote">'Anni'</span>,
+	<span class="php-quote">'Arite'</span>,
+	<span class="php-quote">'Bernhilde'</span>,
+	<span class="php-quote">'Bertin'</span>,
+	<span class="php-quote">'Burchard'</span>,
+	<span class="php-quote">'Burghild'</span>,
+	<span class="php-quote">'Catarina'</span>,
+	<span class="php-quote">'Christamaria'</span>,
+	<span class="php-quote">'Christophorus'</span>,
+	<span class="php-quote">'Conny'</span>,
+	<span class="php-quote">'Dankfried'</span>,
+	<span class="php-quote">'Dieter'</span>,
+	<span class="php-quote">'Dietmar'</span>,
+	<span class="php-quote">'Dorlies'</span>,
+	<span class="php-quote">'Ekhard'</span>,
+	<span class="php-quote">'Emmy'</span>,
+	<span class="php-quote">'Erni'</span>,
+	<span class="php-quote">'Ernstfried'</span>,
+	<span class="php-quote">'Felix'</span>,
+	<span class="php-quote">'Freiwald'</span>,
+	<span class="php-quote">'Friedegund'</span>,
+	<span class="php-quote">'Fraenzi'</span>,
+	<span class="php-quote">'Gerdt'</span>,
+	<span class="php-quote">'Gerwin'</span>,
+	<span class="php-quote">'Gitti'</span>,
+	<span class="php-quote">'Gundel'</span>,
+	<span class="php-quote">'Hardi'</span>,
+	<span class="php-quote">'Hartmann'</span>,
+	<span class="php-quote">'Helma'</span>,
+	<span class="php-quote">'Helwart'</span>,
+	<span class="php-quote">'Ingolde'</span>,
+	<span class="php-quote">'Isabelle'</span>,
+	<span class="php-quote">'Iselore'</span>,
+	<span class="php-quote">'Ishild'</span>,
+	<span class="php-quote">'Jana'</span>,
+	<span class="php-quote">'Janfried'</span>,
+	<span class="php-quote">'Jannick'</span>,
+	<span class="php-quote">'Josepha'</span>,
+	<span class="php-quote">'Kai'</span>,
+	<span class="php-quote">'Karina'</span>,
+	<span class="php-quote">'Katharina'</span>,
+	<span class="php-quote">'Kathrinchen'</span>,
+	<span class="php-quote">'Landolf'</span>,
+	<span class="php-quote">'Lenz'</span>,
+	<span class="php-quote">'Liane'</span>,
+	<span class="php-quote">'Loremarie'</span>,
+	<span class="php-quote">'Marei'</span>,
+	<span class="php-quote">'Marianne'</span>,
+	<span class="php-quote">'Mayk'</span>,
+	<span class="php-quote">'Melitta'</span>,
+	<span class="php-quote">'Neidhard'</span>,
+	<span class="php-quote">'Nick'</span>,
+	<span class="php-quote">'Nordfried'</span>,
+	<span class="php-quote">'Notburga'</span>,
+	<span class="php-quote">'Ole'</span>,
+	<span class="php-quote">'Oslinde'</span>,
+	<span class="php-quote">'Ottobert'</span>,
+	<span class="php-quote">'Ottokar'</span>,
+	<span class="php-quote">'Petra'</span>,
+	<span class="php-quote">'Philip'</span>,
+	<span class="php-quote">'Phillippus'</span>,
+	<span class="php-quote">'Pirmin'</span>,
+	<span class="php-quote">'Quintus'</span>,
+	<span class="php-quote">'Quirin'</span>,
+	<span class="php-quote">'Reinfriede'</span>,
+	<span class="php-quote">'Roselies'</span>,
+	<span class="php-quote">'Rudolfina'</span>,
+	<span class="php-quote">'Rupprecht'</span>,
+	<span class="php-quote">'Sibyl'</span>,
+	<span class="php-quote">'Sieglind'</span>,
+	<span class="php-quote">'Steff'</span>,
+	<span class="php-quote">'Sylke'</span>,
+	<span class="php-quote">'Therese'</span>,
+	<span class="php-quote">'Torben'</span>,
+	<span class="php-quote">'Traudl'</span>,
+	<span class="php-quote">'Trautlinde'</span>,
+	<span class="php-quote">'Udo'</span>,
+	<span class="php-quote">'Uli'</span>,
+	<span class="php-quote">'Ulrich'</span>,
+	<span class="php-quote">'Urban'</span>,
+	<span class="php-quote">'Viola'</span>,
+	<span class="php-quote">'Vitus'</span>,
+	<span class="php-quote">'Volkwart'</span>,
+	<span class="php-quote">'Vreni'</span>,
+	<span class="php-quote">'Wendel'</span>,
+	<span class="php-quote">'Wendeline'</span>,
+	<span class="php-quote">'Wilgard'</span>,
+	<span class="php-quote">'Wilhard'</span>,
+	<span class="php-quote">'Xaver'</span>,
+	<span class="php-quote">'Xaverius'</span>,
+	<span class="php-quote">'Yannick'</span>,
+	<span class="php-quote">'Yannik'</span>,
+	<span class="php-quote">'Yasmin'</span>,
+	<span class="php-quote">'Yvonne'</span>,
+	<span class="php-quote">'Zacharias'</span>,
+	<span class="php-quote">'Zenzi'</span>,
+	<span class="php-quote">'Zilli'</span>,
+	<span class="php-quote">'Zita'</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$forenames" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="surnames" id="$surnames">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#329-431" title="Go to source code"><var>$surnames</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">'Mueller'</span>,
+	<span class="php-quote">'Schmidt'</span>,
+	<span class="php-quote">'Schneider'</span>,
+	<span class="php-quote">'Fischer'</span>,
+	<span class="php-quote">'Weber'</span>,
+	<span class="php-quote">'Meyer'</span>,
+	<span class="php-quote">'Wagner'</span>,
+	<span class="php-quote">'Becker'</span>,
+	<span class="php-quote">'Schulz'</span>,
+	<span class="php-quote">'Hoffmann'</span>,
+	<span class="php-quote">'Schaefer'</span>,
+	<span class="php-quote">'Koch'</span>,
+	<span class="php-quote">'Bauer'</span>,
+	<span class="php-quote">'Richter'</span>,
+	<span class="php-quote">'Klein'</span>,
+	<span class="php-quote">'Wolf'</span>,
+	<span class="php-quote">'Schroeder'</span>,
+	<span class="php-quote">'Schneider'</span>,
+	<span class="php-quote">'Neumann'</span>,
+	<span class="php-quote">'Schwarz'</span>,
+	<span class="php-quote">'Zimmermann'</span>,
+	<span class="php-quote">'Braun'</span>,
+	<span class="php-quote">'Krueger'</span>,
+	<span class="php-quote">'Hofmann'</span>,
+	<span class="php-quote">'Hartmann'</span>,
+	<span class="php-quote">'Lange'</span>,
+	<span class="php-quote">'Schmitt'</span>,
+	<span class="php-quote">'Werner'</span>,
+	<span class="php-quote">'Schmitz'</span>,
+	<span class="php-quote">'Krause'</span>,
+	<span class="php-quote">'Meier'</span>,
+	<span class="php-quote">'Lehmann'</span>,
+	<span class="php-quote">'Schmid'</span>,
+	<span class="php-quote">'Schulze'</span>,
+	<span class="php-quote">'Maier'</span>,
+	<span class="php-quote">'Koehler'</span>,
+	<span class="php-quote">'Herrmann'</span>,
+	<span class="php-quote">'Koenig'</span>,
+	<span class="php-quote">'Walter'</span>,
+	<span class="php-quote">'Mayer'</span>,
+	<span class="php-quote">'Huber'</span>,
+	<span class="php-quote">'Kaiser'</span>,
+	<span class="php-quote">'Fuchs'</span>,
+	<span class="php-quote">'Peters'</span>,
+	<span class="php-quote">'Lang'</span>,
+	<span class="php-quote">'Scholz'</span>,
+	<span class="php-quote">'Moeller'</span>,
+	<span class="php-quote">'Weiss'</span>,
+	<span class="php-quote">'Jung'</span>,
+	<span class="php-quote">'Hahn'</span>,
+	<span class="php-quote">'Schubert'</span>,
+	<span class="php-quote">'Vogel'</span>,
+	<span class="php-quote">'Friedrich'</span>,
+	<span class="php-quote">'Keller'</span>,
+	<span class="php-quote">'Guenther'</span>,
+	<span class="php-quote">'Frank'</span>,
+	<span class="php-quote">'Berger'</span>,
+	<span class="php-quote">'Winkler'</span>,
+	<span class="php-quote">'Roth'</span>,
+	<span class="php-quote">'Beck'</span>,
+	<span class="php-quote">'Lorenz'</span>,
+	<span class="php-quote">'Baumann'</span>,
+	<span class="php-quote">'Franke'</span>,
+	<span class="php-quote">'Albrecht'</span>,
+	<span class="php-quote">'Schuster'</span>,
+	<span class="php-quote">'Simon'</span>,
+	<span class="php-quote">'Ludwig'</span>,
+	<span class="php-quote">'Boehm'</span>,
+	<span class="php-quote">'Winter'</span>,
+	<span class="php-quote">'Kraus'</span>,
+	<span class="php-quote">'Martin'</span>,
+	<span class="php-quote">'Schumacher'</span>,
+	<span class="php-quote">'Kraemer'</span>,
+	<span class="php-quote">'Vogt'</span>,
+	<span class="php-quote">'Stein'</span>,
+	<span class="php-quote">'Jaeger'</span>,
+	<span class="php-quote">'Otto'</span>,
+	<span class="php-quote">'Sommer'</span>,
+	<span class="php-quote">'Gross'</span>,
+	<span class="php-quote">'Seidel'</span>,
+	<span class="php-quote">'Heinrich'</span>,
+	<span class="php-quote">'Brandt'</span>,
+	<span class="php-quote">'Haas'</span>,
+	<span class="php-quote">'Schreiber'</span>,
+	<span class="php-quote">'Graf'</span>,
+	<span class="php-quote">'Schulte'</span>,
+	<span class="php-quote">'Dietrich'</span>,
+	<span class="php-quote">'Ziegler'</span>,
+	<span class="php-quote">'Kuhn'</span>,
+	<span class="php-quote">'Kuehn'</span>,
+	<span class="php-quote">'Pohl'</span>,
+	<span class="php-quote">'Engel'</span>,
+	<span class="php-quote">'Horn'</span>,
+	<span class="php-quote">'Busch'</span>,
+	<span class="php-quote">'Bergmann'</span>,
+	<span class="php-quote">'Thomas'</span>,
+	<span class="php-quote">'Voigt'</span>,
+	<span class="php-quote">'Sauer'</span>,
+	<span class="php-quote">'Arnold'</span>,
+	<span class="php-quote">'Wolff'</span>,
+	<span class="php-quote">'Pfeiffer'</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$surnames" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="domains" id="$domains">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.RecipientSource.Dummy.html#433-444" title="Go to source code"><var>$domains</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">'gmail.com'</span>,
+	<span class="php-quote">'zoho.com'</span>,
+	<span class="php-quote">'aol.com'</span>,
+	<span class="php-quote">'shortmail.me'</span>,
+	<span class="php-quote">'outlook.com'</span>,
+	<span class="php-quote">'yahoo.com'</span>,
+	<span class="php-quote">'mail.com'</span>,
+	<span class="php-quote">'gmx.com'</span>,
+	<span class="php-quote">'facebook.com'</span>,
+	<span class="php-quote">'inbox.com'</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$domains" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		avisota/core API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
