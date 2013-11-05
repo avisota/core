@@ -66,58 +66,8 @@ class Dummy implements RecipientSourceInterface
 			$this->set = array();
 
 			$count = rand($this->minCount, $this->maxCount);
-			for ($i=0; $i<$count; $i++) {
-				$index = rand(0, count($this->forenames)-1);
-				$forename = $this->forenames[$index];
-
-				$index = rand(0, count($this->surnames)-1);
-				$surname = $this->surnames[$index];
-
-				$index = rand(0, count($this->domains)-1);
-				$domain = $this->domains[$index];
-
-				switch (rand(1, 8)) {
-					case 1:
-						$name = $forename;
-						break;
-					case 2:
-						$name = $surname;
-						break;
-					case 3:
-						$name = $forename . '.' . $surname;
-						break;
-					case 4:
-						$name = $forename . '-' . $surname;
-						break;
-					case 5:
-						$length = mb_strlen($forename);
-						$length2 = floor($length/2);
-						$name = mb_substr($forename, 0, rand($length2, $length-1)) . rand(80, 10);
-						break;
-					case 6:
-						$length = mb_strlen($surname);
-						$length2 = floor($length/2);
-						$name = mb_substr($surname, 0, rand($length2, $length-1)) . rand(80, 10);
-						break;
-					case 7:
-						$length = mb_strlen($forename);
-						$length2 = floor($length/2);
-						$forenameShorten = mb_substr($forename, 0, rand($length2, $length-1));
-						$length = mb_strlen($surname);
-						$length2 = floor($length/2);
-						$surnameShorten = mb_substr($surname, 0, rand($length2, $length-1));
-						$name = $forenameShorten . '.' . $surnameShorten . rand(80, 10);
-						break;
-					case 8:
-						$length = mb_strlen($forename);
-						$length2 = floor($length/2);
-						$forenameShorten = mb_substr($forename, 0, rand($length2, $length-1));
-						$length = mb_strlen($surname);
-						$length2 = floor($length/2);
-						$surnameShorten = mb_substr($surname, 0, rand($length2, $length-1));
-						$name = $forenameShorten . '-' . $surnameShorten . rand(80, 10);
-						break;
-				}
+			for ($i = 0; $i < $count; $i++) {
+				list($forename, $surname, $name, $domain) = $this->createName();
 
 				$recipient = new MutableRecipient($name . '@' . $domain);
 				$recipient->set('forename', $forename);
@@ -221,6 +171,70 @@ class Dummy implements RecipientSourceInterface
 	public function getDomains()
 	{
 		return $this->domains;
+	}
+
+	/**
+	 * Create a new random name.
+	 *
+	 * @return array An array contains forename, surname, name and domain.
+	 */
+	protected function createName()
+	{
+		$index    = rand(0, count($this->forenames) - 1);
+		$forename = $this->forenames[$index];
+
+		$index   = rand(0, count($this->surnames) - 1);
+		$surname = $this->surnames[$index];
+
+		$index  = rand(0, count($this->domains) - 1);
+		$domain = $this->domains[$index];
+
+		switch (rand(1, 8)) {
+			case 1:
+				$name = $forename;
+				break;
+			case 2:
+				$name = $surname;
+				break;
+			case 3:
+				$name = $forename . '.' . $surname;
+				break;
+			case 4:
+				$name = $forename . '-' . $surname;
+				break;
+			case 5:
+				$length  = mb_strlen($forename);
+				$length2 = floor($length / 2);
+				$name    = mb_substr($forename, 0, rand($length2, $length - 1)) . rand(80, 10);
+				break;
+			case 6:
+				$length  = mb_strlen($surname);
+				$length2 = floor($length / 2);
+				$name    = mb_substr($surname, 0, rand($length2, $length - 1)) . rand(80, 10);
+				break;
+			case 7:
+				$length          = mb_strlen($forename);
+				$length2         = floor($length / 2);
+				$forenameShorten = mb_substr($forename, 0, rand($length2, $length - 1));
+				$length          = mb_strlen($surname);
+				$length2         = floor($length / 2);
+				$surnameShorten  = mb_substr($surname, 0, rand($length2, $length - 1));
+				$name            = $forenameShorten . '.' . $surnameShorten . rand(80, 10);
+				break;
+			case 8:
+				$length          = mb_strlen($forename);
+				$length2         = floor($length / 2);
+				$forenameShorten = mb_substr($forename, 0, rand($length2, $length - 1));
+				$length          = mb_strlen($surname);
+				$length2         = floor($length / 2);
+				$surnameShorten  = mb_substr($surname, 0, rand($length2, $length - 1));
+				$name            = $forenameShorten . '-' . $surnameShorten . rand(80, 10);
+				break;
+			default:
+				continue;
+		}
+
+		return array($forename, $surname, $name, $domain);
 	}
 
 	protected $forenames = array(
