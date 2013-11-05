@@ -14,8 +14,11 @@
 
 namespace Avisota\Queue;
 
+use Avisota\Event\PostEnqueueEvent;
+use Avisota\Event\PreEnqueueEvent;
 use Avisota\RecipientSource\RecipientSourceInterface;
 use Avisota\Templating\MessageTemplateInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * A collection of helper functions.
@@ -58,6 +61,11 @@ class QueueHelper
 	 * @var \DateTime
 	 */
 	protected $deliveryDate = null;
+
+	/**
+	 * @var EventDispatcher
+	 */
+	protected $eventDispatcher = null;
 
 	/**
 	 * @param \Avisota\Templating\MessageTemplateInterface $messageTemplate
@@ -179,6 +187,23 @@ class QueueHelper
 	}
 
 	/**
+	 * @param EventDispatcher $eventDispatcher
+	 */
+	public function setEventDispatcher(EventDispatcher $eventDispatcher = null)
+	{
+		$this->eventDispatcher = $eventDispatcher;
+		return $this;
+	}
+
+	/**
+	 * @return EventDispatcher
+	 */
+	public function getEventDispatcher()
+	{
+		return $this->eventDispatcher;
+	}
+
+	/**
 	 * Enqueue the message for all recipients into the queue.
 	 *
 	 * @param mixed $_ All data that is not yet provided.
@@ -258,8 +283,23 @@ class QueueHelper
 
 		foreach ($recipients as $recipient) {
 			$message = $messageTemplate->render($recipient, $newsletterData);
+
+			if ($this->eventDispatcher) {
+				$event = new PreEnqueueEvent($message, $queue);
+				$this->eventDispatcher->dispatch($event::NAME, $event);
+
+				if ($event->getSkip()) {
+					continue;
+				}
+			}
+
 			if ($queue->enqueue($message, $deliveryDate)) {
 				$count ++;
+
+				if ($this->eventDispatcher) {
+					$event = new PostEnqueueEvent($message, $queue);
+					$this->eventDispatcher->dispatch($event::NAME, $event);
+				}
 			}
 		}
 
