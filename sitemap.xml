@@ -57,7 +57,13 @@
 	<loc>http://avisota.github.io/core/class-Avisota.Event.AbstractTransportMessageEvent.html</loc>
 </url>
 <url>
+	<loc>http://avisota.github.io/core/class-Avisota.Event.PostEnqueueEvent.html</loc>
+</url>
+<url>
 	<loc>http://avisota.github.io/core/class-Avisota.Event.PostTransportMessageEvent.html</loc>
+</url>
+<url>
+	<loc>http://avisota.github.io/core/class-Avisota.Event.PreEnqueueEvent.html</loc>
 </url>
 <url>
 	<loc>http://avisota.github.io/core/class-Avisota.Event.PreTransportMessageEvent.html</loc>

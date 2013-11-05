@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class Avisota\Event\PostTransportMessageEvent | avisota/core</title>
+	<title>Class Avisota\Event\PostEnqueueEvent | avisota/core</title>
 
 	<script type="text/javascript" src="resources/combined.js?823466903"></script>
 	<script type="text/javascript" src="elementlist.js?3760253961"></script>
@@ -65,8 +65,8 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Avisota.Event.AbstractTransportMessageEvent.html">AbstractTransportMessageEvent</a></li>
-				<li><a href="class-Avisota.Event.PostEnqueueEvent.html">PostEnqueueEvent</a></li>
-				<li class="active"><a href="class-Avisota.Event.PostTransportMessageEvent.html">PostTransportMessageEvent</a></li>
+				<li class="active"><a href="class-Avisota.Event.PostEnqueueEvent.html">PostEnqueueEvent</a></li>
+				<li><a href="class-Avisota.Event.PostTransportMessageEvent.html">PostTransportMessageEvent</a></li>
 				<li><a href="class-Avisota.Event.PreEnqueueEvent.html">PreEnqueueEvent</a></li>
 				<li><a href="class-Avisota.Event.PreTransportMessageEvent.html">PreTransportMessageEvent</a></li>
 			</ul>
@@ -120,12 +120,12 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class PostTransportMessageEvent</h1>
+	<h1>Class PostEnqueueEvent</h1>
 
 
 	<div class="description">
 	
-<p>Event triggered after an <a href="http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html">event emitting queue</a> send a message.</p>
+<p>Abstract event triggered by an <a href="http://avisota.github.io/core/class-Avisota.Queue.EventEmittingQueueInterface.html">event emitting queue</a>.</p>
 
 	</div>
 
@@ -137,14 +137,7 @@ Symfony\Component\EventDispatcher\Event
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by" />
-			<a href="class-Avisota.Event.AbstractTransportMessageEvent.html"><span>Avisota\Event\AbstractTransportMessageEvent</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
-			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>Avisota\Event\PostTransportMessageEvent</span></b>			
+<b><span>Avisota\Event\PostEnqueueEvent</span></b>			
 			
 			
 		</dd>
@@ -163,7 +156,7 @@ Symfony\Component\EventDispatcher\Event
 		<b>Namespace:</b> <a href="namespace-Avisota.html">Avisota</a>\<a href="namespace-Avisota.Event.html">Event</a><br />
 		<b>Package:</b> avisota-core<br />
 
-		<b>Located at</b> <a href="source-class-Avisota.Event.PostTransportMessageEvent.html#22-53" title="Go to source code">src/Avisota/Event/PostTransportMessageEvent.php</a><br />
+		<b>Located at</b> <a href="source-class-Avisota.Event.PostEnqueueEvent.html#22-72" title="Go to source code">src/Avisota/Event/PostEnqueueEvent.php</a><br />
 	</div>
 
 
@@ -181,7 +174,7 @@ Symfony\Component\EventDispatcher\Event
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#37-44" title="Go to source code">__construct</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span><code><a href="class-Avisota.Queue.EventEmittingQueueInterface.html">Avisota\Queue\EventEmittingQueueInterface</a></code> <var>$queue</var></span>, <span><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code> <var>$status</var></span> )</code>
+		<code><a href="source-class-Avisota.Event.PostEnqueueEvent.html#47-51" title="Go to source code">__construct</a>( <span><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code> <var>$message</var></span>, <span><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code> <var>$queue</var></span> )</code>
 
 		<div class="description short">
 			
@@ -195,37 +188,76 @@ Symfony\Component\EventDispatcher\Event
 
 
 
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Avisota.Event.AbstractTransportMessageEvent.html#___construct">Avisota\Event\AbstractTransportMessageEvent::__construct()</a></code></div>
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getStatus" id="_getStatus">
+	<tr data-order="getMessage" id="_getMessage">
 
 		<td class="attributes"><code>
 			 public 
-			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
+			<code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getStatus">#</a>
-		<code><a href="source-class-Avisota.Event.PostTransportMessageEvent.html#46-52" title="Go to source code">getStatus</a>( )</code>
+		<a class="anchor" href="#_getMessage">#</a>
+		<code><a href="source-class-Avisota.Event.PostEnqueueEvent.html#53-61" title="Go to source code">getMessage</a>( )</code>
 
 		<div class="description short">
 			
+<p>Get the message to be transported.</p>
+
 		</div>
 
 		<div class="description detailed hidden">
 			
+<p>Get the message to be transported.</p>
+
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code></code><br />
+					<code><code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getQueue" id="_getQueue">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getQueue">#</a>
+		<code><a href="source-class-Avisota.Event.PostEnqueueEvent.html#63-71" title="Go to source code">getQueue</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the transporting queue.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the transporting queue.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code></code><br />
 				</div>
 
 
@@ -236,40 +268,24 @@ Symfony\Component\EventDispatcher\Event
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Avisota.Event.AbstractTransportMessageEvent.html#methods">Avisota\Event\AbstractTransportMessageEvent</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Avisota.Event.AbstractTransportMessageEvent.html#_getMessage">getMessage()</a>, 
-			<a href="class-Avisota.Event.AbstractTransportMessageEvent.html#_getQueue">getQueue()</a>
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="NAME" id="NAME">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-Avisota.Event.PostEnqueueEvent.html#31" title="Go to source code"><b>NAME</b></a>
 		</code></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-
-
-
-	<table class="summary" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="status" id="$status">
-		<td class="attributes"><code>
-			protected  
-			<code><a href="class-Avisota.Transport.TransportStatus.html">Avisota\Transport\TransportStatus</a></code>
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Avisota.Event.PostTransportMessageEvent.html#32-35" title="Go to source code"><var>$status</var></a>
-		</td>
-		<td class="value"><code></code></td>
+		<td class="value"><code><span class="php-quote">'avisota.queue.post-enqueue'</span></code></td>
 		<td class="description"><div>
-			<a href="#$status" class="anchor">#</a>
+			<a href="#NAME" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -283,15 +299,67 @@ Symfony\Component\EventDispatcher\Event
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Avisota.Event.AbstractTransportMessageEvent.html#properties">Avisota\Event\AbstractTransportMessageEvent</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Avisota.Event.AbstractTransportMessageEvent.html#$message"><var>$message</var></a>, 
-			<a href="class-Avisota.Event.AbstractTransportMessageEvent.html#$queue"><var>$queue</var></a>
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="message" id="$message">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Avisota.Message.MessageInterface.html">Avisota\Message\MessageInterface</a></code>
 		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Event.PostEnqueueEvent.html#33-38" title="Go to source code"><var>$message</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$message" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The message to be transported.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The message to be transported.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="queue" id="$queue">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Avisota.Queue.QueueInterface.html">Avisota\Queue\QueueInterface</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Avisota.Event.PostEnqueueEvent.html#40-45" title="Go to source code"><var>$queue</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$queue" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>The queue that send the message.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>The queue that send the message.</p>
+
+
+			</div>
+		</div></td>
 	</tr>
 	</table>
+
 
 
 
