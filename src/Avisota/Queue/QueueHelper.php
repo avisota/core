@@ -288,7 +288,7 @@ class QueueHelper
 				$event = new PreEnqueueEvent($message, $queue);
 				$this->eventDispatcher->dispatch($event::NAME, $event);
 
-				if ($event->getSkip()) {
+				if ($event->isSkip()) {
 					continue;
 				}
 			}

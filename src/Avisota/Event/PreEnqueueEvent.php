@@ -93,7 +93,7 @@ class PreEnqueueEvent extends Event
 	 *
 	 * @return boolean
 	 */
-	public function getSkip()
+	public function isSkip()
 	{
 		return $this->skip;
 	}
