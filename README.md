@@ -3,10 +3,10 @@ Avisota core system
 
 [![Build Status](https://travis-ci.org/avisota/core.png?branch=master)](https://travis-ci.org/avisota/core) [![API DOCS](https://bit3.de/files/Icons/apidocs.png)](http://avisota.github.io/core/) [![mess checked](https://bit3.de/files/Icons/mess-checked.png)](https://github.com/bit3/php-coding-standard) [![style checked](https://bit3.de/files/Icons/style-checked.png)](https://github.com/bit3/php-coding-standard)
 
-The Avisota core system is a message generation, queue and transport system, based on top of the great Swift Miler.
+The Avisota core system is a message generation, queue and transport system, based on top of the great Swift Mailer.
 
-Avisota is not designed to replace Sift Miler, but it is designed to manage the pre-ransport process.
-On the one hand Sift Miler can only handle stateful `Swift_Message`s. On the other hand Avisota handles stateless `MessageInterface`'s.
+Avisota is not designed to replace Swift Miler, but it is designed to manage the pre-ransport process.
+On the one hand Swift Miler can only handle stateful `Swift_Message`s. On the other hand Avisota handles stateless `MessageInterface`'s.
 You can define what a MessageInterface may be: a message template, a stateful message object or even a native `Swift_Message`.
 
 The following chart shows what you can do with the Avisota messaging system, what in most cases is impossible with Swift Mailer.
