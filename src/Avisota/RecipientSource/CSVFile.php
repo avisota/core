@@ -14,6 +14,8 @@
 
 namespace Avisota\RecipientSource;
 
+use Avisota\Recipient\MutableRecipient;
+
 /**
  * A recipient source that read the recipients from a csv file.
  *
@@ -23,12 +25,24 @@ class CSVFile implements RecipientSourceInterface
 {
 	private $file;
 
+	private $columnAssignment;
+
+	private $delimiter;
+
+	private $enclosure;
+
+	private $escape;
+
 	/**
 	 * @param string $fileData
 	 */
-	public function __construct($file)
+	public function __construct($file, array $columnAssignment, $delimiter = ',', $enclosure = '"', $escape = '\\')
 	{
-		$this->file = (string) $file;
+		$this->file             = (string) $file;
+		$this->columnAssignment = $columnAssignment;
+		$this->delimiter        = $delimiter;
+		$this->enclosure        = $enclosure;
+		$this->escape           = $escape;
 	}
 
 	/**
@@ -38,7 +52,25 @@ class CSVFile implements RecipientSourceInterface
 	 */
 	public function countRecipients()
 	{
-		throw new \Exception('Not implemented yet');
+		$in = fopen($this->file, 'r');
+
+		if (!$in) {
+			return 0;
+		}
+
+		$recipients = 0;
+
+		$index = array_search('email', $this->columnAssignment);
+
+		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
+			if (!empty($row[$index])) {
+				$recipients ++;
+			}
+		}
+
+		fclose($in);
+
+		return $recipients;
 	}
 
 	/**
@@ -46,6 +78,32 @@ class CSVFile implements RecipientSourceInterface
 	 */
 	public function getRecipients($limit = null, $offset = null)
 	{
-		throw new \Exception('Not implemented yet');
+		$in = fopen($this->file, 'r');
+
+		if (!$in) {
+			return null;
+		}
+
+		$recipients = array();
+
+		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
+			$details = array();
+
+			foreach ($this->columnAssignment as $index => $field) {
+				if (isset($row[$index])) {
+					$details[$field] = $row[$index];
+				}
+			}
+
+			if (empty($details['email'])) {
+				continue;
+			}
+
+			$recipients[] = new MutableRecipient($details['email'], $details);
+		}
+
+		fclose($in);
+
+		return $recipients;
 	}
 }
