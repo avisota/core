@@ -17,7 +17,7 @@
 		"issues":"https://github.com/bit3/contao-avisota/issues",
 		"forum":"https://community.contao.org/de/forumdisplay.php?121-Avisota",
 		"wiki":"http://avisota.org",
-		"irc":"irc://irc.freenode.org/contao.dev",
+		"irc":"irc://irc.freenode.org/avisota",
 		"source":"https://github.com/bit3/contao-avisota"
 	},
 	"require":{
@@ -30,7 +30,8 @@
 		"phpunit/phpunit":"3.7.*",
 		"bit3/php-coding-standard":"2.*",
 		"monolog/monolog": "~1",
-		"symfony/event-dispatcher": "2.3.*"
+		"symfony/event-dispatcher": "2.3.*",
+		"swiftmailer/swiftmailer": ">=4,<6"
 	},
 	"autoload":{
 		"psr-0":{
@@ -40,7 +41,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.x-dev"
+			"dev-develop": "1.x-dev"
 		}
 	}
 }

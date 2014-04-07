@@ -199,10 +199,13 @@ class SimpleDatabaseQueue
 		 */
 		$transport->initialise();
 
-		while (count($resultSet) && time() < $timeout) {
+		$duration = 0;
+		while (count($resultSet) && (time() + $duration) < $timeout) {
 			$record = array_shift($resultSet);
 
+			$duration = time();
 			$status = $this->transport($transport, $decider, $record);
+			$duration = time() - $duration;
 
 			if ($status) {
 				$results[] = $status;

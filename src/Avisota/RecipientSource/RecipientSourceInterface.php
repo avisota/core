@@ -14,6 +14,8 @@
 
 namespace Avisota\RecipientSource;
 
+use Avisota\Recipient\RecipientInterface;
+
 /**
  * A recipient source provide a list of recipients.
  *
