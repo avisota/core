@@ -86,6 +86,12 @@ class CSVFile implements RecipientSourceInterface
 
 		$recipients = array();
 
+		// skip offset lines
+		for (; $offset > 0; $offset--) {
+			fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+		}
+
+		// read lines
 		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
 			$details = array();
 
@@ -100,6 +106,11 @@ class CSVFile implements RecipientSourceInterface
 			}
 
 			$recipients[] = new MutableRecipient($details['email'], $details);
+
+			// break reading if limit is reached
+			if (count($recipients) >= $limit) {
+				break;
+			}
 		}
 
 		fclose($in);
