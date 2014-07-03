@@ -314,9 +314,9 @@ class SimpleDatabaseQueue
 				$message,
 				0,
 				array_merge(
-					$message->getRecipients(),
-					$message->getCopyRecipients(),
-					$message->getBlindCopyRecipients()
+					(array) $message->getRecipients(),
+					(array) $message->getCopyRecipients(),
+					(array) $message->getBlindCopyRecipients()
 				),
 				$e
 			);
