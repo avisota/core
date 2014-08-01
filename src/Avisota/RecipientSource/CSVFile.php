@@ -92,7 +92,12 @@ class CSVFile implements RecipientSourceInterface
 		}
 
 		// read lines
-		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
+		for (
+			$index = 0;
+			(!$limit || $index < $limit) &&
+			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+			$index++
+		) {
 			$details = array();
 
 			foreach ($this->columnAssignment as $index => $field) {
@@ -106,11 +111,6 @@ class CSVFile implements RecipientSourceInterface
 			}
 
 			$recipients[] = new MutableRecipient($details['email'], $details);
-
-			// break reading if limit is reached
-			if (count($recipients) >= $limit) {
-				break;
-			}
 		}
 
 		fclose($in);
