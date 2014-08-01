@@ -66,6 +66,8 @@ class CSVFileTest extends \PHPUnit_Framework_TestCase
 
 		$recipients[] = new MutableRecipient('martin@example.com', array('forename' => 'Martin', 'surname' => 'Example'));
 		$recipients[] = new MutableRecipient('maria@example.com', array('forename' => 'Maria'));
+		$recipients[] = new MutableRecipient('matilda@example.com');
+		$recipients[] = new MutableRecipient('mario@example.com', array('forename' => 'M.', 'surname' => 'Example'));
 
 		return $recipients;
 	}
@@ -76,8 +78,9 @@ class CSVFileTest extends \PHPUnit_Framework_TestCase
 	public function testCountRecipients()
 	{
 		$recipientSource = $this->getRecipientSource();
+		$recipients      = $this->getRecipients();
 
-		$this->assertEquals(2, $recipientSource->countRecipients());
+		$this->assertEquals(count($recipients), $recipientSource->countRecipients());
 	}
 
 	/**
@@ -86,7 +89,7 @@ class CSVFileTest extends \PHPUnit_Framework_TestCase
 	public function testGetRecipients()
 	{
 		$recipientSource = $this->getRecipientSource();
-		$recipients = $this->getRecipients();
+		$recipients      = $this->getRecipients();
 
 		// assert complete list
 		$this->assertEquals($recipients, $recipientSource->getRecipients());
@@ -96,5 +99,16 @@ class CSVFileTest extends \PHPUnit_Framework_TestCase
 
 		// assert offset list
 		$this->assertEquals(array_slice($recipients, 1), $recipientSource->getRecipients(1000, 1));
+
+		// assert go through count
+		$count = $recipientSource->countRecipients();
+
+		for ($offset = 0; $offset < $count; $offset++) {
+			$this->assertEquals(
+				array_slice($recipients, $offset, 1),
+				$recipientSource->getRecipients(1, $offset),
+				'Failed to get recipient at position ' . $offset
+			);
+		}
 	}
 }
