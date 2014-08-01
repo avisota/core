@@ -114,20 +114,24 @@ class CSVFile implements RecipientSourceInterface
 		}
 
 		$recipients = array();
+		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+		$index = array_search('email', $this->columnAssignment);
 
 		// skip offset lines
-		for (; $offset > 0; $offset--) {
-			fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+
+		for (; $offset > 0 && !feof($in); $offset--) {
+			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+
+			// skip invalid lines without counting them
+			if (empty($row[$index]) || !preg_match($regexp, $row[$index])) {
+				$offset ++;
+			}
 		}
 
-		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
-
 		// read lines
-		for (
-			$index = 0;
-			(!$limit || $index < $limit) &&
-			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
-			$index++
+		while (
+			(!$limit || count($recipients) < $limit) &&
+			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)
 		) {
 			$details = array();
 
