@@ -34,6 +34,11 @@ class CSVFile implements RecipientSourceInterface
 	private $escape;
 
 	/**
+	 * @var \Swift_Mime_Grammar
+	 */
+	private $grammar;
+
+	/**
 	 * @param string $fileData
 	 */
 	public function __construct($file, array $columnAssignment, $delimiter = ',', $enclosure = '"', $escape = '\\')
@@ -43,6 +48,28 @@ class CSVFile implements RecipientSourceInterface
 		$this->delimiter        = $delimiter;
 		$this->enclosure        = $enclosure;
 		$this->escape           = $escape;
+	}
+
+	/**
+	 * @return \Swift_Mime_Grammar
+	 */
+	public function getGrammar()
+	{
+		if (!$this->grammar) {
+			$this->grammar = new \Swift_Mime_Grammar();
+		}
+		return $this->grammar;
+	}
+
+	/**
+	 * @param \Swift_Mime_Grammar $grammar
+	 *
+	 * @return CSVFile
+	 */
+	public function setGrammar(\Swift_Mime_Grammar $grammar)
+	{
+		$this->grammar = $grammar;
+		return $this;
 	}
 
 	/**
@@ -60,10 +87,12 @@ class CSVFile implements RecipientSourceInterface
 
 		$recipients = 0;
 
+		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+
 		$index = array_search('email', $this->columnAssignment);
 
 		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
-			if (!empty($row[$index])) {
+			if (!empty($row[$index]) && preg_match($regexp, $row[$index])) {
 				$recipients ++;
 			}
 		}
@@ -91,8 +120,15 @@ class CSVFile implements RecipientSourceInterface
 			fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
 		}
 
+		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+
 		// read lines
-		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
+		for (
+			$index = 0;
+			(!$limit || $index < $limit) &&
+			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+			$index++
+		) {
 			$details = array();
 
 			foreach ($this->columnAssignment as $index => $field) {
@@ -101,15 +137,8 @@ class CSVFile implements RecipientSourceInterface
 				}
 			}
 
-			if (empty($details['email'])) {
-				continue;
-			}
-
-			$recipients[] = new MutableRecipient($details['email'], $details);
-
-			// break reading if limit is reached
-			if (count($recipients) >= $limit) {
-				break;
+			if (!empty($details['email']) && preg_match($regexp, $details['email'])) {
+				$recipients[] = new MutableRecipient($details['email'], $details);
 			}
 		}
 
