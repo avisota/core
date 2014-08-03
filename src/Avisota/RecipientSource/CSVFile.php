@@ -23,6 +23,7 @@ use Avisota\Recipient\MutableRecipient;
  */
 class CSVFile implements RecipientSourceInterface
 {
+
 	private $file;
 
 	private $columnAssignment;
@@ -86,14 +87,16 @@ class CSVFile implements RecipientSourceInterface
 		}
 
 		$recipients = 0;
-
-		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
-
-		$index = array_search('email', $this->columnAssignment);
+		$regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+		$index      = array_search('email', $this->columnAssignment);
+		$emails     = array();
 
 		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
-			if (!empty($row[$index]) && preg_match($regexp, $row[$index])) {
-				$recipients ++;
+			$email = trim($row[$index]);
+
+			if (!empty($email) && preg_match($regexp, $email) && !in_array($email, $emails)) {
+				$recipients++;
+				$emails[] = $email;
 			}
 		}
 
@@ -114,17 +117,21 @@ class CSVFile implements RecipientSourceInterface
 		}
 
 		$recipients = array();
-		$regexp  = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
-		$index = array_search('email', $this->columnAssignment);
+		$regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+		$index      = array_search('email', $this->columnAssignment);
+		$emails     = array();
 
 		// skip offset lines
-
 		for (; $offset > 0 && !feof($in); $offset--) {
-			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+			$row   = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+			$email = trim($row[$index]);
 
 			// skip invalid lines without counting them
-			if (empty($row[$index]) || !preg_match($regexp, $row[$index])) {
-				$offset ++;
+			if (empty($email) || !preg_match($regexp, $email) || in_array($email, $emails)) {
+				$offset++;
+			}
+			else {
+				$emails[] = $email;
 			}
 		}
 
@@ -137,12 +144,17 @@ class CSVFile implements RecipientSourceInterface
 
 			foreach ($this->columnAssignment as $index => $field) {
 				if (isset($row[$index])) {
-					$details[$field] = $row[$index];
+					$details[$field] = trim($row[$index]);
 				}
 			}
 
-			if (!empty($details['email']) && preg_match($regexp, $details['email'])) {
+			if (
+				!empty($details['email']) &&
+				preg_match($regexp, $details['email']) &&
+				!in_array($details['email'], $emails)
+			) {
 				$recipients[] = new MutableRecipient($details['email'], $details);
+				$emails[]     = $details['email'];
 			}
 		}
 
