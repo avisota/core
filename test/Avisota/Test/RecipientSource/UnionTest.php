@@ -21,12 +21,13 @@ use Avisota\RecipientSource\Union;
 class UnionTest extends CSVFileTest
 {
 	/**
-	 * @return CSVFile
+	 * @return Union
 	 */
 	protected function getUnionRecipientSource($clean) {
 		$unionRecipientSource = new Union();
 		$unionRecipientSource->setClean($clean);
 
+		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
 		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
 		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
 
@@ -38,7 +39,7 @@ class UnionTest extends CSVFileTest
 		$recipients = $this->getRecipients();
 
 		if (!$clean) {
-			$recipients = array_merge($recipients, $this->getRecipients());
+			$recipients = array_merge($recipients, $this->getRecipients(), $this->getRecipients());
 		}
 
 		return $recipients;
@@ -78,10 +79,10 @@ class UnionTest extends CSVFileTest
 			// assert go through count
 			$count = $recipientSource->countRecipients();
 
-			for ($offset = 0; $offset < $count; $offset++) {
+			for ($offset = 0; $offset < $count; $offset+=3) {
 				$this->assertEquals(
-					array_slice($recipients, $offset, 1),
-					$recipientSource->getRecipients(1, $offset),
+					array_slice($recipients, $offset, 3),
+					$recipientSource->getRecipients(3, $offset),
 					'Failed to get recipient at position ' . $offset . ', clean mode is ' . ($clean ? 'on' : 'off')
 				);
 			}

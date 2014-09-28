@@ -219,7 +219,9 @@ class Union implements RecipientSourceInterface
 				$recipients = array_merge($recipients, $tempRecipients);
 
 				if ($offset > 0) {
-					$offset -= empty($tempRecipients) ? $recipientSource->countRecipients() : count($tempRecipients);
+					$total = count($tempRecipients);
+					$max   = $recipientSource->countRecipients();
+					$offset -= ($offset + $total) >= $max ? ($max - $total) : $total;
 				}
 			}
 		}
