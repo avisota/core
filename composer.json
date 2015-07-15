@@ -22,7 +22,7 @@
 	},
 	"require":{
 		"php":">=5.3",
-		"doctrine/dbal": "2.4.*"
+		"doctrine/dbal": "~2.4"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
