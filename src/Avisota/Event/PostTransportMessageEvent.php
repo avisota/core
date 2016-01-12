@@ -17,7 +17,7 @@ namespace Avisota\Event;
 use Avisota\Message\MessageInterface;
 use Avisota\Queue\EventEmittingQueueInterface;
 use Avisota\Transport\TransportStatus;
-use Symfony\Component\EventDispatcher\Event;
+
 
 /**
  * Event triggered after an

@@ -17,7 +17,7 @@ namespace Avisota\Queue;
 use Avisota\Event\PostTransportMessageEvent;
 use Avisota\Event\PreTransportMessageEvent;
 use Avisota\Message\MessageInterface;
-use Avisota\Message\NativeMessage;
+
 use Avisota\Transport\TransportInterface;
 use Avisota\Transport\TransportStatus;
 use Doctrine\DBAL\Connection;

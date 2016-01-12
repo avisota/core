@@ -14,9 +14,6 @@
 
 namespace Avisota\Event;
 
-use Avisota\Message\MessageInterface;
-use Avisota\Queue\EventEmittingQueueInterface;
-use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Event triggered before an

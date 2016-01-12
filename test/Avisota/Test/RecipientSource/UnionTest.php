@@ -14,8 +14,7 @@
 
 namespace Avisota\Test\RecipientSource;
 
-use Avisota\Recipient\MutableRecipient;
-use Avisota\RecipientSource\CSVFile;
+
 use Avisota\RecipientSource\Union;
 
 /**

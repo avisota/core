@@ -16,7 +16,7 @@ namespace Avisota\Queue;
 
 use Avisota\Message\MessageInterface;
 use Avisota\Transport\TransportInterface;
-use Avisota\Transport\TransportStatus;
+
 
 /**
  * The basic message queue interface.

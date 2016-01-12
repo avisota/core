@@ -14,7 +14,7 @@
 
 namespace Avisota\Test\Transport;
 
-use Avisota\Transport\SmtpTransport;
+
 
 /**
  * Class NoOpTransportProvider

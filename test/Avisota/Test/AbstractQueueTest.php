@@ -24,10 +24,8 @@ use Avisota\Test\Message\TestMessage;
 use Avisota\Test\Queue\TestQueueExecutionDecider;
 use Avisota\Test\Transport\NoOpTransport;
 use Avisota\Test\Transport\TransportProviderInterface;
-use Doctrine\DBAL\Configuration;
-use Doctrine\DBAL\DriverManager;
-use Doctrine\DBAL\Schema\Column;
-use Doctrine\DBAL\Statement;
+
+
 use Monolog\Handler\TestHandler;
 use Monolog\Logger;
 use Symfony\Component\EventDispatcher\Event;

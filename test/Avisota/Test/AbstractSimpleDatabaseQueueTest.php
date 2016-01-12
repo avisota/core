@@ -16,10 +16,7 @@ namespace Avisota\Test;
 
 use Avisota\Queue\SimpleDatabaseQueue;
 use Avisota\Test\Database\DoctrineConnectionProviderInterface;
-use Doctrine\DBAL\Configuration;
-use Doctrine\DBAL\DriverManager;
-use Doctrine\DBAL\Schema\Column;
-use Doctrine\DBAL\Statement;
+
 
 /**
  * Class AbstractSimpleDatabaseQueueTest

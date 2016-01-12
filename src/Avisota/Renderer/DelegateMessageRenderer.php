@@ -15,7 +15,7 @@
 namespace Avisota\Renderer;
 
 use Avisota\Message\MessageInterface;
-use Avisota\Message\NativeMessage;
+
 
 /**
  * Class DelegateMessageRenderer

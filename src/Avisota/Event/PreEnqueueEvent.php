@@ -15,7 +15,7 @@
 namespace Avisota\Event;
 
 use Avisota\Message\MessageInterface;
-use Avisota\Queue\EventEmittingQueueInterface;
+
 use Avisota\Queue\QueueInterface;
 use Symfony\Component\EventDispatcher\Event;
 
