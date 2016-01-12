@@ -16,8 +16,8 @@ namespace Avisota\Test\Imap;
 
 interface ImapConnectionProviderInterface
 {
-	/**
-	 * @return ressource
-	 */
-	public function createImapConnection();
+    /**
+     * @return ressource
+     */
+    public function createImapConnection();
 }

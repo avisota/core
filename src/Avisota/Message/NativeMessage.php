@@ -21,106 +21,106 @@ namespace Avisota\Message;
  */
 class NativeMessage implements MessageInterface
 {
-	/**
-	 * The swift message.
-	 *
-	 * @var \Swift_Message
-	 */
-	protected $message;
+    /**
+     * The swift message.
+     *
+     * @var \Swift_Message
+     */
+    protected $message;
 
-	/**
-	 * @param \Swift_Message $message
-	 */
-	public function __construct(\Swift_Message $message)
-	{
-		$this->message = $message;
-	}
+    /**
+     * @param \Swift_Message $message
+     */
+    public function __construct(\Swift_Message $message)
+    {
+        $this->message = $message;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getRecipients()
-	{
-		return $this->message->getTo();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getRecipients()
+    {
+        return $this->message->getTo();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getRecipientDetails()
-	{
-		return array();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getRecipientDetails()
+    {
+        return array();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getCopyRecipients()
-	{
-		return $this->message->getCc();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getCopyRecipients()
+    {
+        return $this->message->getCc();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getBlindCopyRecipients()
-	{
-		return $this->message->getBcc();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlindCopyRecipients()
+    {
+        return $this->message->getBcc();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getFrom()
-	{
-		return $this->message->getFrom();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getFrom()
+    {
+        return $this->message->getFrom();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getSender()
-	{
-		return $this->message->getSender();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getSender()
+    {
+        return $this->message->getSender();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getReplyTo()
-	{
-		return $this->message->getReplyTo();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getReplyTo()
+    {
+        return $this->message->getReplyTo();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getSubject()
-	{
-		return $this->message->getSubject();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getSubject()
+    {
+        return $this->message->getSubject();
+    }
 
-	/**
-	 * @return \Swift_Message
-	 */
-	public function getMessage()
-	{
-		return $this->message;
-	}
+    /**
+     * @return \Swift_Message
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function serialize()
-	{
-		return serialize($this->message);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function serialize()
+    {
+        return serialize($this->message);
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function unserialize($serialized)
-	{
-		$this->message = unserialize($serialized);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function unserialize($serialized)
+    {
+        $this->message = unserialize($serialized);
+    }
 }

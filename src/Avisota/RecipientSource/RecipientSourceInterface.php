@@ -23,20 +23,20 @@ use Avisota\Recipient\RecipientInterface;
  */
 interface RecipientSourceInterface
 {
-	/**
-	 * Count the recipients.
-	 *
-	 * @return int
-	 */
-	public function countRecipients();
+    /**
+     * Count the recipients.
+     *
+     * @return int
+     */
+    public function countRecipients();
 
-	/**
-	 * Get all recipients.
-	 *
-	 * @param int $limit  Limit result to given count.
-	 * @param int $offset Skip certain count of recipients.
-	 *
-	 * @return RecipientInterface[]
-	 */
-	public function getRecipients($limit = null, $offset = null);
+    /**
+     * Get all recipients.
+     *
+     * @param int $limit  Limit result to given count.
+     * @param int $offset Skip certain count of recipients.
+     *
+     * @return RecipientInterface[]
+     */
+    public function getRecipients($limit = null, $offset = null);
 }

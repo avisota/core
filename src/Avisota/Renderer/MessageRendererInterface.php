@@ -23,19 +23,19 @@ use Avisota\Message\MessageInterface;
  */
 interface MessageRendererInterface
 {
-	/**
-	 * Render a message and create a Swift_Message.
-	 *
-	 * @return \Swift_Message
-	 */
-	public function renderMessage(MessageInterface $message);
+    /**
+     * Render a message and create a Swift_Message.
+     *
+     * @return \Swift_Message
+     */
+    public function renderMessage(MessageInterface $message);
 
-	/**
-	 * Check if this renderer can render the message.
-	 *
-	 * @param MessageInterface $message
-	 *
-	 * @return bool
-	 */
-	public function canRender(MessageInterface $message);
+    /**
+     * Check if this renderer can render the message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
+     */
+    public function canRender(MessageInterface $message);
 }

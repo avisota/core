@@ -23,174 +23,174 @@ use Avisota\Renderer\MessageRendererInterface;
  */
 class SmtpTransport extends AbstractSwiftTransport
 {
-	/**
-	 * @var string
-	 */
-	protected $host;
+    /**
+     * @var string
+     */
+    protected $host;
 
-	/**
-	 * @var int
-	 */
-	protected $port;
+    /**
+     * @var int
+     */
+    protected $port;
 
-	/**
-	 * @var string
-	 */
-	protected $username;
+    /**
+     * @var string
+     */
+    protected $username;
 
-	/**
-	 * @var string
-	 */
-	protected $password;
+    /**
+     * @var string
+     */
+    protected $password;
 
-	/**
-	 * @var "ssl"|"tls"
-	 */
-	protected $encryption;
+    /**
+     * @var "ssl"|"tls"
+     */
+    protected $encryption;
 
-	/**
-	 * @var \Swift_Mailer|null
-	 */
-	protected $swiftMailer;
+    /**
+     * @var \Swift_Mailer|null
+     */
+    protected $swiftMailer;
 
-	/**
-	 * @param string $host
-	 * @param null   $port
-	 * @param null   $username
-	 * @param null   $password
-	 * @param null   $encryption
-	 *
-	 * @return SmtpTransport
-	 */
-	public function __construct(
-		$host = 'localhost',
-		$port = null,
-		$username = null,
-		$password = null,
-		$encryption = null,
-		MessageRendererInterface $renderer
-	) {
-		$this->host       = $host;
-		$this->port       = $port;
-		$this->username   = $username;
-		$this->password   = $password;
-		$this->encryption = $encryption;
-		$this->setRenderer($renderer);
-	}
+    /**
+     * @param string $host
+     * @param null   $port
+     * @param null   $username
+     * @param null   $password
+     * @param null   $encryption
+     *
+     * @return SmtpTransport
+     */
+    public function __construct(
+        $host = 'localhost',
+        $port = null,
+        $username = null,
+        $password = null,
+        $encryption = null,
+        MessageRendererInterface $renderer
+    ) {
+        $this->host       = $host;
+        $this->port       = $port;
+        $this->username   = $username;
+        $this->password   = $password;
+        $this->encryption = $encryption;
+        $this->setRenderer($renderer);
+    }
 
-	/**
-	 * @param string $host
-	 */
-	public function setHost($host)
-	{
-		$this->host = $host;
-		$this->resetMailer();
-		return $this;
-	}
+    /**
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+        $this->resetMailer();
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getHost()
-	{
-		return $this->host;
-	}
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
 
-	/**
-	 * @param int $port
-	 */
-	public function setPort($port)
-	{
-		$this->port = $port;
-		$this->resetMailer();
-		return $this;
-	}
+    /**
+     * @param int $port
+     */
+    public function setPort($port)
+    {
+        $this->port = $port;
+        $this->resetMailer();
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPort()
-	{
-		return $this->port;
-	}
+    /**
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->port;
+    }
 
-	/**
-	 * @param string $username
-	 */
-	public function setUsername($username)
-	{
-		$this->username = $username;
-		$this->resetMailer();
-		return $this;
-	}
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+        $this->resetMailer();
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getUsername()
-	{
-		return $this->username;
-	}
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
 
-	/**
-	 * @param string $password
-	 */
-	public function setPassword($password)
-	{
-		$this->password = $password;
-		$this->resetMailer();
-		return $this;
-	}
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        $this->resetMailer();
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getPassword()
-	{
-		return $this->password;
-	}
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
 
-	/**
-	 * @param string $encryption
-	 */
-	public function setEncryption($encryption)
-	{
-		$encryption = strtolower($encryption);
-		if ($encryption != 'ssl' && $encryption != 'tls') {
-			$encryption = null;
-		}
-		$this->encryption = $encryption;
-		$this->resetMailer();
-		return $this;
-	}
+    /**
+     * @param string $encryption
+     */
+    public function setEncryption($encryption)
+    {
+        $encryption = strtolower($encryption);
+        if ($encryption != 'ssl' && $encryption != 'tls') {
+            $encryption = null;
+        }
+        $this->encryption = $encryption;
+        $this->resetMailer();
+        return $this;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getEncryption()
-	{
-		return $this->encryption;
-	}
+    /**
+     * @return string
+     */
+    public function getEncryption()
+    {
+        return $this->encryption;
+    }
 
-	/**
-	 * @return \Swift_Mailer
-	 */
-	protected function createMailer()
-	{
-		$transport = new \Swift_SmtpTransport($this->host);
-		if ($this->port) {
-			$transport->setPort($this->port);
-		}
-		if ($this->username) {
-			$transport->setUsername($this->username);
-		}
-		if ($this->password) {
-			$transport->setPassword($this->password);
-		}
-		if ($this->encryption) {
-			$transport->setEncryption($this->encryption);
-		}
+    /**
+     * @return \Swift_Mailer
+     */
+    protected function createMailer()
+    {
+        $transport = new \Swift_SmtpTransport($this->host);
+        if ($this->port) {
+            $transport->setPort($this->port);
+        }
+        if ($this->username) {
+            $transport->setUsername($this->username);
+        }
+        if ($this->password) {
+            $transport->setPassword($this->password);
+        }
+        if ($this->encryption) {
+            $transport->setEncryption($this->encryption);
+        }
 
-		return \Swift_Mailer::newInstance($transport);
-	}
+        return \Swift_Mailer::newInstance($transport);
+    }
 }

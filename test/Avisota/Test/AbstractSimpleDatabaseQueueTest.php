@@ -22,41 +22,41 @@ use Doctrine\DBAL\Statement;
 
 abstract class AbstractSimpleDatabaseQueueTest extends AbstractQueueTest
 {
-	/**
-	 * @var DoctrineConnectionProviderInterface
-	 */
-	protected $doctrineConnectionProvider;
+    /**
+     * @var DoctrineConnectionProviderInterface
+     */
+    protected $doctrineConnectionProvider;
 
-	protected function createQueue()
-	{
-		$connection = $this->doctrineConnectionProvider->createDoctrineConnection();
-		return new SimpleDatabaseQueue($connection, 'queue', true);
-	}
+    protected function createQueue()
+    {
+        $connection = $this->doctrineConnectionProvider->createDoctrineConnection();
+        return new SimpleDatabaseQueue($connection, 'queue', true);
+    }
 
-	/**
-	 * @expectedException RuntimeException
-	 */
-	public function testCreateTableException()
-	{
-		$connection = $this->doctrineConnectionProvider->createDoctrineConnection();
-		new SimpleDatabaseQueue($connection, 'queue', false);
-	}
+    /**
+     * @expectedException RuntimeException
+     */
+    public function testCreateTableException()
+    {
+        $connection = $this->doctrineConnectionProvider->createDoctrineConnection();
+        new SimpleDatabaseQueue($connection, 'queue', false);
+    }
 
-	public function testCreateTable()
-	{
-		$connection = $this->doctrineConnectionProvider->createDoctrineConnection();
-		new SimpleDatabaseQueue($connection, 'queue', true);
+    public function testCreateTable()
+    {
+        $connection = $this->doctrineConnectionProvider->createDoctrineConnection();
+        new SimpleDatabaseQueue($connection, 'queue', true);
 
-		$schemaManager = $connection->getSchemaManager();
+        $schemaManager = $connection->getSchemaManager();
 
-		$this->assertEquals(
-			array('queue'),
-			$schemaManager->listTableNames()
-		);
+        $this->assertEquals(
+            array('queue'),
+            $schemaManager->listTableNames()
+        );
 
-		$this->assertEquals(
-			array('id', 'enqueue', 'message', 'delivery_date'),
-			array_keys($schemaManager->listTableColumns('queue'))
-		);
-	}
+        $this->assertEquals(
+            array('id', 'enqueue', 'message', 'delivery_date'),
+            array_keys($schemaManager->listTableColumns('queue'))
+        );
+    }
 }

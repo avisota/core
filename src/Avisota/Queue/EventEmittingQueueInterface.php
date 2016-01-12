@@ -23,19 +23,19 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  */
 interface EventEmittingQueueInterface
 {
-	/**
-	 * Set the event dispatcher for this queue.
-	 *
-	 * @param EventDispatcher|null $eventDispatcher
-	 *
-	 * @return QueueInterface
-	 */
-	public function setEventDispatcher(EventDispatcher $eventDispatcher = null);
+    /**
+     * Set the event dispatcher for this queue.
+     *
+     * @param EventDispatcher|null $eventDispatcher
+     *
+     * @return QueueInterface
+     */
+    public function setEventDispatcher(EventDispatcher $eventDispatcher = null);
 
-	/**
-	 * Get the event dispatcher for this queue.
-	 *
-	 * @return EventDispatcher|null
-	 */
-	public function getEventDispatcher();
+    /**
+     * Get the event dispatcher for this queue.
+     *
+     * @return EventDispatcher|null
+     */
+    public function getEventDispatcher();
 }

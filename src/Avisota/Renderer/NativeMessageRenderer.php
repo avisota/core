@@ -24,19 +24,19 @@ use Avisota\Message\NativeMessage;
  */
 class NativeMessageRenderer implements MessageRendererInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function renderMessage(MessageInterface $message)
-	{
-		return $message->getMessage();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function renderMessage(MessageInterface $message)
+    {
+        return $message->getMessage();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function canRender(MessageInterface $message)
-	{
-		return $message instanceof NativeMessage;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function canRender(MessageInterface $message)
+    {
+        return $message instanceof NativeMessage;
+    }
 }

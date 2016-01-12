@@ -24,142 +24,141 @@ use Avisota\Recipient\MutableRecipient;
 class CSVFile implements RecipientSourceInterface
 {
 
-	private $file;
+    private $file;
 
-	private $columnAssignment;
+    private $columnAssignment;
 
-	private $delimiter;
+    private $delimiter;
 
-	private $enclosure;
+    private $enclosure;
 
-	private $escape;
+    private $escape;
 
-	/**
-	 * @var \Swift_Mime_Grammar
-	 */
-	private $grammar;
+    /**
+     * @var \Swift_Mime_Grammar
+     */
+    private $grammar;
 
-	/**
-	 * @param string $fileData
-	 */
-	public function __construct($file, array $columnAssignment, $delimiter = ',', $enclosure = '"', $escape = '\\')
-	{
-		$this->file             = (string) $file;
-		$this->columnAssignment = $columnAssignment;
-		$this->delimiter        = $delimiter;
-		$this->enclosure        = $enclosure;
-		$this->escape           = $escape;
-	}
+    /**
+     * @param string $fileData
+     */
+    public function __construct($file, array $columnAssignment, $delimiter = ',', $enclosure = '"', $escape = '\\')
+    {
+        $this->file             = (string) $file;
+        $this->columnAssignment = $columnAssignment;
+        $this->delimiter        = $delimiter;
+        $this->enclosure        = $enclosure;
+        $this->escape           = $escape;
+    }
 
-	/**
-	 * @return \Swift_Mime_Grammar
-	 */
-	public function getGrammar()
-	{
-		if (!$this->grammar) {
-			$this->grammar = new \Swift_Mime_Grammar();
-		}
-		return $this->grammar;
-	}
+    /**
+     * @return \Swift_Mime_Grammar
+     */
+    public function getGrammar()
+    {
+        if (!$this->grammar) {
+            $this->grammar = new \Swift_Mime_Grammar();
+        }
+        return $this->grammar;
+    }
 
-	/**
-	 * @param \Swift_Mime_Grammar $grammar
-	 *
-	 * @return CSVFile
-	 */
-	public function setGrammar(\Swift_Mime_Grammar $grammar)
-	{
-		$this->grammar = $grammar;
-		return $this;
-	}
+    /**
+     * @param \Swift_Mime_Grammar $grammar
+     *
+     * @return CSVFile
+     */
+    public function setGrammar(\Swift_Mime_Grammar $grammar)
+    {
+        $this->grammar = $grammar;
+        return $this;
+    }
 
-	/**
-	 * Count the recipients.
-	 *
-	 * @return int
-	 */
-	public function countRecipients()
-	{
-		$in = fopen($this->file, 'r');
+    /**
+     * Count the recipients.
+     *
+     * @return int
+     */
+    public function countRecipients()
+    {
+        $in = fopen($this->file, 'r');
 
-		if (!$in) {
-			return 0;
-		}
+        if (!$in) {
+            return 0;
+        }
 
-		$recipients = 0;
-		$regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
-		$index      = array_search('email', $this->columnAssignment);
-		$emails     = array();
+        $recipients = 0;
+        $regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+        $index      = array_search('email', $this->columnAssignment);
+        $emails     = array();
 
-		while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
-			$email = trim($row[$index]);
+        while ($row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)) {
+            $email = trim($row[$index]);
 
-			if (!empty($email) && preg_match($regexp, $email) && !in_array($email, $emails)) {
-				$recipients++;
-				$emails[] = $email;
-			}
-		}
+            if (!empty($email) && preg_match($regexp, $email) && !in_array($email, $emails)) {
+                $recipients++;
+                $emails[] = $email;
+            }
+        }
 
-		fclose($in);
+        fclose($in);
 
-		return $recipients;
-	}
+        return $recipients;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getRecipients($limit = null, $offset = null)
-	{
-		$in = fopen($this->file, 'r');
+    /**
+     * {@inheritdoc}
+     */
+    public function getRecipients($limit = null, $offset = null)
+    {
+        $in = fopen($this->file, 'r');
 
-		if (!$in) {
-			return null;
-		}
+        if (!$in) {
+            return null;
+        }
 
-		$recipients = array();
-		$regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
-		$index      = array_search('email', $this->columnAssignment);
-		$emails     = array();
+        $recipients = array();
+        $regexp     = '/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D';
+        $index      = array_search('email', $this->columnAssignment);
+        $emails     = array();
 
-		// skip offset lines
-		for (; $offset > 0 && !feof($in); $offset--) {
-			$row   = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
-			$email = trim($row[$index]);
+        // skip offset lines
+        for (; $offset > 0 && !feof($in); $offset--) {
+            $row   = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape);
+            $email = trim($row[$index]);
 
-			// skip invalid lines without counting them
-			if (empty($email) || !preg_match($regexp, $email) || in_array($email, $emails)) {
-				$offset++;
-			}
-			else {
-				$emails[] = $email;
-			}
-		}
+            // skip invalid lines without counting them
+            if (empty($email) || !preg_match($regexp, $email) || in_array($email, $emails)) {
+                $offset++;
+            } else {
+                $emails[] = $email;
+            }
+        }
 
-		// read lines
-		while (
-			(!$limit || count($recipients) < $limit) &&
-			$row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)
-		) {
-			$details = array();
+        // read lines
+        while (
+            (!$limit || count($recipients) < $limit)
+            && $row = fgetcsv($in, 0, $this->delimiter, $this->enclosure, $this->escape)
+        ) {
+            $details = array();
 
-			foreach ($this->columnAssignment as $index => $field) {
-				if (isset($row[$index])) {
-					$details[$field] = trim($row[$index]);
-				}
-			}
+            foreach ($this->columnAssignment as $index => $field) {
+                if (isset($row[$index])) {
+                    $details[$field] = trim($row[$index]);
+                }
+            }
 
-			if (
-				!empty($details['email']) &&
-				preg_match($regexp, $details['email']) &&
-				!in_array($details['email'], $emails)
-			) {
-				$recipients[] = new MutableRecipient($details['email'], $details);
-				$emails[]     = $details['email'];
-			}
-		}
+            if (
+                !empty($details['email'])
+                && preg_match($regexp, $details['email'])
+                && !in_array($details['email'], $emails)
+            ) {
+                $recipients[] = new MutableRecipient($details['email'], $details);
+                $emails[]     = $details['email'];
+            }
+        }
 
-		fclose($in);
+        fclose($in);
 
-		return $recipients;
-	}
+        return $recipients;
+    }
 }

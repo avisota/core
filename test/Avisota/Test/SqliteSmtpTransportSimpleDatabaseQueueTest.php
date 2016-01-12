@@ -25,10 +25,10 @@ use Doctrine\DBAL\Statement;
 
 class SqliteSmtpTransportSimpleDatabaseQueueTest extends AbstractSimpleDatabaseQueueTest
 {
-	public function setUp()
-	{
-		$this->transportProvider = new SmtpTransportProvider();
-		$this->imapConnectionProvider = new ImapConnectionProvider();
-		$this->doctrineConnectionProvider = new SqliteDoctrineConnectionProvider();
-	}
+    public function setUp()
+    {
+        $this->transportProvider          = new SmtpTransportProvider();
+        $this->imapConnectionProvider     = new ImapConnectionProvider();
+        $this->doctrineConnectionProvider = new SqliteDoctrineConnectionProvider();
+    }
 }

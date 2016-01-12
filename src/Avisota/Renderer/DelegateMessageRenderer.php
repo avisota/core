@@ -25,46 +25,46 @@ use Avisota\Message\NativeMessage;
  */
 class DelegateMessageRenderer implements MessageRendererInterface
 {
-	/**
-	 * @var MessageRendererInterface
-	 */
-	protected $delegate;
+    /**
+     * @var MessageRendererInterface
+     */
+    protected $delegate;
 
-	public function __construct(MessageRendererInterface $delegate)
-	{
-		$this->delegate = $delegate;
-	}
+    public function __construct(MessageRendererInterface $delegate)
+    {
+        $this->delegate = $delegate;
+    }
 
-	/**
-	 * @param \Avisota\Renderer\MessageRendererInterface $delegate
-	 */
-	public function setDelegate(MessageRendererInterface $delegate)
-	{
-		$this->delegate = $delegate;
-		return $this;
-	}
+    /**
+     * @param \Avisota\Renderer\MessageRendererInterface $delegate
+     */
+    public function setDelegate(MessageRendererInterface $delegate)
+    {
+        $this->delegate = $delegate;
+        return $this;
+    }
 
-	/**
-	 * @return \Avisota\Renderer\MessageRendererInterface
-	 */
-	public function getDelegate()
-	{
-		return $this->delegate;
-	}
+    /**
+     * @return \Avisota\Renderer\MessageRendererInterface
+     */
+    public function getDelegate()
+    {
+        return $this->delegate;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function renderMessage(MessageInterface $message)
-	{
-		return $this->delegate->renderMessage($message);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function renderMessage(MessageInterface $message)
+    {
+        return $this->delegate->renderMessage($message);
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function canRender(MessageInterface $message)
-	{
-		return $this->delegate->canRender($message);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function canRender(MessageInterface $message)
+    {
+        return $this->delegate->canRender($message);
+    }
 }

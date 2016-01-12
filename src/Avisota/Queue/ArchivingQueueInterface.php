@@ -22,31 +22,31 @@ namespace Avisota\Queue;
  */
 interface ArchivingQueueInterface extends QueueInterface
 {
-	/**
-	 * Clean transported message information.
-	 *
-	 * @return bool
-	 */
-	public function cleanup();
+    /**
+     * Clean transported message information.
+     *
+     * @return bool
+     */
+    public function cleanup();
 
-	/**
-	 * Return the count of send messages.
-	 *
-	 * @return int
-	 */
-	public function sendCount();
+    /**
+     * Return the count of send messages.
+     *
+     * @return int
+     */
+    public function sendCount();
 
-	/**
-	 * Return the successfully send messages.
-	 *
-	 * @return ArchivingQueueEntryInterface
-	 */
-	public function successfullyMessages();
+    /**
+     * Return the successfully send messages.
+     *
+     * @return ArchivingQueueEntryInterface
+     */
+    public function successfullyMessages();
 
-	/**
-	 * Return the faulty send messages.
-	 *
-	 * @return int
-	 */
-	public function faultyMessages();
+    /**
+     * Return the faulty send messages.
+     *
+     * @return int
+     */
+    public function faultyMessages();
 }

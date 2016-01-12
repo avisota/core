@@ -23,25 +23,25 @@ use Avisota\Message\MessageInterface;
  */
 class NullTransport implements TransportInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function initialise()
-	{
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function initialise()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function send(MessageInterface $message)
-	{
-		return new TransportStatus($message, 1);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function send(MessageInterface $message)
+    {
+        return new TransportStatus($message, 1);
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function flush()
-	{
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function flush()
+    {
+    }
 }

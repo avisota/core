@@ -23,25 +23,25 @@ use Avisota\Renderer\MessageRendererInterface;
  */
 abstract class AbstractTransport implements TransportInterface
 {
-	/**
-	 * @var MessageRendererInterface
-	 */
-	protected $renderer;
+    /**
+     * @var MessageRendererInterface
+     */
+    protected $renderer;
 
-	/**
-	 * @param MessageRendererInterface $renderer
-	 */
-	public function setRenderer(MessageRendererInterface $renderer)
-	{
-		$this->renderer = $renderer;
-		return $this;
-	}
+    /**
+     * @param MessageRendererInterface $renderer
+     */
+    public function setRenderer(MessageRendererInterface $renderer)
+    {
+        $this->renderer = $renderer;
+        return $this;
+    }
 
-	/**
-	 * @return MessageRendererInterface
-	 */
-	public function getRenderer()
-	{
-		return $this->renderer;
-	}
+    /**
+     * @return MessageRendererInterface
+     */
+    public function getRenderer()
+    {
+        return $this->renderer;
+    }
 }

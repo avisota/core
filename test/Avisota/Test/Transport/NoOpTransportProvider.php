@@ -18,18 +18,18 @@ use Avisota\Transport\SmtpTransport;
 
 class NoOpTransportProvider implements TransportProviderInterface
 {
-	protected $succeededStatus;
+    protected $succeededStatus;
 
-	function __construct($succeededStatus)
-	{
-		$this->succeededStatus = $succeededStatus;
-	}
+    function __construct($succeededStatus)
+    {
+        $this->succeededStatus = $succeededStatus;
+    }
 
-	/**
-	 * @return \Swift_Transport
-	 */
-	public function createTransport()
-	{
-		return new NoOpTransport($this->succeededStatus);
-	}
+    /**
+     * @return \Swift_Transport
+     */
+    public function createTransport()
+    {
+        return new NoOpTransport($this->succeededStatus);
+    }
 }

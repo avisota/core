@@ -21,73 +21,73 @@ namespace Avisota\Queue;
  */
 class ExecutionConfig
 {
-	/**
-	 * Limit execution count.
-	 *
-	 * @var int
-	 */
-	protected $messageLimit = 0;
+    /**
+     * Limit execution count.
+     *
+     * @var int
+     */
+    protected $messageLimit = 0;
 
-	/**
-	 * Limit execution time in seconds.
-	 *
-	 * @var int
-	 */
-	protected $timeLimit = 0;
+    /**
+     * Limit execution time in seconds.
+     *
+     * @var int
+     */
+    protected $timeLimit = 0;
 
-	/**
-	 * @var ExecutionDeciderInterface
-	 */
-	protected $decider = null;
+    /**
+     * @var ExecutionDeciderInterface
+     */
+    protected $decider = null;
 
-	/**
-	 * @param int $messageLimit
-	 */
-	public function setMessageLimit($messageLimit)
-	{
-		$this->messageLimit = (int) $messageLimit;
-		return $this;
-	}
+    /**
+     * @param int $messageLimit
+     */
+    public function setMessageLimit($messageLimit)
+    {
+        $this->messageLimit = (int) $messageLimit;
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getMessageLimit()
-	{
-		return $this->messageLimit;
-	}
+    /**
+     * @return int
+     */
+    public function getMessageLimit()
+    {
+        return $this->messageLimit;
+    }
 
-	/**
-	 * @param int $timeLimit
-	 */
-	public function setTimeLimit($timeLimit)
-	{
-		$this->timeLimit = $timeLimit;
-		return $this;
-	}
+    /**
+     * @param int $timeLimit
+     */
+    public function setTimeLimit($timeLimit)
+    {
+        $this->timeLimit = $timeLimit;
+        return $this;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getTimeLimit()
-	{
-		return $this->timeLimit;
-	}
+    /**
+     * @return int
+     */
+    public function getTimeLimit()
+    {
+        return $this->timeLimit;
+    }
 
-	/**
-	 * @param \Avisota\Queue\ExecutionDeciderInterface $decider
-	 */
-	public function setDecider(ExecutionDeciderInterface $decider)
-	{
-		$this->decider = $decider;
-		return $this;
-	}
+    /**
+     * @param \Avisota\Queue\ExecutionDeciderInterface $decider
+     */
+    public function setDecider(ExecutionDeciderInterface $decider)
+    {
+        $this->decider = $decider;
+        return $this;
+    }
 
-	/**
-	 * @return \Avisota\Queue\ExecutionDeciderInterface
-	 */
-	public function getDecider()
-	{
-		return $this->decider;
-	}
+    /**
+     * @return \Avisota\Queue\ExecutionDeciderInterface
+     */
+    public function getDecider()
+    {
+        return $this->decider;
+    }
 }

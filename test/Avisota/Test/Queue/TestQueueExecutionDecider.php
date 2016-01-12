@@ -19,33 +19,33 @@ use Avisota\Queue\ExecutionDeciderInterface;
 
 class TestQueueExecutionDecider implements ExecutionDeciderInterface
 {
-	protected $hits = 0;
+    protected $hits = 0;
 
-	protected $accept;
+    protected $accept;
 
-	function __construct($accept)
-	{
-		$this->accept = (bool) $accept;
-	}
+    function __construct($accept)
+    {
+        $this->accept = (bool) $accept;
+    }
 
-	/**
-	 * @return mixed
-	 */
-	public function getHits()
-	{
-		return $this->hits;
-	}
+    /**
+     * @return mixed
+     */
+    public function getHits()
+    {
+        return $this->hits;
+    }
 
-	/**
-	 * Check if the message is accepted.
-	 *
-	 * @param MessageInterface $message
-	 *
-	 * @return bool
-	 */
-	public function accept(MessageInterface $message)
-	{
-		$this->hits ++;
-		return $this->accept;
-	}
+    /**
+     * Check if the message is accepted.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
+     */
+    public function accept(MessageInterface $message)
+    {
+        $this->hits++;
+        return $this->accept;
+    }
 }

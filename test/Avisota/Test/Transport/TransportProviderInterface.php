@@ -16,8 +16,8 @@ namespace Avisota\Test\Transport;
 
 interface TransportProviderInterface
 {
-	/**
-	 * @return \Swift_Transport
-	 */
-	public function createTransport();
+    /**
+     * @return \Swift_Transport
+     */
+    public function createTransport();
 }

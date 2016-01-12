@@ -16,46 +16,46 @@ namespace Avisota\Test\Imap;
 
 class ImapMailboxChecker
 {
-	/**
-	 * @param resource $imapConnection
-	 * @param array    $messages
-	 * @param bool     $clean
-	 *
-	 * @return bool Return <em>true</em> if <strong>all</strong> messages exist in the inbox.
-	 */
-	public function checkMessages($imapConnection, array $messages, $clean = true)
-	{
-		$bodies = array_map(
-			function ($message) {
-				return $message->getText() . "\r\n";
-			},
-			$messages
-		);
-		$host   = $_ENV['AVISOTA_TEST_IMAP_HOST'] ? : getenv('AVISOTA_TEST_IMAP_HOST');
-		$hits   = 0;
+    /**
+     * @param resource $imapConnection
+     * @param array    $messages
+     * @param bool     $clean
+     *
+     * @return bool Return <em>true</em> if <strong>all</strong> messages exist in the inbox.
+     */
+    public function checkMessages($imapConnection, array $messages, $clean = true)
+    {
+        $bodies = array_map(
+            function ($message) {
+                return $message->getText() . "\r\n";
+            },
+            $messages
+        );
+        $host   = $_ENV['AVISOTA_TEST_IMAP_HOST'] ?: getenv('AVISOTA_TEST_IMAP_HOST');
+        $hits   = 0;
 
-		for ($i=0; $i<30 && $hits < count($bodies); $i++) {
-			// wait for the mail server
-			sleep(2);
+        for ($i = 0; $i < 30 && $hits < count($bodies); $i++) {
+            // wait for the mail server
+            sleep(2);
 
-			imap_gc($imapConnection, IMAP_GC_ENV);
-			$status = imap_status($imapConnection, '{' . $host . '}', SA_MESSAGES);
+            imap_gc($imapConnection, IMAP_GC_ENV);
+            $status = imap_status($imapConnection, '{' . $host . '}', SA_MESSAGES);
 
-			for ($j = $status->messages; $j > 0; $j--) {
-				$body = imap_body($imapConnection, $j);
+            for ($j = $status->messages; $j > 0; $j--) {
+                $body = imap_body($imapConnection, $j);
 
-				if (in_array($body, $bodies)) {
-					$hits++;
+                if (in_array($body, $bodies)) {
+                    $hits++;
 
-					if ($clean) {
-						imap_delete($imapConnection, $j);
-					}
-				}
-			}
+                    if ($clean) {
+                        imap_delete($imapConnection, $j);
+                    }
+                }
+            }
 
-			imap_expunge($imapConnection);
-		}
+            imap_expunge($imapConnection);
+        }
 
-		return $hits;
-	}
+        return $hits;
+    }
 }

@@ -23,51 +23,51 @@ use Avisota\Message\MessageInterface;
  */
 abstract class AbstractSwiftTransport extends AbstractTransport
 {
-	/**
-	 * @var \Swift_Mailer|null
-	 */
-	protected $swiftMailer;
+    /**
+     * @var \Swift_Mailer|null
+     */
+    protected $swiftMailer;
 
-	/**
-	 * @return \Swift_Mailer
-	 */
-	abstract protected function createMailer();
+    /**
+     * @return \Swift_Mailer
+     */
+    abstract protected function createMailer();
 
-	/**
-	 * @return void
-	 */
-	protected function resetMailer()
-	{
-		$this->swiftMailer = null;
-	}
+    /**
+     * @return void
+     */
+    protected function resetMailer()
+    {
+        $this->swiftMailer = null;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function initialise()
-	{
-		if (!$this->swiftMailer) {
-			$this->swiftMailer = $this->createMailer();
-		}
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function initialise()
+    {
+        if (!$this->swiftMailer) {
+            $this->swiftMailer = $this->createMailer();
+        }
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function flush()
-	{
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function flush()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function send(MessageInterface $message)
-	{
-		$email = $this->renderer->renderMessage($message);
+    /**
+     * {@inheritdoc}
+     */
+    public function send(MessageInterface $message)
+    {
+        $email = $this->renderer->renderMessage($message);
 
-		$failedRecipients = array();
-		$successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
+        $failedRecipients      = array();
+        $successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
 
-		return new TransportStatus($message, $successfullySendCount, $failedRecipients);
-	}
+        return new TransportStatus($message, $successfullySendCount, $failedRecipients);
+    }
 }

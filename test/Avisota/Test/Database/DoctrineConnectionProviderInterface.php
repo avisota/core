@@ -18,8 +18,8 @@ use Doctrine\DBAL\Connection;
 
 interface DoctrineConnectionProviderInterface
 {
-	/**
-	 * @return Connection
-	 */
-	public function createDoctrineConnection();
+    /**
+     * @return Connection
+     */
+    public function createDoctrineConnection();
 }

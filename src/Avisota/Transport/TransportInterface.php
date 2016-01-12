@@ -23,25 +23,26 @@ use Avisota\Message\MessageInterface;
  */
 interface TransportInterface
 {
-	/**
-	 * Initialise transport.
-	 *
-	 * @return void
-	 */
-	public function initialise();
+    /**
+     * Initialise transport.
+     *
+     * @return void
+     */
+    public function initialise();
 
-	/**
-	 * Transport a message.
-	 *
-	 * @param MessageInterface $message
-	 * @return TransportStatus
-	 */
-	public function send(MessageInterface $message);
+    /**
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
+     */
+    public function send(MessageInterface $message);
 
-	/**
-	 * Flush transport.
-	 *
-	 * @return void
-	 */
-	public function flush();
+    /**
+     * Flush transport.
+     *
+     * @return void
+     */
+    public function flush();
 }

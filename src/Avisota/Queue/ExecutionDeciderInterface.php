@@ -24,12 +24,12 @@ use Avisota\Message\MessageInterface;
  */
 interface ExecutionDeciderInterface
 {
-	/**
-	 * Check if the message is accepted.
-	 *
-	 * @param MessageInterface $message
-	 *
-	 * @return bool
-	 */
-	public function accept(MessageInterface $message);
+    /**
+     * Check if the message is accepted.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
+     */
+    public function accept(MessageInterface $message);
 }

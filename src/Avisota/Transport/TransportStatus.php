@@ -23,67 +23,67 @@ use Avisota\Message\MessageInterface;
  */
 class TransportStatus
 {
-	/**
-	 * @var MessageInterface
-	 */
-	protected $message;
+    /**
+     * @var MessageInterface
+     */
+    protected $message;
 
-	/**
-	 * @var int
-	 */
-	protected $successfullySend;
+    /**
+     * @var int
+     */
+    protected $successfullySend;
 
-	/**
-	 * @var array
-	 */
-	protected $failedRecipients;
+    /**
+     * @var array
+     */
+    protected $failedRecipients;
 
-	/**
-	 * @var \Exception
-	 */
-	protected $exception;
+    /**
+     * @var \Exception
+     */
+    protected $exception;
 
-	public function __construct(
-		MessageInterface $message,
-		$successfullySend,
-		array $failedRecipients = array(),
-		\Exception $exception = null
-	) {
-		$this->message          = $message;
-		$this->successfullySend = (int) $successfullySend;
-		$this->failedRecipients = (array) $failedRecipients;
-		$this->exception        = $exception;
-	}
+    public function __construct(
+        MessageInterface $message,
+        $successfullySend,
+        array $failedRecipients = array(),
+        \Exception $exception = null
+    ) {
+        $this->message          = $message;
+        $this->successfullySend = (int) $successfullySend;
+        $this->failedRecipients = (array) $failedRecipients;
+        $this->exception        = $exception;
+    }
 
-	/**
-	 * @return \Avisota\Message\MessageInterface
-	 */
-	public function getMessage()
-	{
-		return $this->message;
-	}
+    /**
+     * @return \Avisota\Message\MessageInterface
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getSuccessfullySend()
-	{
-		return $this->successfullySend;
-	}
+    /**
+     * @return int
+     */
+    public function getSuccessfullySend()
+    {
+        return $this->successfullySend;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getFailedRecipients()
-	{
-		return $this->failedRecipients;
-	}
+    /**
+     * @return array
+     */
+    public function getFailedRecipients()
+    {
+        return $this->failedRecipients;
+    }
 
-	/**
-	 * @return \Exception
-	 */
-	public function getException()
-	{
-		return $this->exception;
-	}
+    /**
+     * @return \Exception
+     */
+    public function getException()
+    {
+        return $this->exception;
+    }
 }

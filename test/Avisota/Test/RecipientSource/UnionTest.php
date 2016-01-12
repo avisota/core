@@ -20,72 +20,73 @@ use Avisota\RecipientSource\Union;
 
 class UnionTest extends CSVFileTest
 {
-	/**
-	 * @return Union
-	 */
-	protected function getUnionRecipientSource($clean) {
-		$unionRecipientSource = new Union();
-		$unionRecipientSource->setClean($clean);
+    /**
+     * @return Union
+     */
+    protected function getUnionRecipientSource($clean)
+    {
+        $unionRecipientSource = new Union();
+        $unionRecipientSource->setClean($clean);
 
-		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
-		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
-		$unionRecipientSource->addRecipientSource($this->getRecipientSource());
+        $unionRecipientSource->addRecipientSource($this->getRecipientSource());
+        $unionRecipientSource->addRecipientSource($this->getRecipientSource());
+        $unionRecipientSource->addRecipientSource($this->getRecipientSource());
 
-		return $unionRecipientSource;
-	}
+        return $unionRecipientSource;
+    }
 
-	protected function getUnionRecipients($clean)
-	{
-		$recipients = $this->getRecipients();
+    protected function getUnionRecipients($clean)
+    {
+        $recipients = $this->getRecipients();
 
-		if (!$clean) {
-			$recipients = array_merge($recipients, $this->getRecipients(), $this->getRecipients());
-		}
+        if (!$clean) {
+            $recipients = array_merge($recipients, $this->getRecipients(), $this->getRecipients());
+        }
 
-		return $recipients;
-	}
+        return $recipients;
+    }
 
-	/**
-	 * @covers Avisota\RecipientSource\CSVFile::countRecipients
-	 */
-	public function testCountRecipients()
-	{
-		foreach (array(true, false) as $clean) {
-			$recipientSource = $this->getUnionRecipientSource($clean);
-			$recipients      = $this->getUnionRecipients($clean);
+    /**
+     * @covers Avisota\RecipientSource\CSVFile::countRecipients
+     */
+    public function testCountRecipients()
+    {
+        foreach (array(true, false) as $clean) {
+            $recipientSource = $this->getUnionRecipientSource($clean);
+            $recipients      = $this->getUnionRecipients($clean);
 
-			$this->assertEquals(count($recipients), $recipientSource->countRecipients());
-		}
-	}
+            $this->assertEquals(count($recipients), $recipientSource->countRecipients());
+        }
+    }
 
-	/**
-	 * @covers Avisota\RecipientSource\CSVFile::getRecipients
-	 */
-	public function testGetRecipients()
-	{
-		foreach (array(true, false) as $clean) {
-			$recipientSource = $this->getUnionRecipientSource($clean);
-			$recipients      = $this->getUnionRecipients($clean);
+    /**
+     * @covers Avisota\RecipientSource\CSVFile::getRecipients
+     */
+    public function testGetRecipients()
+    {
+        foreach (array(true, false) as $clean) {
+            $recipientSource = $this->getUnionRecipientSource($clean);
+            $recipients      = $this->getUnionRecipients($clean);
 
-			// assert complete list
-			$this->assertEquals($recipients, $recipientSource->getRecipients());
+            // assert complete list
+            $this->assertEquals($recipients, $recipientSource->getRecipients());
 
-			// assert limited list
-			$this->assertEquals(array_slice($recipients, 0, 1), $recipientSource->getRecipients(1));
+            // assert limited list
+            $this->assertEquals(array_slice($recipients, 0, 1), $recipientSource->getRecipients(1));
 
-			// assert offset list
-			$this->assertEquals(array_slice($recipients, 1), $recipientSource->getRecipients(1000, 1));
+            // assert offset list
+            $this->assertEquals(array_slice($recipients, 1), $recipientSource->getRecipients(1000, 1));
 
-			// assert go through count
-			$count = $recipientSource->countRecipients();
+            // assert go through count
+            $count = $recipientSource->countRecipients();
 
-			for ($offset = 0; $offset < $count; $offset+=3) {
-				$this->assertEquals(
-					array_slice($recipients, $offset, 3),
-					$recipientSource->getRecipients(3, $offset),
-					'Failed to get recipient at position ' . $offset . ', clean mode is ' . ($clean ? 'on' : 'off')
-				);
-			}
-		}
-	}
+            for ($offset = 0; $offset < $count; $offset += 3) {
+                $this->assertEquals(
+                    array_slice($recipients, $offset, 3),
+                    $recipientSource->getRecipients(3, $offset),
+                    'Failed to get recipient at position ' . $offset . ', clean mode is ' . ($clean ? 'on' : 'off')
+                );
+            }
+        }
+    }
 }

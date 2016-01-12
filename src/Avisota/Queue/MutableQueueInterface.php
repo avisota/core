@@ -23,12 +23,12 @@ use Avisota\Message\MessageInterface;
  */
 interface MutableQueueInterface extends QueueInterface
 {
-	/**
-	 * Dequeue a message.
-	 *
-	 * @param MessageInterface $message The message to dequeue.
-	 *
-	 * @return bool
-	 */
-	public function dequeue(MessageInterface $message);
+    /**
+     * Dequeue a message.
+     *
+     * @param MessageInterface $message The message to dequeue.
+     *
+     * @return bool
+     */
+    public function dequeue(MessageInterface $message);
 }

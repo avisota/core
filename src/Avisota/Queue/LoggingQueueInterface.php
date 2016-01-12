@@ -27,19 +27,19 @@ use Psr\Log\LoggerInterface;
  */
 interface LoggingQueueInterface
 {
-	/**
-	 * Set the logger for this queue.
-	 *
-	 * @param LoggerInterface $logger
-	 *
-	 * @return QueueInterface
-	 */
-	public function setLogger(LoggerInterface $logger = null);
+    /**
+     * Set the logger for this queue.
+     *
+     * @param LoggerInterface $logger
+     *
+     * @return QueueInterface
+     */
+    public function setLogger(LoggerInterface $logger = null);
 
-	/**
-	 * Get the logger for this queue.
-	 *
-	 * @return LoggerInterface|null
-	 */
-	public function getLogger();
+    /**
+     * Get the logger for this queue.
+     *
+     * @return LoggerInterface|null
+     */
+    public function getLogger();
 }

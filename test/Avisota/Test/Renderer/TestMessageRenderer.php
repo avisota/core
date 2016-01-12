@@ -19,26 +19,26 @@ use Avisota\Renderer\MessageRendererInterface;
 
 class TestMessageRenderer implements MessageRendererInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function renderMessage(MessageInterface $message)
-	{
-		$swiftMessage = \Swift_Message::newInstance();
-		$swiftMessage->setTo($message->getRecipients());
-		$swiftMessage->setCc($message->getCopyRecipients());
-		$swiftMessage->setBcc($message->getBlindCopyRecipients());
-		$swiftMessage->setFrom($message->getFrom());
-		$swiftMessage->setSubject($message->getSubject());
-		$swiftMessage->setBody($message->getText(), 'text/plain');
-		return $swiftMessage;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function renderMessage(MessageInterface $message)
+    {
+        $swiftMessage = \Swift_Message::newInstance();
+        $swiftMessage->setTo($message->getRecipients());
+        $swiftMessage->setCc($message->getCopyRecipients());
+        $swiftMessage->setBcc($message->getBlindCopyRecipients());
+        $swiftMessage->setFrom($message->getFrom());
+        $swiftMessage->setSubject($message->getSubject());
+        $swiftMessage->setBody($message->getText(), 'text/plain');
+        return $swiftMessage;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function canRender(MessageInterface $message)
-	{
-		return $message instanceof TestMessage;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function canRender(MessageInterface $message)
+    {
+        return $message instanceof TestMessage;
+    }
 }
