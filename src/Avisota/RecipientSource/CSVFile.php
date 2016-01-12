@@ -15,6 +15,7 @@
 namespace Avisota\RecipientSource;
 
 use Avisota\Recipient\MutableRecipient;
+use Avisota\Recipient\RecipientInterface;
 
 /**
  * A recipient source that read the recipients from a csv file.

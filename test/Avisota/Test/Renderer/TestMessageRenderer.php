@@ -16,6 +16,7 @@ namespace Avisota\Test\Renderer;
 
 use Avisota\Message\MessageInterface;
 use Avisota\Renderer\MessageRendererInterface;
+use Avisota\Test\Message\TestMessage;
 
 /**
  * The basic message interface.

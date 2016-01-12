@@ -14,6 +14,8 @@
 
 namespace Avisota\RecipientSource;
 
+use Avisota\Recipient\RecipientInterface;
+
 /**
  * Combine one or more recipient sources.
  *

@@ -23,6 +23,7 @@ use Avisota\Test\Imap\ImapMailboxChecker;
 use Avisota\Test\Message\TestMessage;
 use Avisota\Test\Queue\TestQueueExecutionDecider;
 use Avisota\Test\Transport\NoOpTransport;
+use Avisota\Test\Transport\TransportProviderInterface;
 use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\Column;
