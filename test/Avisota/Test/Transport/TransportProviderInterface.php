@@ -14,6 +14,11 @@
 
 namespace Avisota\Test\Transport;
 
+/**
+ * Interface TransportProviderInterface
+ *
+ * @package Avisota\Test\Transport
+ */
 interface TransportProviderInterface
 {
     /**

@@ -42,7 +42,9 @@ abstract class AbstractSwiftTransport extends AbstractTransport
     }
 
     /**
-     * {@inheritdoc}
+     * Initialise transport.
+     *
+     * @return void
      */
     public function initialise()
     {
@@ -52,14 +54,20 @@ abstract class AbstractSwiftTransport extends AbstractTransport
     }
 
     /**
-     * {@inheritdoc}
+     * Flush transport.
+     *
+     * @return void
      */
     public function flush()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
      */
     public function send(MessageInterface $message)
     {

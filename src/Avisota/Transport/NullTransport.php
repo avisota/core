@@ -24,14 +24,20 @@ use Avisota\Message\MessageInterface;
 class NullTransport implements TransportInterface
 {
     /**
-     * {@inheritdoc}
+     * Initialise transport.
+     *
+     * @return void
      */
     public function initialise()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
      */
     public function send(MessageInterface $message)
     {
@@ -39,7 +45,9 @@ class NullTransport implements TransportInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Flush transport.
+     *
+     * @return void
      */
     public function flush()
     {

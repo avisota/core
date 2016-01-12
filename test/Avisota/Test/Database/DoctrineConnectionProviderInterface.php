@@ -16,6 +16,11 @@ namespace Avisota\Test\Database;
 
 use Doctrine\DBAL\Connection;
 
+/**
+ * Interface DoctrineConnectionProviderInterface
+ *
+ * @package Avisota\Test\Database
+ */
 interface DoctrineConnectionProviderInterface
 {
     /**

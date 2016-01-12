@@ -42,6 +42,8 @@ class ExecutionConfig
 
     /**
      * @param int $messageLimit
+     *
+     * @return $this
      */
     public function setMessageLimit($messageLimit)
     {
@@ -59,6 +61,8 @@ class ExecutionConfig
 
     /**
      * @param int $timeLimit
+     *
+     * @return $this
      */
     public function setTimeLimit($timeLimit)
     {
@@ -76,6 +80,8 @@ class ExecutionConfig
 
     /**
      * @param \Avisota\Queue\ExecutionDeciderInterface $decider
+     *
+     * @return $this
      */
     public function setDecider(ExecutionDeciderInterface $decider)
     {

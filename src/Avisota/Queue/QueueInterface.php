@@ -49,10 +49,12 @@ interface QueueInterface
     /**
      * Execute a queue and send all messages.
      *
-     * @param QueueInterface     $queue
      * @param TransportInterface $transport
      *
-     * @return TransportStatus[]
+     * @param ExecutionConfig    $config
+     *
+     * @return \Avisota\Transport\TransportStatus[]
+     * @internal param QueueInterface $queue
      */
     public function execute(TransportInterface $transport, ExecutionConfig $config = null);
 

@@ -37,7 +37,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getRecipients()
     {
@@ -45,7 +45,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getRecipientDetails()
     {
@@ -53,7 +53,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getCopyRecipients()
     {
@@ -61,7 +61,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getBlindCopyRecipients()
     {
@@ -69,7 +69,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getFrom()
     {
@@ -77,7 +77,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getSender()
     {
@@ -85,7 +85,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getReplyTo()
     {
@@ -93,7 +93,7 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getSubject()
     {
@@ -109,7 +109,11 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * String representation of object
+     *
+     * @link  http://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     * @since 5.1.0
      */
     public function serialize()
     {
@@ -117,7 +121,16 @@ class NativeMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Constructs the object
+     *
+     * @link  http://php.net/manual/en/serializable.unserialize.php
+     *
+     * @param string $serialized <p>
+     *                           The string representation of the object.
+     *                           </p>
+     *
+     * @return void
+     * @since 5.1.0
      */
     public function unserialize($serialized)
     {

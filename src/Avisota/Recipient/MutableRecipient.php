@@ -37,7 +37,9 @@ class MutableRecipient implements RecipientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get the recipient email address.
+     *
+     * @return string
      */
     public function getEmail()
     {
@@ -62,7 +64,9 @@ class MutableRecipient implements RecipientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Check if this recipient has personal data.
+     *
+     * @return bool
      */
     public function hasDetails()
     {
@@ -70,7 +74,12 @@ class MutableRecipient implements RecipientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get a single personal data field value.
+     * Return null if the field does not exists.
+     *
+     * @param string $name
+     *
+     * @return mixed
      */
     public function get($name)
     {
@@ -103,7 +112,17 @@ class MutableRecipient implements RecipientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get all personal data values as associative array.
+     *
+     * The personal data must have a key 'email', that contains the email address.
+     * <pre>
+     * array (
+     *     'email' => '...',
+     *     ...
+     * )
+     * </pre>
+     *
+     * @return array
      */
     public function getDetails()
     {
@@ -125,7 +144,17 @@ class MutableRecipient implements RecipientInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get all personal data keys.
+     *
+     * The keys must contain 'email'.
+     * <pre>
+     * array (
+     *     'email',
+     *     ...
+     * )
+     * </pre>
+     *
+     * @return array
      */
     public function getKeys()
     {

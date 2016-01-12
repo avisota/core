@@ -54,13 +54,13 @@ class SmtpTransport extends AbstractSwiftTransport
     protected $swiftMailer;
 
     /**
-     * @param string $host
-     * @param null   $port
-     * @param null   $username
-     * @param null   $password
-     * @param null   $encryption
+     * @param string                   $host
+     * @param null                     $port
+     * @param null                     $username
+     * @param null                     $password
+     * @param null                     $encryption
      *
-     * @return SmtpTransport
+     * @param MessageRendererInterface $renderer
      */
     public function __construct(
         $host = 'localhost',
@@ -80,6 +80,8 @@ class SmtpTransport extends AbstractSwiftTransport
 
     /**
      * @param string $host
+     *
+     * @return $this
      */
     public function setHost($host)
     {
@@ -98,6 +100,8 @@ class SmtpTransport extends AbstractSwiftTransport
 
     /**
      * @param int $port
+     *
+     * @return $this
      */
     public function setPort($port)
     {
@@ -116,6 +120,8 @@ class SmtpTransport extends AbstractSwiftTransport
 
     /**
      * @param string $username
+     *
+     * @return $this
      */
     public function setUsername($username)
     {
@@ -134,6 +140,8 @@ class SmtpTransport extends AbstractSwiftTransport
 
     /**
      * @param string $password
+     *
+     * @return $this
      */
     public function setPassword($password)
     {
@@ -152,6 +160,8 @@ class SmtpTransport extends AbstractSwiftTransport
 
     /**
      * @param string $encryption
+     *
+     * @return $this
      */
     public function setEncryption($encryption)
     {

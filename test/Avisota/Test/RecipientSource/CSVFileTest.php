@@ -17,6 +17,11 @@ namespace Avisota\Test\RecipientSource;
 use Avisota\Recipient\MutableRecipient;
 use Avisota\RecipientSource\CSVFile;
 
+/**
+ * Class CSVFileTest
+ *
+ * @package Avisota\Test\RecipientSource
+ */
 class CSVFileTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -60,6 +65,9 @@ class CSVFileTest extends \PHPUnit_Framework_TestCase
         return $class->newInstanceArgs($args);
     }
 
+    /**
+     * @return array
+     */
     protected function getRecipients()
     {
         $recipients = array();

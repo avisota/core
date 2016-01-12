@@ -18,6 +18,11 @@ use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 
+/**
+ * Class SqliteDoctrineConnectionProvider
+ *
+ * @package Avisota\Test\Database
+ */
 class SqliteDoctrineConnectionProvider implements DoctrineConnectionProviderInterface
 {
     /**

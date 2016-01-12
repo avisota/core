@@ -17,12 +17,23 @@ namespace Avisota\Test\Queue;
 use Avisota\Message\MessageInterface;
 use Avisota\Queue\ExecutionDeciderInterface;
 
+/**
+ * The execution decider decide if a message will be send now or delayed
+ * for next run.
+ *
+ * @package avisota-core
+ */
 class TestQueueExecutionDecider implements ExecutionDeciderInterface
 {
     protected $hits = 0;
 
     protected $accept;
 
+    /**
+     * TestQueueExecutionDecider constructor.
+     *
+     * @param $accept
+     */
     function __construct($accept)
     {
         $this->accept = (bool) $accept;

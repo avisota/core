@@ -32,6 +32,11 @@ use Monolog\Logger;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
+/**
+ * Class AbstractQueueTest
+ *
+ * @package Avisota\Test
+ */
 abstract class AbstractQueueTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -44,11 +49,16 @@ abstract class AbstractQueueTest extends \PHPUnit_Framework_TestCase
      */
     protected $imapConnectionProvider = null;
 
+    /**
+     * @return mixed
+     */
     abstract protected function createQueue();
 
     /**
      * @param ressource $imapConnection
      * @param array     $messages
+     *
+     * @return bool
      */
     protected function checkMessagesInMailbox($imapConnection, array $messages)
     {

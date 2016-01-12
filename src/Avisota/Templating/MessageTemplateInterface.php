@@ -26,10 +26,11 @@ interface MessageTemplateInterface
     /**
      * Render a message for the given recipient.
      *
-     * @param RecipientInterface $recipientEmail The main recipient.
+     * @param RecipientInterface $recipient
      * @param array              $newsletterData Additional newsletter data.
      *
      * @return \Avisota\Message\MessageInterface
+     * @internal param RecipientInterface $recipientEmail The main recipient.
      */
     public function render(RecipientInterface $recipient = null, array $newsletterData = array());
 }

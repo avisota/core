@@ -25,7 +25,11 @@ use Avisota\Message\NativeMessage;
 class NativeMessageRenderer implements MessageRendererInterface
 {
     /**
-     * {@inheritdoc}
+     * Render a message and create a Swift_Message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return \Swift_Message
      */
     public function renderMessage(MessageInterface $message)
     {
@@ -33,7 +37,11 @@ class NativeMessageRenderer implements MessageRendererInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Check if this renderer can render the message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
      */
     public function canRender(MessageInterface $message)
     {

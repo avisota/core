@@ -34,6 +34,11 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 class SimpleDatabaseQueue
     implements MutableQueueInterface, EventEmittingQueueInterface, LoggingQueueInterface
 {
+    /**
+     * @param $tableName
+     *
+     * @return Schema
+     */
     static public function createTableSchema($tableName)
     {
         $schema = new Schema();
@@ -67,10 +72,14 @@ class SimpleDatabaseQueue
     protected $eventDispatcher;
 
     /**
-     * @param NativeMessage $messageSerializer      The message serializer.
-     * @param Connection    $connection             The database connection.
-     * @param string        $tableName              The name of the database table.
-     * @param bool          $createTableIfNotExists Create the table if not exists.
+     * @param Connection      $connection             The database connection.
+     * @param string          $tableName              The name of the database table.
+     * @param bool            $createTableIfNotExists Create the table if not exists.
+     * @param LoggerInterface $logger
+     * @param EventDispatcher $eventDispatcher
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     * @internal param NativeMessage $messageSerializer The message serializer.
      */
     public function __construct(
         Connection $connection,
@@ -99,7 +108,11 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Set the event dispatcher for this queue.
+     *
+     * @param EventDispatcher|null $eventDispatcher
+     *
+     * @return QueueInterface
      */
     public function setEventDispatcher(EventDispatcher $eventDispatcher = null)
     {
@@ -108,7 +121,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Get the event dispatcher for this queue.
+     *
+     * @return EventDispatcher|null
      */
     public function getEventDispatcher()
     {
@@ -116,7 +131,11 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Set the logger for this queue.
+     *
+     * @param LoggerInterface $logger
+     *
+     * @return QueueInterface
      */
     public function setLogger(LoggerInterface $logger = null)
     {
@@ -125,7 +144,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Get the logger for this queue.
+     *
+     * @return LoggerInterface|null
      */
     public function getLogger()
     {
@@ -133,7 +154,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Check if the queue is empty.
+     *
+     * @return bool
      */
     public function isEmpty()
     {
@@ -141,7 +164,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Return the length of the queue.
+     *
+     * @return int
      */
     public function length()
     {
@@ -156,7 +181,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Return all messages from the queue.
+     *
+     * @return MessageInterface[]
      */
     public function getMessages()
     {
@@ -174,7 +201,14 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Execute a queue and send all messages.
+     *
+     * @param TransportInterface $transport
+     *
+     * @param ExecutionConfig    $config
+     *
+     * @return \Avisota\Transport\TransportStatus[]
+     * @internal param QueueInterface $queue
      */
     public function execute(TransportInterface $transport, ExecutionConfig $config = null)
     {
@@ -220,7 +254,9 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * @return array[]
+     * @param ExecutionConfig $config
+     *
+     * @return \array[]
      */
     protected function selectRecords(ExecutionConfig $config = null)
     {
@@ -272,10 +308,12 @@ class SimpleDatabaseQueue
     /**
      * Do the transport of the message and create a status information object.
      *
-     * @param TransportInterface $transport
-     * @param MessageInterface   $message
+     * @param TransportInterface        $transport
+     * @param ExecutionDeciderInterface $decider
+     * @param                           $record
      *
      * @return TransportStatus
+     * @internal param MessageInterface $message
      */
     protected function transport(
         TransportInterface $transport,
@@ -324,6 +362,11 @@ class SimpleDatabaseQueue
         return $status;
     }
 
+    /**
+     * @param array $recipients
+     *
+     * @return string
+     */
     protected function prepareRecipientsForLogging(array $recipients)
     {
         $recipientNames = array();
@@ -337,6 +380,10 @@ class SimpleDatabaseQueue
         return implode(', ', $recipientNames);
     }
 
+    /**
+     * @param TransportInterface $transport
+     * @param MessageInterface   $message
+     */
     protected function logPreTransportStatus(TransportInterface $transport, MessageInterface $message)
     {
         if ($this->logger) {
@@ -362,6 +409,11 @@ class SimpleDatabaseQueue
         }
     }
 
+    /**
+     * @param TransportInterface $transport
+     * @param MessageInterface   $message
+     * @param TransportStatus    $status
+     */
     protected function logSuccessfulStatus(
         TransportInterface $transport,
         MessageInterface $message,
@@ -433,6 +485,11 @@ class SimpleDatabaseQueue
         }
     }
 
+    /**
+     * @param TransportInterface $transport
+     * @param MessageInterface   $message
+     * @param TransportStatus    $status
+     */
     protected function logFailedStatus(
         TransportInterface $transport,
         MessageInterface $message,
@@ -465,7 +522,13 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Enqueue a message.
+     *
+     * @param MessageInterface $message      The message to enqueue.
+     * @param \DateTime        $deliveryDate The message will not delivered until this
+     *                                       date is reached.
+     *
+     * @return bool
      */
     public function enqueue(MessageInterface $message, \DateTime $deliveryDate = null)
     {
@@ -482,7 +545,11 @@ class SimpleDatabaseQueue
     }
 
     /**
-     * {@inheritdoc}
+     * Dequeue a message.
+     *
+     * @param MessageInterface $message The message to dequeue.
+     *
+     * @return bool
      */
     public function dequeue(MessageInterface $message)
     {

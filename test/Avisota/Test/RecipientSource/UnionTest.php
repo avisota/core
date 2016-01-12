@@ -18,9 +18,16 @@ use Avisota\Recipient\MutableRecipient;
 use Avisota\RecipientSource\CSVFile;
 use Avisota\RecipientSource\Union;
 
+/**
+ * Class UnionTest
+ *
+ * @package Avisota\Test\RecipientSource
+ */
 class UnionTest extends CSVFileTest
 {
     /**
+     * @param $clean
+     *
      * @return Union
      */
     protected function getUnionRecipientSource($clean)
@@ -35,6 +42,11 @@ class UnionTest extends CSVFileTest
         return $unionRecipientSource;
     }
 
+    /**
+     * @param $clean
+     *
+     * @return array
+     */
     protected function getUnionRecipients($clean)
     {
         $recipients = $this->getRecipients();

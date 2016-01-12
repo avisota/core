@@ -26,6 +26,8 @@ interface MessageRendererInterface
     /**
      * Render a message and create a Swift_Message.
      *
+     * @param MessageInterface $message
+     *
      * @return \Swift_Message
      */
     public function renderMessage(MessageInterface $message);

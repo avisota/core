@@ -39,6 +39,8 @@ class QueueTransport implements TransportInterface
 
     /**
      * @param QueueInterface $queue
+     *
+     * @return $this
      */
     public function setQueue(QueueInterface $queue)
     {
@@ -55,21 +57,29 @@ class QueueTransport implements TransportInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Initialise transport.
+     *
+     * @return void
      */
     public function initialise()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Flush transport.
+     *
+     * @return void
      */
     public function flush()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
      */
     public function send(MessageInterface $message)
     {

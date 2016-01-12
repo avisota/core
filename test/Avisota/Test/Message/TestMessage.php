@@ -16,10 +16,18 @@ namespace Avisota\Test\Message;
 
 use Avisota\Message\MessageInterface;
 
+/**
+ * The basic message interface.
+ *
+ * @package avisota-core
+ */
 class TestMessage implements MessageInterface
 {
     protected $text;
 
+    /**
+     * TestMessage constructor.
+     */
     function __construct()
     {
         $this->text = "This is a unit test message.\r\n";
@@ -44,7 +52,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getRecipientDetails()
     {
@@ -56,7 +64,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getCopyRecipients()
     {
@@ -64,7 +72,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function getBlindCopyRecipients()
     {
@@ -72,7 +80,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getFrom()
     {
@@ -80,7 +88,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getSender()
     {
@@ -88,7 +96,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getReplyTo()
     {
@@ -96,7 +104,7 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getSubject()
     {
@@ -104,7 +112,11 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * String representation of object
+     *
+     * @link  http://php.net/manual/en/serializable.serialize.php
+     * @return string the string representation of the object or null
+     * @since 5.1.0
      */
     public function serialize()
     {
@@ -112,7 +124,16 @@ class TestMessage implements MessageInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Constructs the object
+     *
+     * @link  http://php.net/manual/en/serializable.unserialize.php
+     *
+     * @param string $serialized <p>
+     *                           The string representation of the object.
+     *                           </p>
+     *
+     * @return void
+     * @since 5.1.0
      */
     public function unserialize($serialized)
     {

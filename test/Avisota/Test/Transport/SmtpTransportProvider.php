@@ -17,6 +17,11 @@ namespace Avisota\Test\Transport;
 use Avisota\Test\Renderer\TestMessageRenderer;
 use Avisota\Transport\SmtpTransport;
 
+/**
+ * Class SmtpTransportProvider
+ *
+ * @package Avisota\Test\Transport
+ */
 class SmtpTransportProvider implements TransportProviderInterface
 {
     /**

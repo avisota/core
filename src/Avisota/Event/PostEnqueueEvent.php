@@ -44,7 +44,13 @@ class PostEnqueueEvent extends Event
 	 */
 	protected $queue;
 
-	public function __construct(MessageInterface $message, QueueInterface $queue)
+	/**
+	 * PostEnqueueEvent constructor.
+	 *
+	 * @param MessageInterface $message
+	 * @param QueueInterface   $queue
+     */
+    public function __construct(MessageInterface $message, QueueInterface $queue)
 	{
 		$this->message = $message;
 		$this->queue   = $queue;

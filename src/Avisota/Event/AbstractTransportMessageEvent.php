@@ -41,7 +41,13 @@ abstract class AbstractTransportMessageEvent extends Event
 	 */
 	protected $queue;
 
-	public function __construct(MessageInterface $message, EventEmittingQueueInterface $queue)
+	/**
+	 * AbstractTransportMessageEvent constructor.
+	 *
+	 * @param MessageInterface            $message
+	 * @param EventEmittingQueueInterface $queue
+     */
+    public function __construct(MessageInterface $message, EventEmittingQueueInterface $queue)
 	{
 		$this->message = $message;
 		$this->queue   = $queue;

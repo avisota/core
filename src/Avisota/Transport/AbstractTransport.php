@@ -30,6 +30,8 @@ abstract class AbstractTransport implements TransportInterface
 
     /**
      * @param MessageRendererInterface $renderer
+     *
+     * @return $this
      */
     public function setRenderer(MessageRendererInterface $renderer)
     {

@@ -51,7 +51,13 @@ class PreEnqueueEvent extends Event
 	 */
 	protected $skip = false;
 
-	public function __construct(MessageInterface $message, QueueInterface $queue)
+	/**
+	 * PreEnqueueEvent constructor.
+	 *
+	 * @param MessageInterface $message
+	 * @param QueueInterface   $queue
+     */
+    public function __construct(MessageInterface $message, QueueInterface $queue)
 	{
 		$this->message = $message;
 		$this->queue   = $queue;
@@ -81,6 +87,8 @@ class PreEnqueueEvent extends Event
 	 * Set if the message should be skipped.
 	 *
 	 * @param boolean $skip
+	 *
+	 * @return $this
 	 */
 	public function setSkip($skip)
 	{

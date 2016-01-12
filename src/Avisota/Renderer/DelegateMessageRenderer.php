@@ -30,6 +30,11 @@ class DelegateMessageRenderer implements MessageRendererInterface
      */
     protected $delegate;
 
+    /**
+     * DelegateMessageRenderer constructor.
+     *
+     * @param MessageRendererInterface $delegate
+     */
     public function __construct(MessageRendererInterface $delegate)
     {
         $this->delegate = $delegate;
@@ -37,6 +42,8 @@ class DelegateMessageRenderer implements MessageRendererInterface
 
     /**
      * @param \Avisota\Renderer\MessageRendererInterface $delegate
+     *
+     * @return $this
      */
     public function setDelegate(MessageRendererInterface $delegate)
     {
@@ -53,7 +60,11 @@ class DelegateMessageRenderer implements MessageRendererInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Render a message and create a Swift_Message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return \Swift_Message
      */
     public function renderMessage(MessageInterface $message)
     {
@@ -61,7 +72,11 @@ class DelegateMessageRenderer implements MessageRendererInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Check if this renderer can render the message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
      */
     public function canRender(MessageInterface $message)
     {

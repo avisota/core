@@ -18,6 +18,11 @@ use Avisota\Message\MessageInterface;
 use Avisota\Transport\TransportInterface;
 use Avisota\Transport\TransportStatus;
 
+/**
+ * The transport interface.
+ *
+ * @package avisota-core
+ */
 class NoOpTransport implements TransportInterface
 {
     const SUCCEED = 'succeed';
@@ -30,6 +35,11 @@ class NoOpTransport implements TransportInterface
 
     protected $succeededStatus;
 
+    /**
+     * NoOpTransport constructor.
+     *
+     * @param $succeededStatus
+     */
     function __construct($succeededStatus)
     {
         $this->succeededStatus = $succeededStatus;
@@ -53,6 +63,11 @@ class NoOpTransport implements TransportInterface
     /**
      * Transport a message.
      *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
+     */
+    /** @noinspection PhpInconsistentReturnPointsInspection
      * @param MessageInterface $message
      *
      * @return TransportStatus

@@ -34,7 +34,14 @@ class PostTransportMessageEvent extends AbstractTransportMessageEvent
 	 */
 	protected $status;
 
-	public function __construct(
+	/**
+	 * PostTransportMessageEvent constructor.
+	 *
+	 * @param MessageInterface            $message
+	 * @param EventEmittingQueueInterface $queue
+	 * @param TransportStatus             $status
+     */
+    public function __construct(
 		MessageInterface $message,
 		EventEmittingQueueInterface $queue,
 		TransportStatus $status

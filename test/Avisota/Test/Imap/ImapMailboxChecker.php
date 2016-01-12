@@ -14,6 +14,11 @@
 
 namespace Avisota\Test\Imap;
 
+/**
+ * Class ImapMailboxChecker
+ *
+ * @package Avisota\Test\Imap
+ */
 class ImapMailboxChecker
 {
     /**

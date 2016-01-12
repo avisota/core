@@ -20,6 +20,11 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Statement;
 
+/**
+ * Class AbstractSimpleDatabaseQueueTest
+ *
+ * @package Avisota\Test
+ */
 abstract class AbstractSimpleDatabaseQueueTest extends AbstractQueueTest
 {
     /**
@@ -27,6 +32,9 @@ abstract class AbstractSimpleDatabaseQueueTest extends AbstractQueueTest
      */
     protected $doctrineConnectionProvider;
 
+    /**
+     * @return SimpleDatabaseQueue
+     */
     protected function createQueue()
     {
         $connection = $this->doctrineConnectionProvider->createDoctrineConnection();

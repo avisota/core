@@ -43,6 +43,14 @@ class TransportStatus
      */
     protected $exception;
 
+    /**
+     * TransportStatus constructor.
+     *
+     * @param MessageInterface $message
+     * @param                  $successfullySend
+     * @param array            $failedRecipients
+     * @param \Exception|null  $exception
+     */
     public function __construct(
         MessageInterface $message,
         $successfullySend,

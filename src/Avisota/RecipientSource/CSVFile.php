@@ -40,7 +40,13 @@ class CSVFile implements RecipientSourceInterface
     private $grammar;
 
     /**
-     * @param string $fileData
+     * @param        $file
+     * @param array  $columnAssignment
+     * @param string $delimiter
+     * @param string $enclosure
+     * @param string $escape
+     *
+     * @internal param string $fileData
      */
     public function __construct($file, array $columnAssignment, $delimiter = ',', $enclosure = '"', $escape = '\\')
     {
@@ -106,7 +112,12 @@ class CSVFile implements RecipientSourceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get all recipients.
+     *
+     * @param int $limit  Limit result to given count.
+     * @param int $offset Skip certain count of recipients.
+     *
+     * @return RecipientInterface[]
      */
     public function getRecipients($limit = null, $offset = null)
     {

@@ -29,6 +29,12 @@ class SwiftTransport extends AbstractTransport
      */
     protected $swiftMailer;
 
+    /**
+     * SwiftTransport constructor.
+     *
+     * @param \Swift_Mailer            $swiftMailer
+     * @param MessageRendererInterface $renderer
+     */
     public function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
     {
         $this->setSwiftMailer($swiftMailer);
@@ -37,6 +43,8 @@ class SwiftTransport extends AbstractTransport
 
     /**
      * @param \Swift_Mailer $swiftMailer
+     *
+     * @return $this
      */
     public function setSwiftMailer(\Swift_Mailer $swiftMailer)
     {
@@ -53,21 +61,29 @@ class SwiftTransport extends AbstractTransport
     }
 
     /**
-     * {@inheritdoc}
+     * Initialise transport.
+     *
+     * @return void
      */
     public function initialise()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Flush transport.
+     *
+     * @return void
      */
     public function flush()
     {
     }
 
     /**
-     * {@inheritdoc}
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
      */
     public function send(MessageInterface $message)
     {

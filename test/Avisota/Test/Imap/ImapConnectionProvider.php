@@ -14,6 +14,11 @@
 
 namespace Avisota\Test\Imap;
 
+/**
+ * Class ImapConnectionProvider
+ *
+ * @package Avisota\Test\Imap
+ */
 class ImapConnectionProvider implements ImapConnectionProviderInterface
 {
     /**

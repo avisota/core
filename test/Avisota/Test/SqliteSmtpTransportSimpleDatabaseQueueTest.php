@@ -23,6 +23,11 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Statement;
 
+/**
+ * Class SqliteSmtpTransportSimpleDatabaseQueueTest
+ *
+ * @package Avisota\Test
+ */
 class SqliteSmtpTransportSimpleDatabaseQueueTest extends AbstractSimpleDatabaseQueueTest
 {
     public function setUp()

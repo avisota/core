@@ -39,7 +39,10 @@ class Dummy implements RecipientSourceInterface
     protected $set;
 
     /**
-     * @param string $fileData
+     * @param $minCount
+     * @param $maxCount
+     *
+     * @internal param string $fileData
      */
     public function __construct($minCount, $maxCount)
     {
@@ -58,7 +61,12 @@ class Dummy implements RecipientSourceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get all recipients.
+     *
+     * @param int $limit  Limit result to given count.
+     * @param int $offset Skip certain count of recipients.
+     *
+     * @return RecipientInterface[]
      */
     public function getRecipients($limit = null, $offset = null)
     {
@@ -90,6 +98,8 @@ class Dummy implements RecipientSourceInterface
 
     /**
      * @param int $minCount
+     *
+     * @return $this
      */
     public function setMinCount($minCount)
     {
@@ -107,6 +117,8 @@ class Dummy implements RecipientSourceInterface
 
     /**
      * @param int $maxCount
+     *
+     * @return $this
      */
     public function setMaxCount($maxCount)
     {
@@ -124,6 +136,8 @@ class Dummy implements RecipientSourceInterface
 
     /**
      * @param array $forenames
+     *
+     * @return $this
      */
     public function setForenames($forenames)
     {
@@ -141,6 +155,8 @@ class Dummy implements RecipientSourceInterface
 
     /**
      * @param array $surnames
+     *
+     * @return $this
      */
     public function setSurnames($surnames)
     {
@@ -158,6 +174,8 @@ class Dummy implements RecipientSourceInterface
 
     /**
      * @param array $domains
+     *
+     * @return $this
      */
     public function setDomains($domains)
     {

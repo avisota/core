@@ -16,10 +16,20 @@ namespace Avisota\Test\Transport;
 
 use Avisota\Transport\SmtpTransport;
 
+/**
+ * Class NoOpTransportProvider
+ *
+ * @package Avisota\Test\Transport
+ */
 class NoOpTransportProvider implements TransportProviderInterface
 {
     protected $succeededStatus;
 
+    /**
+     * NoOpTransportProvider constructor.
+     *
+     * @param $succeededStatus
+     */
     function __construct($succeededStatus)
     {
         $this->succeededStatus = $succeededStatus;

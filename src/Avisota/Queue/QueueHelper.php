@@ -69,6 +69,8 @@ class QueueHelper
 
     /**
      * @param \Avisota\Templating\MessageTemplateInterface $messageTemplate
+     *
+     * @return $this
      */
     public function setMessageTemplate($messageTemplate)
     {
@@ -86,6 +88,8 @@ class QueueHelper
 
     /**
      * @param \Avisota\RecipientSource\RecipientSourceInterface $recipientSource
+     *
+     * @return $this
      */
     public function setRecipientSource($recipientSource)
     {
@@ -103,6 +107,8 @@ class QueueHelper
 
     /**
      * @param \Avisota\Queue\QueueInterface $queue
+     *
+     * @return $this
      */
     public function setQueue($queue)
     {
@@ -120,6 +126,8 @@ class QueueHelper
 
     /**
      * @param int $limit
+     *
+     * @return $this
      */
     public function setLimit($limit)
     {
@@ -137,6 +145,8 @@ class QueueHelper
 
     /**
      * @param int $offset
+     *
+     * @return $this
      */
     public function setOffset($offset)
     {
@@ -154,6 +164,8 @@ class QueueHelper
 
     /**
      * @param array $newsletterData
+     *
+     * @return $this
      */
     public function setNewsletterData($newsletterData)
     {
@@ -171,6 +183,8 @@ class QueueHelper
 
     /**
      * @param \DateTime $deliveryDate
+     *
+     * @return $this
      */
     public function setDeliveryDate($deliveryDate)
     {
@@ -188,6 +202,8 @@ class QueueHelper
 
     /**
      * @param EventDispatcher $eventDispatcher
+     *
+     * @return $this
      */
     public function setEventDispatcher(EventDispatcher $eventDispatcher = null)
     {
@@ -206,13 +222,13 @@ class QueueHelper
     /**
      * Enqueue the message for all recipients into the queue.
      *
-     * @param mixed $_ All data that is not yet provided.
+     * @return int Complexity cannot easily reduced without a huge overhead :-(
+     *
+     * Complexity cannot easily reduced without a huge overhead :-(
+     * @internal param mixed $_ All data that is not yet provided.
      *                 Please note that $limit is prefered before $offset,
      *                 if you want to only set $offset pass 0 for $limit first.
      *
-     * @return int
-     *
-     * Complexity cannot easily reduced without a huge overhead :-(
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */

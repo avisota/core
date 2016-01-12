@@ -33,7 +33,10 @@ class Union implements RecipientSourceInterface
     private $clean = false;
 
     /**
-     * @param array|\Traversable|RecipientSourceInterface[] $fileData
+     * @param array $recipientSources
+     * @param bool  $clean
+     *
+     * @internal param array|RecipientSourceInterface[]|\Traversable $fileData
      */
     public function __construct($recipientSources = array(), $clean = false)
     {
@@ -106,7 +109,9 @@ class Union implements RecipientSourceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Count the recipients.
+     *
+     * @return int
      */
     public function countRecipients()
     {
@@ -145,7 +150,12 @@ class Union implements RecipientSourceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Get all recipients.
+     *
+     * @param int $limit  Limit result to given count.
+     * @param int $offset Skip certain count of recipients.
+     *
+     * @return RecipientInterface[]
      */
     public function getRecipients($limit = null, $offset = null)
     {
