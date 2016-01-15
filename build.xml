@@ -2,7 +2,6 @@
 <project name="Example" default="test">
     <!--
     This is an example ant build file to be used in combination with composer.
-
     -->
 
     <target name="phpunit">
