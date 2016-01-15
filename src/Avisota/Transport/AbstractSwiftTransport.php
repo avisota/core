@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -23,51 +23,59 @@ use Avisota\Message\MessageInterface;
  */
 abstract class AbstractSwiftTransport extends AbstractTransport
 {
-	/**
-	 * @var \Swift_Mailer|null
-	 */
-	protected $swiftMailer;
+    /**
+     * @var \Swift_Mailer|null
+     */
+    protected $swiftMailer;
 
-	/**
-	 * @return \Swift_Mailer
-	 */
-	abstract protected function createMailer();
+    /**
+     * @return \Swift_Mailer
+     */
+    abstract protected function createMailer();
 
-	/**
-	 * @return void
-	 */
-	protected function resetMailer()
-	{
-		$this->swiftMailer = null;
-	}
+    /**
+     * @return void
+     */
+    protected function resetMailer()
+    {
+        $this->swiftMailer = null;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function initialise()
-	{
-		if (!$this->swiftMailer) {
-			$this->swiftMailer = $this->createMailer();
-		}
-	}
+    /**
+     * Initialise transport.
+     *
+     * @return void
+     */
+    public function initialise()
+    {
+        if (!$this->swiftMailer) {
+            $this->swiftMailer = $this->createMailer();
+        }
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function flush()
-	{
-	}
+    /**
+     * Flush transport.
+     *
+     * @return void
+     */
+    public function flush()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function send(MessageInterface $message)
-	{
-		$email = $this->renderer->renderMessage($message);
+    /**
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
+     */
+    public function send(MessageInterface $message)
+    {
+        $email = $this->renderer->renderMessage($message);
 
-		$failedRecipients = array();
-		$successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
+        $failedRecipients      = array();
+        $successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
 
-		return new TransportStatus($message, $successfullySendCount, $failedRecipients);
-	}
+        return new TransportStatus($message, $successfullySendCount, $failedRecipients);
+    }
 }

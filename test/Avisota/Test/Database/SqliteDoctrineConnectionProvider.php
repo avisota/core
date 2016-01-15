@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -18,24 +18,29 @@ use Doctrine\DBAL\Configuration;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 
+/**
+ * Class SqliteDoctrineConnectionProvider
+ *
+ * @package Avisota\Test\Database
+ */
 class SqliteDoctrineConnectionProvider implements DoctrineConnectionProviderInterface
 {
-	/**
-	 * @return Connection
-	 */
-	public function createDoctrineConnection()
-	{
-		$config = new Configuration();
+    /**
+     * @return Connection
+     */
+    public function createDoctrineConnection()
+    {
+        $config = new Configuration();
 
-		$connectionParams = array(
-			'user'     => 'user',
-			'password' => 'secret',
-			'memory'   => true,
-			'driver'   => 'pdo_sqlite',
-		);
+        $connectionParams = array(
+            'user'     => 'user',
+            'password' => 'secret',
+            'memory'   => true,
+            'driver'   => 'pdo_sqlite',
+        );
 
-		$connection = DriverManager::getConnection($connectionParams, $config);
+        $connection = DriverManager::getConnection($connectionParams, $config);
 
-		return $connection;
-	}
+        return $connection;
+    }
 }

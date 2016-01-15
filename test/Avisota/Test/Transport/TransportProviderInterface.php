@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -14,10 +14,15 @@
 
 namespace Avisota\Test\Transport;
 
+/**
+ * Interface TransportProviderInterface
+ *
+ * @package Avisota\Test\Transport
+ */
 interface TransportProviderInterface
 {
-	/**
-	 * @return \Swift_Transport
-	 */
-	public function createTransport();
+    /**
+     * @return \Swift_Transport
+     */
+    public function createTransport();
 }

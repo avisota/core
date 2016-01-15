@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -23,13 +23,14 @@ use Avisota\Recipient\RecipientInterface;
  */
 interface MessageTemplateInterface
 {
-	/**
-	 * Render a message for the given recipient.
-	 *
-	 * @param RecipientInterface $recipientEmail The main recipient.
-	 * @param array              $newsletterData Additional newsletter data.
-	 *
-	 * @return \Avisota\Message\MessageInterface
-	 */
-	public function render(RecipientInterface $recipient = null, array $newsletterData = array());
+    /**
+     * Render a message for the given recipient.
+     *
+     * @param RecipientInterface $recipient
+     * @param array              $newsletterData Additional newsletter data.
+     *
+     * @return \Avisota\Message\MessageInterface
+     * @internal param RecipientInterface $recipientEmail The main recipient.
+     */
+    public function render(RecipientInterface $recipient = null, array $newsletterData = array());
 }

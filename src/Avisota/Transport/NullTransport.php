@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -23,25 +23,33 @@ use Avisota\Message\MessageInterface;
  */
 class NullTransport implements TransportInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function initialise()
-	{
-	}
+    /**
+     * Initialise transport.
+     *
+     * @return void
+     */
+    public function initialise()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function send(MessageInterface $message)
-	{
-		return new TransportStatus($message, 1);
-	}
+    /**
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
+     */
+    public function send(MessageInterface $message)
+    {
+        return new TransportStatus($message, 1);
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function flush()
-	{
-	}
+    /**
+     * Flush transport.
+     *
+     * @return void
+     */
+    public function flush()
+    {
+    }
 }

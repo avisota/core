@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -14,9 +14,6 @@
 
 namespace Avisota\Event;
 
-use Avisota\Message\MessageInterface;
-use Avisota\Queue\EventEmittingQueueInterface;
-use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Event triggered before an

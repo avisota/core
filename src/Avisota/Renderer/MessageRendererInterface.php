@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -23,19 +23,21 @@ use Avisota\Message\MessageInterface;
  */
 interface MessageRendererInterface
 {
-	/**
-	 * Render a message and create a Swift_Message.
-	 *
-	 * @return \Swift_Message
-	 */
-	public function renderMessage(MessageInterface $message);
+    /**
+     * Render a message and create a Swift_Message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return \Swift_Message
+     */
+    public function renderMessage(MessageInterface $message);
 
-	/**
-	 * Check if this renderer can render the message.
-	 *
-	 * @param MessageInterface $message
-	 *
-	 * @return bool
-	 */
-	public function canRender(MessageInterface $message);
+    /**
+     * Check if this renderer can render the message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
+     */
+    public function canRender(MessageInterface $message);
 }

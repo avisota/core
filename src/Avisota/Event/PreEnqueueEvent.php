@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -15,7 +15,7 @@
 namespace Avisota\Event;
 
 use Avisota\Message\MessageInterface;
-use Avisota\Queue\EventEmittingQueueInterface;
+
 use Avisota\Queue\QueueInterface;
 use Symfony\Component\EventDispatcher\Event;
 
@@ -51,7 +51,13 @@ class PreEnqueueEvent extends Event
 	 */
 	protected $skip = false;
 
-	public function __construct(MessageInterface $message, QueueInterface $queue)
+	/**
+	 * PreEnqueueEvent constructor.
+	 *
+	 * @param MessageInterface $message
+	 * @param QueueInterface   $queue
+     */
+    public function __construct(MessageInterface $message, QueueInterface $queue)
 	{
 		$this->message = $message;
 		$this->queue   = $queue;
@@ -81,6 +87,8 @@ class PreEnqueueEvent extends Event
 	 * Set if the message should be skipped.
 	 *
 	 * @param boolean $skip
+	 *
+	 * @return $this
 	 */
 	public function setSkip($skip)
 	{

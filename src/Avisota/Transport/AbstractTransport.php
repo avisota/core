@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -19,29 +19,31 @@ use Avisota\Renderer\MessageRendererInterface;
 /**
  * Abstract transport base class.
  *
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  */
 abstract class AbstractTransport implements TransportInterface
 {
-	/**
-	 * @var MessageRendererInterface
-	 */
-	protected $renderer;
+    /**
+     * @var MessageRendererInterface
+     */
+    protected $renderer;
 
-	/**
-	 * @param MessageRendererInterface $renderer
-	 */
-	public function setRenderer(MessageRendererInterface $renderer)
-	{
-		$this->renderer = $renderer;
-		return $this;
-	}
+    /**
+     * @param MessageRendererInterface $renderer
+     *
+     * @return $this
+     */
+    public function setRenderer(MessageRendererInterface $renderer)
+    {
+        $this->renderer = $renderer;
+        return $this;
+    }
 
-	/**
-	 * @return MessageRendererInterface
-	 */
-	public function getRenderer()
-	{
-		return $this->renderer;
-	}
+    /**
+     * @return MessageRendererInterface
+     */
+    public function getRenderer()
+    {
+        return $this->renderer;
+    }
 }

@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -16,29 +16,43 @@ namespace Avisota\Test\Renderer;
 
 use Avisota\Message\MessageInterface;
 use Avisota\Renderer\MessageRendererInterface;
+use Avisota\Test\Message\TestMessage;
 
+/**
+ * The basic message interface.
+ *
+ * @package avisota-core
+ */
 class TestMessageRenderer implements MessageRendererInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function renderMessage(MessageInterface $message)
-	{
-		$swiftMessage = \Swift_Message::newInstance();
-		$swiftMessage->setTo($message->getRecipients());
-		$swiftMessage->setCc($message->getCopyRecipients());
-		$swiftMessage->setBcc($message->getBlindCopyRecipients());
-		$swiftMessage->setFrom($message->getFrom());
-		$swiftMessage->setSubject($message->getSubject());
-		$swiftMessage->setBody($message->getText(), 'text/plain');
-		return $swiftMessage;
-	}
+    /**
+     * Render a message and create a Swift_Message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return \Swift_Message
+     */
+    public function renderMessage(MessageInterface $message)
+    {
+        $swiftMessage = \Swift_Message::newInstance();
+        $swiftMessage->setTo($message->getRecipients());
+        $swiftMessage->setCc($message->getCopyRecipients());
+        $swiftMessage->setBcc($message->getBlindCopyRecipients());
+        $swiftMessage->setFrom($message->getFrom());
+        $swiftMessage->setSubject($message->getSubject());
+        $swiftMessage->setBody($message->getText(), 'text/plain');
+        return $swiftMessage;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function canRender(MessageInterface $message)
-	{
-		return $message instanceof TestMessage;
-	}
+    /**
+     * Check if this renderer can render the message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return bool
+     */
+    public function canRender(MessageInterface $message)
+    {
+        return $message instanceof TestMessage;
+    }
 }

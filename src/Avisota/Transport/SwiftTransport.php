@@ -5,8 +5,8 @@
  *
  * PHP Version 5.3
  *
- * @copyright  bit3 UG 2013
- * @author     Tristan Lins <tristan.lins@bit3.de>
+ * @copyright  way.vision 2015
+ * @author     Sven Baumann <baumann.sv@gmail.com>
  * @package    avisota-core
  * @license    LGPL-3.0+
  * @link       http://avisota.org
@@ -24,58 +24,74 @@ use Avisota\Renderer\MessageRendererInterface;
  */
 class SwiftTransport extends AbstractTransport
 {
-	/**
-	 * @var \Swift_Mailer|null
-	 */
-	protected $swiftMailer;
+    /**
+     * @var \Swift_Mailer|null
+     */
+    protected $swiftMailer;
 
-	public function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
-	{
-		$this->setSwiftMailer($swiftMailer);
-		$this->setRenderer($renderer);
-	}
+    /**
+     * SwiftTransport constructor.
+     *
+     * @param \Swift_Mailer            $swiftMailer
+     * @param MessageRendererInterface $renderer
+     */
+    public function __construct(\Swift_Mailer $swiftMailer, MessageRendererInterface $renderer)
+    {
+        $this->setSwiftMailer($swiftMailer);
+        $this->setRenderer($renderer);
+    }
 
-	/**
-	 * @param \Swift_Mailer $swiftMailer
-	 */
-	public function setSwiftMailer(\Swift_Mailer $swiftMailer)
-	{
-		$this->swiftMailer = $swiftMailer;
-		return $this;
-	}
+    /**
+     * @param \Swift_Mailer $swiftMailer
+     *
+     * @return $this
+     */
+    public function setSwiftMailer(\Swift_Mailer $swiftMailer)
+    {
+        $this->swiftMailer = $swiftMailer;
+        return $this;
+    }
 
-	/**
-	 * @return \Swift_Mailer
-	 */
-	public function getSwiftMailer()
-	{
-		return $this->swiftMailer;
-	}
+    /**
+     * @return \Swift_Mailer
+     */
+    public function getSwiftMailer()
+    {
+        return $this->swiftMailer;
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function initialise()
-	{
-	}
+    /**
+     * Initialise transport.
+     *
+     * @return void
+     */
+    public function initialise()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function flush()
-	{
-	}
+    /**
+     * Flush transport.
+     *
+     * @return void
+     */
+    public function flush()
+    {
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function send(MessageInterface $message)
-	{
-		$email = $this->renderer->renderMessage($message);
+    /**
+     * Transport a message.
+     *
+     * @param MessageInterface $message
+     *
+     * @return TransportStatus
+     */
+    public function send(MessageInterface $message)
+    {
+        $email = $this->renderer->renderMessage($message);
 
-		$failedRecipients = array();
-		$successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
+        $failedRecipients      = array();
+        $successfullySendCount = $this->swiftMailer->send($email, $failedRecipients);
 
-		return new TransportStatus($message, $successfullySendCount, $failedRecipients);
-	}
+        return new TransportStatus($message, $successfullySendCount, $failedRecipients);
+    }
 }
