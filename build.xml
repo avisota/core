@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<project name="Example" default="test">
-    <!--
-    This is an example ant build file to be used in combination with composer.
-
-    -->
+<!--
+This is an example ant build file to be used in combination with composer.
+-->
+<!--<project name="Example" default="test">
 
     <target name="phpunit">
         <exec dir="${basedir}" executable="vendor/bin/phpunit" failonerror="true"/>
@@ -11,7 +10,7 @@
 
     <target name="phpcs">
         <exec dir="${basedir}" executable="vendor/bin/phpcs" failonerror="true">
-            <arg line="--standard=${basedir}/vendor/bit3/php-coding-standard/phpcs/Bit3/ruleset.xml ${basedir}/src"/>
+            <arg line="&#45;&#45;standard=${basedir}/vendor/bit3/php-coding-standard/phpcs/Bit3/ruleset.xml ${basedir}/src"/>
         </exec>
     </target>
 
@@ -22,4 +21,8 @@
     </target>
 
     <target name="test" depends="phpunit,phpcs,phpmd"/>
+</project>-->
+
+<project name="avisota-core" default="build">
+    <import file="vendor/phpcq/phpcq/phpcq.main.xml"/>
 </project>

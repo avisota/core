@@ -1,7 +1,11 @@
 Avisota core system
 ===================
 
-[![Build Status](https://travis-ci.org/avisota/core.png?branch=master)](https://travis-ci.org/avisota/core) [![API DOCS](https://bit3.de/files/Icons/apidocs.png)](http://avisota.github.io/core/) [![mess checked](https://bit3.de/files/Icons/mess-checked.png)](https://github.com/bit3/php-coding-standard) [![style checked](https://bit3.de/files/Icons/style-checked.png)](https://github.com/bit3/php-coding-standard)
+[![Build Status](https://travis-ci.org/avisota/core.png)](https://travis-ci.org/avisota/core)
+[![Latest Version tagged](http://img.shields.io/github/tag/avisota/core.svg)](https://github.com/avisota/core/tags)
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/avisota/core.svg)](https://packagist.org/packages/avisota/core)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/avisota/core.svg)](https://packagist.org/packages/avisota/core)
+[![Reference Status](https://www.versioneye.com/php/avisota:core/rbadge.svg?style=flat)](https://www.versioneye.com/php/avisota:core)
 
 The Avisota core system is a message generation, queue and transport system, based on top of the great Swift Mailer.
 
