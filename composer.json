@@ -9,7 +9,7 @@
         "marketing"
     ],
     "homepage": "http://avisota.org",
-    "license": "LGPL-3.0+",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Sven Baumann",
@@ -23,19 +23,17 @@
         "forum": "https://community.contao.org/de/forumdisplay.php?121-Avisota",
         "wiki": "http://avisota.org",
         "irc": "irc://irc.freenode.org/avisota",
-        "source": "https://github.com/bit3/contao-avisota"
+        "source": "https://github.com/avisota/core"
     },
     "require": {
-        "php": ">=5.3",
-        "doctrine/dbal": "~2.4"
+        "php": "^5.6",
+        "doctrine/dbal": "^2.4"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require-dev": {
-        "phpcq/all-tasks": "~1.1",
-        "monolog/monolog": "~1.0",
-        "symfony/event-dispatcher": "2.3.*",
-        "swiftmailer/swiftmailer": ">=4,<6"
+        "phpcq/all-tasks": "^1.2",
+        "monolog/monolog": "^1.0",
+        "symfony/event-dispatcher": "^2.0",
+        "swiftmailer/swiftmailer": "^4.0"
     },
     "autoload": {
         "psr-0": {
@@ -45,7 +43,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "1.x-dev"
+            "dev-master": "1.2.x-dev",
+            "dev-develop": "1.3.x-dev"
         }
     }
 }
