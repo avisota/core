@@ -1,10 +1,6 @@
 language: php
 php:
-    - "5.3"
-    - "5.4"
-    - "5.5"
     - "5.6"
-    - "7.0"
 
 env:
     global:
@@ -20,8 +16,20 @@ env:
         - secure: "LtcKEnAQGuPBDJa7tKBFUtr1NpIVWea1bibDD0SYpe6h4sjAcMmukqLKSTTx\nkEBn27P8UfeeoxCVTn6BuP5J+voRqBDb+foupuELMAVqtaYedpfxjd4FBM2V\nFWpfLIARSP6ZXmE/YTYfH2P3oOC2q0ed2oGoEhsZtASWybhEpdk="
         - secure: "o8XICPK5iViTeQUzLXvJr6Q2wO/I1d0eNIwqlSwQFkKLMZwXNB79t538H2Fl\nMY5QIURndSbeccm1PtW8tU5XZHMXryEGUhNXbArewpv80vh3HEfvItRk9CDK\nwzPzmYqB97N4rkuui8Nw0D6/BysYBkeV8gy1qE5costG2GjJh98="
 
+before_install:
+  - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
 install:
   - travis_retry composer self-update && composer --version
   - travis_retry composer update --prefer-dist --no-interaction
 
 script: ant -keep-going
+
+# Hack to make things work again - we can not use a shallow repository.
+git:
+  depth: 2147483647
+
+# This used to cause corruption due to travis bug travis-ci/travis-ci#4393 - hopefully it works out now.
+cache:
+  directories:
+    - vendor
