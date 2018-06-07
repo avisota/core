@@ -23,7 +23,7 @@
         "forum": "https://community.contao.org/de/forumdisplay.php?121-Avisota",
         "wiki": "http://avisota.org",
         "irc": "irc://irc.freenode.org/avisota",
-        "source": "https://github.com/bit3/contao-avisota"
+        "source": "https://github.com/avisota/core"
     },
     "require": {
         "php": ">=5.3",
