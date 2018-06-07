@@ -9,7 +9,7 @@
         "marketing"
     ],
     "homepage": "http://avisota.org",
-    "license": "LGPL-3.0+",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Sven Baumann",
